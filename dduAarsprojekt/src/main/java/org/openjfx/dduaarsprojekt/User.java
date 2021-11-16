@@ -10,6 +10,9 @@ package org.openjfx.dduaarsprojekt;
  * @author danie
  */
 public class User {
+    int ID;
     String username;
     String password;
+    String type;
+    
 }
