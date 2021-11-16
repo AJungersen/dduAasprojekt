@@ -9,6 +9,6 @@ package org.openjfx.dduaarsprojekt;
  *
  * @author danie
  */
-public class Teacher {
+public class Teacher extends User{
     
 }

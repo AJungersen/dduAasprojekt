@@ -9,6 +9,7 @@ package org.openjfx.dduaarsprojekt;
  *
  * @author danie
  */
-public class Student extends User{
-    
+public class User {
+    String username;
+    String password;
 }
