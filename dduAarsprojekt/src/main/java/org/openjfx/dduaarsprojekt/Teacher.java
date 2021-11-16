@@ -14,6 +14,7 @@ public class Teacher extends User{
     public Teacher(String U, String P) {
         username = U;
         password = P;
+        Database.addTeacher();
     }
     
 }
