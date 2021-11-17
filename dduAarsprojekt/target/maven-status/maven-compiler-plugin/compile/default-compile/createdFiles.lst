@@ -1,4 +1,8 @@
-org\openjfx\dduaarsprojekt\SecondaryController.class
+org\openjfx\dduaarsprojekt\MainController.class
 module-info.class
-org\openjfx\dduaarsprojekt\PrimaryController.class
 org\openjfx\dduaarsprojekt\App.class
+org\openjfx\dduaarsprojekt\UserLoginController.class
+org\openjfx\dduaarsprojekt\Teacher.class
+org\openjfx\dduaarsprojekt\Database.class
+org\openjfx\dduaarsprojekt\Student.class
+org\openjfx\dduaarsprojekt\Crypt.class
