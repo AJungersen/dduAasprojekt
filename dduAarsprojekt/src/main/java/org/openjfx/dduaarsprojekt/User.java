@@ -9,12 +9,10 @@ package org.openjfx.dduaarsprojekt;
  *
  * @author danie
  */
-public class Teacher extends User{
-
-    public Teacher(String U, String P) {
-        username = U;
-        password = P;
-        //Database.addTeacher(username,password);
-    }
+public class User {
+    int ID;
+    String username;
+    String password;
+    String type;
     
 }
