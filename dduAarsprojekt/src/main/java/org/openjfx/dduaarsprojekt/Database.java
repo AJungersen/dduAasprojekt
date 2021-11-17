@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author danie
  */
-public class Database {
+/*public class Database {
 
     private final String connectionString = "jdbc:sqlite:src/Database.db";
    
@@ -271,4 +271,4 @@ public class Database {
             System.out.println(e.getMessage());
         }        
     }
-}
+}*/
