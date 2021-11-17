@@ -18,5 +18,4 @@ public class Database {
    
     public boolean login(String username, String password){
         return true;
-    }
-}
+    }}
