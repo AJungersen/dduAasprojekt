@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.dduaarsprojekt.UserLoginController">
-    
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.dduaarsprojekt.UserLoginController">
+   <children>
+      <Button layoutX="101.0" layoutY="111.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="398.0" text="Hold 1" />
+      <Button layoutX="101.0" layoutY="137.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="398.0" text="Hold 2" />
+      <Button layoutX="101.0" layoutY="163.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="398.0" text="Hold 3" />
+      <Button layoutX="101.0" layoutY="189.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="398.0" text="3. g" />
+      <Button layoutX="101.0" layoutY="215.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="397.0" text="5. a" />
+      <MenuButton layoutX="536.0" layoutY="1.0" mnemonicParsing="false" text="Menu">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <Button layoutX="101.0" layoutY="262.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="398.0" text="Opret nyt hold" />
+      <Text layoutX="255.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mine hold">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+   </children>
 </AnchorPane>
