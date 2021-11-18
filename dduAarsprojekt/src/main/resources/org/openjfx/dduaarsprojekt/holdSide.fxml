@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="762.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuButton layoutX="677.0" layoutY="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" text="Menu">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Forside" />
+          <MenuItem mnemonicParsing="false" text="Mine hold" />
+            <MenuItem mnemonicParsing="false" text="Mine prøver" />
+            <MenuItem mnemonicParsing="false" text="Log ud" />
+        </items>
+      </MenuButton>
+      <MenuButton layoutX="517.0" layoutY="461.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Tildel ny prøve">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Prøve 4" />
+          <MenuItem mnemonicParsing="false" text="Prøve 5" />
+            <MenuItem mnemonicParsing="false" text="Prøve 6" />
+        </items>
+      </MenuButton>
+      <MenuButton layoutX="677.0" layoutY="26.0" mnemonicParsing="false" text="Vælg elev">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Navn 1" />
+          <MenuItem mnemonicParsing="false" text="Navn 2" />
+            <MenuItem mnemonicParsing="false" text="Navn 3" />
+        </items>
+      </MenuButton>
+      <Text layoutX="61.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Færdiggjordte prøver" wrappingWidth="160.0" />
+      <Text layoutX="61.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Igangværende prøver" wrappingWidth="115.8753662109375" />
+      <TableView layoutX="61.0" layoutY="55.0" prefHeight="200.0" prefWidth="302.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Prøve navn" />
+          <TableColumn prefWidth="109.5999755859375" text="Rigtighedsprocent" />
+            <TableColumn prefWidth="116.80002441406248" text="Deltagelsesprocent" />
+        </columns>
+      </TableView>
+      <TableView layoutX="61.0" layoutY="288.0" prefHeight="200.0" prefWidth="302.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="Prøve navn" />
+            <TableColumn prefWidth="109.5999755859375" text="Rigtighedsprocent" />
+            <TableColumn prefWidth="116.80002441406248" text="Deltagelsesprocent" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
