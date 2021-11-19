@@ -11,7 +11,7 @@ import javafx.fxml.FXML;
  *
  * @author danie
  */
-public class mineHoldController {
+public class TestStaffController {
     @FXML
     private void mineHold() throws IOException {
         App.setRoot("mineHold");
