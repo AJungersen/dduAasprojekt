@@ -74,7 +74,7 @@ public class CreateUserController {
                                     userDatabasemethods.createTeacher(new Teacher(securityMethods.hexString(textFieldSchoolKey.getText()), 0, 0, 
                                             textFieldUsername.getText(), securityMethods.hexString(passwordFieldPassword.getText())));
                                     
-                                    App.setLoggedInUser(userDatabasemethods.getoggedInUser(textFieldUsername.getText()));
+                                    App.setLoggedInUser(userDatabasemethods.getLoggedInUser(textFieldUsername.getText()));
                                     
                                     //hop vider mangler fxml App.setRoot("");
                                     System.out.println(App.getLoggedInUser().getType() + " logged in");
