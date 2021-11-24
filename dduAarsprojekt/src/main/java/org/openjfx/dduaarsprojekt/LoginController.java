@@ -48,7 +48,7 @@ public class LoginController implements Initializable{
             if (userDatabasemethods.checkForMatchingPassword(textFieldUsername.getText(),
                     securityMethods.hexString(passwordFieldPassword.getText()))) {
 
-                App.setLoggedInUser(userDatabasemethods.getoggedInUser(textFieldUsername.getText()));
+                App.setLoggedInUser(userDatabasemethods.getLoggedInUser(textFieldUsername.getText()));
                 
                 System.out.println(App.getLoggedInUser().getType() + " logged in");
 
