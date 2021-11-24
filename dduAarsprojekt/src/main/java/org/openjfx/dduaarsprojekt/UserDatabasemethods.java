@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -257,7 +258,7 @@ public class UserDatabasemethods {
     //----------------------------------------
     //---------- get logged in user ----------
     //----------------------------------------
-    public User getoggedInUser(String _username) throws SQLException, Exception {
+    public User getLoggedInUser(String _username) throws SQLException, Exception {
         User loggedInUser = new User();
 
         _username = _username.toLowerCase();
@@ -328,5 +329,10 @@ public class UserDatabasemethods {
         }
 
         return false;
+    }
+    public static ArrayList<Test> getAllTests(){
+        ArrayList<Test> test = new ArrayList<>();
+        //tests hentes fra database og indsættes i arraylisten test
+        return test;
     }
 }
