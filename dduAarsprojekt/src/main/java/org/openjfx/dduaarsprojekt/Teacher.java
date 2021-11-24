@@ -10,11 +10,18 @@ package org.openjfx.dduaarsprojekt;
  * @author danie
  */
 public class Teacher extends User{
+private String key;
 
-    public Teacher(String U, String P) {
-        username = U;
-        password = P;
-        //Database.addTeacher(username,password);
+    public Teacher(String key, int user_ID, int userType_ID, String username, String password) {
+        super(user_ID, userType_ID, username, password);
+        this.key = key;
+        
+        setType("teacher");
     }
+
     
+
+    public String getKey() {
+        return key;
+    }
 }

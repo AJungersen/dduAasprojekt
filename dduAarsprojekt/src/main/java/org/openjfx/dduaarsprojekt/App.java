@@ -12,7 +12,7 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {
-
+    private static User loggedInUser = new User();
     private static Scene scene;
 
     @Override
@@ -33,6 +33,13 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+    public static void setLoggedInUser(User _loggedInUser) {
+        loggedInUser = _loggedInUser;
+    }
+
+    public static User getLoggedInUser() {
+        return loggedInUser;
     }
 
 }
