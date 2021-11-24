@@ -330,9 +330,4 @@ public class UserDatabasemethods {
 
         return false;
     }
-    public static ArrayList<Test> getAllTests(){
-        ArrayList<Test> test = new ArrayList<>();
-        //tests hentes fra database og indsættes i arraylisten test
-        return test;
-    }
 }
