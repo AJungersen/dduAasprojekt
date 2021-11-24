@@ -6,12 +6,25 @@
 package org.openjfx.dduaarsprojekt;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableView;
 /**
  *
  * @author danie
  */
-public class TestStaffController {
+public class TestStaffController implements Initializable{
+    @FXML
+    TableView doneTest;
+    TableView pendingTests;
+    
+    @Override
+    public void initialize(){
+        
+    }
+    
     @FXML
     private void mineHold() throws IOException {
         App.setRoot("mineHold");
@@ -20,5 +33,10 @@ public class TestStaffController {
     @FXML
     private void minePrøver() throws IOException {
         App.setRoot("minePrøver");
+    }
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
