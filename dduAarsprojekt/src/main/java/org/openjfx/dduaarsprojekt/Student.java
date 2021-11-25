@@ -25,7 +25,15 @@ public class Student extends User{
         return schoolClass;
     }
 
+    public void setSchoolClass(String schoolClass) {
+        this.schoolClass = schoolClass;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

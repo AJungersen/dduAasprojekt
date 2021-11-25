@@ -5,6 +5,7 @@
  */
 package org.openjfx.dduaarsprojekt;
 
+import org.openjfx.dduaarsprojekt.databaseRepository.UserDatabasemethods;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class TestStaffController implements Initializable{
    @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         ArrayList<Test> tests = new ArrayList<>();
-        tests = UserDatabasemethods.getAllTests();
+        //tests = UserDatabasemethods.getAllTests();
     }
     
     @FXML
