@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package org.openjfx.dduaarsprojekt;
+package org.openjfx.dduaarsprojekt.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;

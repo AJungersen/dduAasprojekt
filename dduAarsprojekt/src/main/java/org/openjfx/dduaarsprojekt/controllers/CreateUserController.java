@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.openjfx.dduaarsprojekt;
+package org.openjfx.dduaarsprojekt.controllers;
 
 import org.openjfx.dduaarsprojekt.databaseRepository.UserDatabasemethods;
+import org.openjfx.dduaarsprojekt.*;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,6 +15,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import org.openjfx.dduaarsprojekt.App;
+import org.openjfx.dduaarsprojekt.SecurityMethods;
+import org.openjfx.dduaarsprojekt.Teacher;
 
 /**
  *

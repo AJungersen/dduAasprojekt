@@ -8,10 +8,11 @@
  *
  * @author Clara Maj
  */
-package org.openjfx.dduaarsprojekt;
+package org.openjfx.dduaarsprojekt.controllers;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import org.openjfx.dduaarsprojekt.App;
 
 public class MainController {
 
