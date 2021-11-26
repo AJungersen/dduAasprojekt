@@ -6,9 +6,15 @@
 
 package org.openjfx.dduaarsprojekt;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -17,12 +23,29 @@ import javafx.fxml.Initializable;
  */
 public class TestMakerController implements Initializable {
    
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    ListView questionList;
+    TextArea description;
+    TextField testName;
+    ComboBox options;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        
+    }
 
+    @FXML
+    public void createMultQuestion() throws IOException{
+        App.setRoot("createMult");
+    }
+    
+    @FXML
+    public void createAnswerbasedQuestion() throws IOException{
+        App.setRoot("createAnswerbased");
+    }
+    
+    @FXML
+    public void savetaskSet(){
+        
+    }
 }

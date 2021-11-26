@@ -1,6 +1,9 @@
-
-org\openjfx\dduaarsprojekt\App.class
-module-info.class
-org\openjfx\dduaarsprojekt\Teacher.class
+org\openjfx\dduaarsprojekt\TestClasses\Question.class
 org\openjfx\dduaarsprojekt\Student.class
 org\openjfx\dduaarsprojekt\User.class
+org\openjfx\dduaarsprojekt\MainController.class
+org\openjfx\dduaarsprojekt\TestClasses\MultipelChoiseAnswer.class
+module-info.class
+org\openjfx\dduaarsprojekt\TestClasses\MultipelChoiseQuestion.class
+org\openjfx\dduaarsprojekt\TestStaffController.class
+org\openjfx\dduaarsprojekt\Teacher.class
