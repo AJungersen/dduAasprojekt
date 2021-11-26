@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.openjfx.dduaarsprojekt;
+package org.openjfx.dduaarsprojekt.databaseRepository;
+
+import org.openjfx.dduaarsprojekt.*;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -277,13 +279,38 @@ public class UserDatabasemethods {
         try {
             Statement stat = conn.createStatement();
 
-            ResultSet rs = stat.executeQuery("select user_ID, userType_ID, type from Users WHERE Username = ('" + _username + "');");
+            ResultSet rs = stat.executeQuery("select* from Users WHERE Username = ('" + _username + "');");
 
             rs.next();
+            if(rs.getString("type").equalsIgnoreCase("teacher")) {
+                
+                Teacher loggedInTeacher = new Teacher(null, rs.getInt("user_ID"), rs.getInt("userType_ID"), rs.getString("username"), rs.getString("password"));
+                
+                rs.close();
+                
+                rs = stat.executeQuery("SELECT key from Teachers WHERE teacher_ID = ('" + loggedInTeacher.getUserType_ID() + "')");
+                
+                loggedInTeacher.setKey(rs.getString("key"));
+                
+                loggedInUser = loggedInTeacher;
+                
+                rs.close();
+            } else if(rs.getString("type").equalsIgnoreCase("student")) {
+               
+                Student loggedInStudent = new Student(null, null, rs.getInt("user_ID"), rs.getInt("userType_ID"), rs.getString("username"), rs.getString("password"));
+                
+                rs.close();
+                
+                rs = stat.executeQuery("SELECT * from Students where student_ID = ('" + loggedInStudent.getUserType_ID() + "')");
+                
+                loggedInStudent.setSchoolClass(rs.getString("schoolClass"));
+                loggedInStudent.setName(rs.getString("name"));
+                
+                loggedInUser = loggedInStudent;
+                
+                rs.close();
+            }
             
-            loggedInUser = new User(rs.getInt("user_ID"), rs.getInt("userType_ID"), rs.getString("type"));
-
-            rs.close();
         } catch (SQLException e) {
             //Skrive fejlhåndtering her
             System.out.println("\n Database error (get logged ind user (result set get user)): " + e.getMessage() + "\n");

@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.openjfx.dduaarsprojekt;
+package org.openjfx.dduaarsprojekt.databaseRepository;
 
 import java.util.ArrayList;
+import org.openjfx.dduaarsprojekt.*;
+import org.openjfx.dduaarsprojekt.TestClasses.*;
 
 /**
  *

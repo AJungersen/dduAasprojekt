@@ -10,6 +10,7 @@ package org.openjfx.dduaarsprojekt;
  * @author danie
  */
 public class User {
+
     private int user_ID;
     private int userType_ID;
     private String username;
@@ -18,7 +19,7 @@ public class User {
 
     public User() {
     }
-    
+
     public User(int user_ID, int userType_ID, String type) {
         this.user_ID = user_ID;
         this.userType_ID = userType_ID;
@@ -44,8 +45,6 @@ public class User {
         this.userType_ID = userType_ID;
     }
 
-    
-    
     public String getType() {
         return type;
     }
@@ -68,5 +67,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Teacher asTeacher() {
+        return (Teacher) this;
+    }
+
+    public Student asStudent() {
+        return (Student) this;
     }
 }

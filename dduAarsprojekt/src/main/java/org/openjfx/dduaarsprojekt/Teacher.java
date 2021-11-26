@@ -9,7 +9,7 @@ package org.openjfx.dduaarsprojekt;
  *
  * @author danie
  */
-public class Teacher extends User{
+public class Teacher extends User {
 private String key;
 
     public Teacher(String key, int user_ID, int userType_ID, String username, String password) {
@@ -23,5 +23,9 @@ private String key;
 
     public String getKey() {
         return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }

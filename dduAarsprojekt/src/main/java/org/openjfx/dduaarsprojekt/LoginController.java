@@ -5,9 +5,12 @@
  */
 package org.openjfx.dduaarsprojekt;
 
+import org.openjfx.dduaarsprojekt.databaseRepository.UserDatabasemethods;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -31,8 +34,8 @@ public class LoginController implements Initializable{
     private TableView tableViewTest;
     
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        ArrayList<User> loggedInUser = new ArrayList<>();
+    public void initialize(URL url, ResourceBundle rb){
+        
     }
     
     @FXML

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="762.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.dduaarsprojekt.TestStaffController">
+   <children>
+      <MenuButton layoutX="677.0" layoutY="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" text="Menu">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Forside" />
+            <MenuItem mnemonicParsing="false" text="Mine hold" />
+            <MenuItem mnemonicParsing="false" text="Mine prøver" />
+            <MenuItem mnemonicParsing="false" text="Log ud" />
+         </items>
+      </MenuButton>
+      <Text layoutX="61.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mine hold:" wrappingWidth="160.0" />
+      <Text layoutX="61.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nyeste prøver:" wrappingWidth="115.8753662109375" />
+      <TableView layoutX="61.0" layoutY="55.0" prefHeight="200.0" prefWidth="361.0">
+         <columns>
+            <TableColumn prefWidth="88.5" text="Holdets navn" />
+            <TableColumn prefWidth="164.5" text="Antal i gang være prøver:" />
+            <TableColumn prefWidth="106.0" text="Antal af elever:" />
+         </columns>
+      </TableView>
+      <ListView layoutX="61.0" layoutY="296.0" prefHeight="200.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>
