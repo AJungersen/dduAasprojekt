@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author Clara Maj
  */
-public class TeamsStaffController implements Initializable {
+public class TeamStaffController implements Initializable {
    
     /**
      * Initializes the controller class.

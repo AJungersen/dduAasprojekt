@@ -12,12 +12,12 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {
-
+    private static User loggedInUser = new User();
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("login"));
         stage.setScene(scene);
         stage.show();
     }
@@ -33,6 +33,13 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+    public static void setLoggedInUser(User _loggedInUser) {
+        loggedInUser = _loggedInUser;
+    }
+    
+    public static User getLoggedInUser() {
+        return loggedInUser;
     }
 
 }

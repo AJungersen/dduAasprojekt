@@ -5,17 +5,12 @@
  */
 package org.openjfx.dduaarsprojekt;
 
-import java.sql.*;
-import java.util.ArrayList;
-
 /**
  *
  * @author danie
  */
-public class Database {
-
-    private final String connectionString = "jdbc:sqlite:src/Database.db";
-   
-    public boolean login(String username, String password){
-        return true;
-    }}
+public class Test {
+    String name;
+    float correctness;
+    float participation;
+}
