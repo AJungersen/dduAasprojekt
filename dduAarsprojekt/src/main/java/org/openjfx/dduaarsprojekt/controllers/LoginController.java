@@ -20,12 +20,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import org.openjfx.dduaarsprojekt.App;
 import org.openjfx.dduaarsprojekt.SecurityMethods;
+import org.openjfx.dduaarsprojekt.User;
 
 /**
  *
  * @author chris
  */
 public class LoginController implements Initializable{
+    private static User loggedInUser = new User();
+    
     @FXML
     private TextField textFieldUsername;
     @FXML
@@ -68,5 +71,8 @@ public class LoginController implements Initializable{
     @FXML
     private void switchToCreateUser(ActionEvent event) throws Exception {
         App.setRoot("createUser");
+    }
+    public static User getLoggedInUser() {
+        return loggedInUser;
     }
 }

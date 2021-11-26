@@ -10,6 +10,7 @@ module-info.class
 org\openjfx\dduaarsprojekt\TestClasses\MultipelChoiseQuestion.class
 org\openjfx\dduaarsprojekt\Teacher.class
 org\openjfx\dduaarsprojekt\controllers\LoginController.class
+org\openjfx\dduaarsprojekt\TestClasses\TaskSet.class
 org\openjfx\dduaarsprojekt\CreateMultController.class
 org\openjfx\dduaarsprojekt\TestClasses\Question.class
 org\openjfx\dduaarsprojekt\TestClasses\Task.class
@@ -18,7 +19,6 @@ org\openjfx\dduaarsprojekt\User.class
 org\openjfx\dduaarsprojekt\controllers\TestStaffController.class
 org\openjfx\dduaarsprojekt\controllers\TeamStudentController.class
 org\openjfx\dduaarsprojekt\TestClasses\MultipelChoiseAnswer.class
-org\openjfx\dduaarsprojekt\TestClasses\TaksSet.class
 math\Crypt.class
 org\openjfx\dduaarsprojekt\SecurityMethods.class
 org\openjfx\dduaarsprojekt\databaseRepository\TestDatabaseMethods.class

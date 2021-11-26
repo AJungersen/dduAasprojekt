@@ -15,6 +15,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import org.openjfx.dduaarsprojekt.controllers.LoginController;
 
 /**
  * FXML Controller class
@@ -31,7 +32,7 @@ public class TestMakerController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+         
     }
 
     @FXML
@@ -46,6 +47,6 @@ public class TestMakerController implements Initializable {
     
     @FXML
     public void savetaskSet(){
-        
+        LoginController.getLoggedInUser();
     }
 }

@@ -11,23 +11,23 @@ import java.util.ArrayList;
  *
  * @author chris
  */
-public class TaksSet {
+public class TaskSet {
     private int taskSet_ID;
     private int user_ID;
     private String name;
-    ArrayList<Task> taks;
+    ArrayList<Task> tasks;
 
-    public TaksSet(int taskSet_ID, int user_ID, String name, ArrayList<Task> taks) {
+    public TaskSet(int taskSet_ID, int user_ID, String name, ArrayList<Task> taks) {
         this.taskSet_ID = taskSet_ID;
         this.user_ID = user_ID;
         this.name = name;
-        this.taks = taks;
+        this.tasks = taks;
     }
     
-    public TaksSet(int user_ID, String name, ArrayList<Task> taks) {
+    public TaskSet(int user_ID, String name, ArrayList<Task> taks) {
         this.user_ID = user_ID;
         this.name = name;
-        this.taks = taks;
+        this.tasks = taks;
     }
     
     public int getTaskSet_ID() {
@@ -50,11 +50,11 @@ public class TaksSet {
         this.name = name;
     }
 
-    public ArrayList<Task> getTaks() {
-        return taks;
+    public ArrayList<Task> getTask() {
+        return tasks;
     }
 
-    public void setTaks(ArrayList<Task> taks) {
-        this.taks = taks;
+    public void setTask(ArrayList<Task> taks) {
+        this.tasks = taks;
     }
 }
