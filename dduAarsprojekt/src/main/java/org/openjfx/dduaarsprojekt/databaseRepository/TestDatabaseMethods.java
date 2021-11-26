@@ -16,9 +16,9 @@ import org.openjfx.dduaarsprojekt.TestClasses.*;
 public class TestDatabaseMethods {
     private final String connectionString = "jdbc:sqlite:Database.db";
     
-    public static ArrayList<Test> getAllTestAnswers(){
+    /*public static ArrayList<Test> getAllTestAnswers(){
         ArrayList<Test> test = new ArrayList<>();
         //tests hentes fra database og indsættes i arraylisten test
         return test;
-    }
+    }*/
 }

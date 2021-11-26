@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+package org.openjfx.dduaarsprojekt.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,7 +15,7 @@ import javafx.fxml.Initializable;
  *
  * @author Clara Maj
  */
-public class TeamStaffController implements Initializable {
+public class TeamStudentController implements Initializable {
    
     /**
      * Initializes the controller class.
