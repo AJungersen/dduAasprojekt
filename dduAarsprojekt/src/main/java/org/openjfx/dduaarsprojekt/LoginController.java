@@ -20,13 +20,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import org.openjfx.dduaarsprojekt.App;
-<<<<<<< Updated upstream:dduAarsprojekt/src/main/java/org/openjfx/dduaarsprojekt/controllers/LoginController.java
-import org.openjfx.dduaarsprojekt.SecurityMethods;
-import org.openjfx.dduaarsprojekt.User;
-=======
+import org.openjfx.dduaarsprojekt.random.*;
 import org.openjfx.dduaarsprojekt.random.SecurityMethods;
 import org.openjfx.dduaarsprojekt.TestClasses.QuestionsType;
->>>>>>> Stashed changes:dduAarsprojekt/src/main/java/org/openjfx/dduaarsprojekt/LoginController.java
 
 /**
  *

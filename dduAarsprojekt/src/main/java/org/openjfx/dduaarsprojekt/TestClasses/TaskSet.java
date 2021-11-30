@@ -16,41 +16,27 @@ public class TaskSet {
     private int assignment_ID;
     private int user_ID;
     private String name;
-<<<<<<< Updated upstream:dduAarsprojekt/src/main/java/org/openjfx/dduaarsprojekt/TestClasses/TaskSet.java
-    ArrayList<Task> tasks;
-
-    public TaskSet(int taskSet_ID, int user_ID, String name, ArrayList<Task> taks) {
-=======
     private String nameOfTheFiller;
-    ArrayList<Task> taks;
+    private ArrayList<Task> tasks = new ArrayList<>();
 
-    public TaskSet(int taskSet_ID, int assignment_ID, int user_ID, String name, String nameOfTheFiller, ArrayList<Task> taks) {
->>>>>>> Stashed changes:dduAarsprojekt/src/main/java/org/openjfx/dduaarsprojekt/TestClasses/TaksSet.java
+    public TaskSet(int taskSet_ID, int assignment_ID, int user_ID, String name, String nameOfTheFiller, ArrayList<Task> tasks) {
         this.taskSet_ID = taskSet_ID;
         this.assignment_ID = assignment_ID;
         this.user_ID = user_ID;
         this.name = name;
-<<<<<<< Updated upstream:dduAarsprojekt/src/main/java/org/openjfx/dduaarsprojekt/TestClasses/TaskSet.java
-        this.tasks = taks;
-    }
-    
-    public TaskSet(int user_ID, String name, ArrayList<Task> taks) {
-        this.user_ID = user_ID;
-        this.name = name;
-        this.tasks = taks;
-=======
         this.nameOfTheFiller = nameOfTheFiller;
-        this.taks = taks;
+        this.tasks = tasks;
     }
     
-    public TaskSet(int assignment_ID, int user_ID, String name, String nameOfTheFiller, ArrayList<Task> taks) {
+    public TaskSet(int assignment_ID, int user_ID, String name, String nameOfTheFiller, ArrayList<Task> tasks) {
         this.assignment_ID = assignment_ID;
         this.user_ID = user_ID;
         this.name = name;
         this.nameOfTheFiller = nameOfTheFiller;
-        this.taks = taks;
->>>>>>> Stashed changes:dduAarsprojekt/src/main/java/org/openjfx/dduaarsprojekt/TestClasses/TaksSet.java
+        this.tasks = tasks;
     }
+    
+    
     
     public int getTaskSet_ID() {
         return taskSet_ID;
@@ -76,10 +62,6 @@ public class TaskSet {
         this.name = name;
     }
 
-<<<<<<< Updated upstream:dduAarsprojekt/src/main/java/org/openjfx/dduaarsprojekt/TestClasses/TaskSet.java
-    public ArrayList<Task> getTask() {
-        return tasks;
-=======
     public String getNameOfTheFiller() {
         return nameOfTheFiller;
     }
@@ -87,17 +69,12 @@ public class TaskSet {
     public void setNameOfTheFiller(String nameOfTheFiller) {
         this.nameOfTheFiller = nameOfTheFiller;
     }
-    
-    public ArrayList<Task> getTaks() {
-        return taks;
->>>>>>> Stashed changes:dduAarsprojekt/src/main/java/org/openjfx/dduaarsprojekt/TestClasses/TaksSet.java
+
+    public ArrayList<Task> getTask() {
+        return tasks;
     }
 
-    public void setTask(ArrayList<Task> taks) {
-        this.tasks = taks;
-    }
-
-    public void setDescription(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setTasks(ArrayList<Task> tasks) {
+        this.tasks = tasks;
     }
 }
