@@ -57,4 +57,8 @@ public class TaskSet {
     public void setTask(ArrayList<Task> taks) {
         this.tasks = taks;
     }
+
+    public void setDescription(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
