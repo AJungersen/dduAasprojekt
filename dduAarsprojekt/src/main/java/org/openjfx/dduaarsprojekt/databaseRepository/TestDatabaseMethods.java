@@ -22,7 +22,10 @@ import org.openjfx.dduaarsprojekt.TestClasses.*;
 public class TestDatabaseMethods {
 
     private final String connectionString = "jdbc:sqlite:Database.db";
-
+    
+    //----------------------------------------------
+    //---------- get all task set answers ----------
+    //----------------------------------------------
     public ArrayList<TaskSet> getAllTaskSetsAnswers(int _assignmentID) throws SQLException, Exception {
         ArrayList<TaskSet> taskSets = new ArrayList<>();
 
@@ -102,4 +105,13 @@ public class TestDatabaseMethods {
 
         return taskSets;
     }
+    
+    //-------------------------------------
+    //---------- create task set ----------
+    //-------------------------------------
+    public void createTaskSet() throws SQLException, Exception {
+        
+    }
 }
+
+
