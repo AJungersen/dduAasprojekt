@@ -1,4 +1,7 @@
+<<<<<<< Updated upstream
 org\openjfx\dduaarsprojekt\TestClasses\textAnswerBasedQuestion.class
+=======
+>>>>>>> Stashed changes
 org\openjfx\dduaarsprojekt\App.class
 org\openjfx\dduaarsprojekt\controllers\CreateUserController.class
 org\openjfx\dduaarsprojekt\controllers\TestStudentController.class
@@ -7,6 +10,7 @@ org\openjfx\dduaarsprojekt\databaseRepository\UserDatabasemethods.class
 org\openjfx\dduaarsprojekt\TestMakerController.class
 org\openjfx\dduaarsprojekt\TestClasses\CorrectAnswerBasedQuestion.class
 module-info.class
+<<<<<<< Updated upstream
 org\openjfx\dduaarsprojekt\TestClasses\MultipelChoiseQuestion.class
 org\openjfx\dduaarsprojekt\Teacher.class
 org\openjfx\dduaarsprojekt\controllers\LoginController.class
@@ -24,3 +28,5 @@ org\openjfx\dduaarsprojekt\SecurityMethods.class
 org\openjfx\dduaarsprojekt\databaseRepository\TestDatabaseMethods.class
 org\openjfx\dduaarsprojekt\controllers\TeamStaffController.class
 org\openjfx\dduaarsprojekt\controllers\MainController.class
+=======
+>>>>>>> Stashed changes

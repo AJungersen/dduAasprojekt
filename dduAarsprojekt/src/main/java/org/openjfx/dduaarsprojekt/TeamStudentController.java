@@ -1,11 +1,10 @@
-package org.openjfx.dduaarsprojekt.controllers;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+package org.openjfx.dduaarsprojekt;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,7 +15,7 @@ import javafx.fxml.Initializable;
  *
  * @author Clara Maj
  */
-public class TeamStaffController implements Initializable {
+public class TeamStudentController implements Initializable {
    
     /**
      * Initializes the controller class.

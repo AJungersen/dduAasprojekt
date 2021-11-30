@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.openjfx.dduaarsprojekt.controllers;
+package org.openjfx.dduaarsprojekt;
 
 import org.openjfx.dduaarsprojekt.databaseRepository.UserDatabasemethods;
 import org.openjfx.dduaarsprojekt.*;
@@ -16,8 +16,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import org.openjfx.dduaarsprojekt.App;
-import org.openjfx.dduaarsprojekt.SecurityMethods;
-import org.openjfx.dduaarsprojekt.Teacher;
+import org.openjfx.dduaarsprojekt.random.SecurityMethods;
+import org.openjfx.dduaarsprojekt.random.Teacher;
 
 /**
  *

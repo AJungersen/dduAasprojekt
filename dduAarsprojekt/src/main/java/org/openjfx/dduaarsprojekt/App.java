@@ -1,5 +1,6 @@
 package org.openjfx.dduaarsprojekt;
 
+import org.openjfx.dduaarsprojekt.random.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
