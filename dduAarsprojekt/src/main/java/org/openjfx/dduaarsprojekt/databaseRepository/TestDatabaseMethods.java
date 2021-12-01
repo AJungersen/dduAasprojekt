@@ -120,7 +120,14 @@ public class TestDatabaseMethods {
         try {
             Statement stat = conn.createStatement();
             
-            ResultSet rs = stat.executeQuery("");
+            //make assignment
+            ResultSet rs = stat.executeQuery("INSERT INTO ");
+            
+            //make taskset
+            
+            //make tasks
+            
+                //insertquestions from tasks
             
             conn = DriverManager.getConnection(connectionString);
         } catch (SQLException e) {
