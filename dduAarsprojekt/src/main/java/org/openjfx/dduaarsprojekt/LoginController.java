@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.openjfx.dduaarsprojekt.controllers;
+package org.openjfx.dduaarsprojekt;
 
 import org.openjfx.dduaarsprojekt.databaseRepository.UserDatabasemethods;
 import java.net.URL;
+import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -19,8 +20,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import org.openjfx.dduaarsprojekt.App;
-import org.openjfx.dduaarsprojekt.SecurityMethods;
-import org.openjfx.dduaarsprojekt.User;
+import org.openjfx.dduaarsprojekt.random.*;
+import org.openjfx.dduaarsprojekt.random.SecurityMethods;
+import org.openjfx.dduaarsprojekt.TestClasses.QuestionsType;
 
 /**
  *
@@ -40,7 +42,11 @@ public class LoginController implements Initializable{
     
     @Override
     public void initialize(URL url, ResourceBundle rb){
+        QuestionsType qType = QuestionsType.valueOf("correctAnswerBasedQuestion");
         
+        System.out.println(qType);
+        
+        System.out.println("\n" + qType.toString());
     }
     
     @FXML

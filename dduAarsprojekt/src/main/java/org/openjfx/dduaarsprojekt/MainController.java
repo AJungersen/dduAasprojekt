@@ -8,7 +8,7 @@
  *
  * @author Clara Maj
  */
-package org.openjfx.dduaarsprojekt.controllers;
+package org.openjfx.dduaarsprojekt;
 
 import java.io.IOException;
 import javafx.fxml.FXML;

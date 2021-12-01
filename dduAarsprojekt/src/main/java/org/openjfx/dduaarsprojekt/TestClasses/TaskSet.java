@@ -13,25 +13,37 @@ import java.util.ArrayList;
  */
 public class TaskSet {
     private int taskSet_ID;
+    private int assignment_ID;
     private int user_ID;
     private String name;
-    ArrayList<Task> tasks;
+    private String nameOfTheFiller;
+    private ArrayList<Task> tasks = new ArrayList<>();
 
-    public TaskSet(int taskSet_ID, int user_ID, String name, ArrayList<Task> taks) {
+    public TaskSet(int taskSet_ID, int assignment_ID, int user_ID, String name, String nameOfTheFiller, ArrayList<Task> tasks) {
         this.taskSet_ID = taskSet_ID;
+        this.assignment_ID = assignment_ID;
         this.user_ID = user_ID;
         this.name = name;
-        this.tasks = taks;
+        this.nameOfTheFiller = nameOfTheFiller;
+        this.tasks = tasks;
     }
     
-    public TaskSet(int user_ID, String name, ArrayList<Task> taks) {
+    public TaskSet(int assignment_ID, int user_ID, String name, String nameOfTheFiller, ArrayList<Task> tasks) {
+        this.assignment_ID = assignment_ID;
         this.user_ID = user_ID;
         this.name = name;
-        this.tasks = taks;
+        this.nameOfTheFiller = nameOfTheFiller;
+        this.tasks = tasks;
     }
+    
+    
     
     public int getTaskSet_ID() {
         return taskSet_ID;
+    }
+
+    public int getAssignment_ID() {
+        return assignment_ID;
     }
 
     public int getUser_ID() {
@@ -50,15 +62,19 @@ public class TaskSet {
         this.name = name;
     }
 
+    public String getNameOfTheFiller() {
+        return nameOfTheFiller;
+    }
+
+    public void setNameOfTheFiller(String nameOfTheFiller) {
+        this.nameOfTheFiller = nameOfTheFiller;
+    }
+
     public ArrayList<Task> getTask() {
         return tasks;
     }
 
-    public void setTask(ArrayList<Task> taks) {
-        this.tasks = taks;
-    }
-
-    public void setDescription(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setTasks(ArrayList<Task> tasks) {
+        this.tasks = tasks;
     }
 }

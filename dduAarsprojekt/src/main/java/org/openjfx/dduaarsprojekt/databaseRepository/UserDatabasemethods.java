@@ -5,6 +5,9 @@
  */
 package org.openjfx.dduaarsprojekt.databaseRepository;
 
+import org.openjfx.dduaarsprojekt.random.User;
+import org.openjfx.dduaarsprojekt.random.Teacher;
+import org.openjfx.dduaarsprojekt.random.Student;
 import org.openjfx.dduaarsprojekt.*;
 
 import java.sql.Connection;

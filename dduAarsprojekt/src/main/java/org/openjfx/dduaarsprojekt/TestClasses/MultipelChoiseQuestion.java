@@ -14,14 +14,16 @@ import java.util.ArrayList;
 public class MultipelChoiseQuestion extends Question{
     ArrayList<MultipelChoiseAnswer> answerOptions;
 
-    public MultipelChoiseQuestion(ArrayList<MultipelChoiseAnswer> answerOptions, int question_ID, String type, String question) {
-        super(question_ID, type, question);
+    public MultipelChoiseQuestion(ArrayList<MultipelChoiseAnswer> answerOptions, int question_ID, String question) {
+        super(question_ID, question);
         this.answerOptions = answerOptions;
+        setType(QuestionsType.multipelChoiseQuestion);
     }
 
-    public MultipelChoiseQuestion(ArrayList<MultipelChoiseAnswer> answerOptions, String type, String question) {
-        super(type, question);
+    public MultipelChoiseQuestion(ArrayList<MultipelChoiseAnswer> answerOptions,String question) {
+        super(question);
         this.answerOptions = answerOptions;
+        setType(QuestionsType.multipelChoiseQuestion);
     }
     
     public ArrayList<MultipelChoiseAnswer> getAnswerOptions() {

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.openjfx.dduaarsprojekt.controllers;
+package org.openjfx.dduaarsprojekt;
 
 import org.openjfx.dduaarsprojekt.databaseRepository.UserDatabasemethods;
 import java.io.IOException;

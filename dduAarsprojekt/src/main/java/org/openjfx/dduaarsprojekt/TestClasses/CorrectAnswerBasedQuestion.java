@@ -12,14 +12,16 @@ package org.openjfx.dduaarsprojekt.TestClasses;
 public class CorrectAnswerBasedQuestion extends Question{
     public String correctAnswer;
 
-    public CorrectAnswerBasedQuestion(String correctAnswer, int question_ID, String type, String question) {
-        super(question_ID, type, question);
+    public CorrectAnswerBasedQuestion(String correctAnswer, int question_ID, String question) {
+        super(question_ID, question);
         this.correctAnswer = correctAnswer;
+        setType(QuestionsType.correctAnswerBasedQuestion);
     }
 
-    public CorrectAnswerBasedQuestion(String correctAnswer, String type, String question) {
-        super(type, question);
+    public CorrectAnswerBasedQuestion(String correctAnswer, String question) {
+        super(question);
         this.correctAnswer = correctAnswer;
+        setType(QuestionsType.correctAnswerBasedQuestion);
     }
     
     public String getCorrectAnswer() {
