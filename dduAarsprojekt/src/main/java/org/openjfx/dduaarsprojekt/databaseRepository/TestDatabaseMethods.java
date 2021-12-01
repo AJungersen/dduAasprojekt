@@ -38,7 +38,7 @@ public class TestDatabaseMethods {
             conn = DriverManager.getConnection(connectionString);
         } catch (SQLException e) {
             //Skrive fejlhåndtering her
-            System.out.println("\n Database error (check for matching user (connection): " + e.getMessage() + "\n");
+            System.out.println("\n Database error (get all task set answers (connection): " + e.getMessage() + "\n");
         }
         try {
             Statement stat = conn.createStatement();
@@ -100,7 +100,7 @@ public class TestDatabaseMethods {
             //lav for loop til at hente alle de forskellige spørgsmål til taskne
         } catch (SQLException e) {
             //Skrive fejlhåndtering her
-            System.out.println("\n Database error (check for matching user (resultset): " + e.getMessage() + "\n");
+            System.out.println("\n Database error (get all task set answers (get data): " + e.getMessage() + "\n");
         }
 
         return taskSets;
@@ -109,8 +109,24 @@ public class TestDatabaseMethods {
     //-------------------------------------
     //---------- create task set ----------
     //-------------------------------------
-    public void createTaskSet() throws SQLException, Exception {
+    public void createTaskSet(TaskSet taskSet) throws SQLException, Exception {
         
+        
+        Connection conn = null;
+        Class.forName("org.sqlite.JDBC");
+
+        //Class.forName("org.mysql.JDBC.Driver");
+        //Skab forbindelse til databasen...
+        try {
+            Statement stat = conn.createStatement();
+            
+            ResultSet rs = stat.executeQuery("");
+            
+            conn = DriverManager.getConnection(connectionString);
+        } catch (SQLException e) {
+            //Skrive fejlhåndtering her
+            System.out.println("\n Database error (create task set (connection): " + e.getMessage() + "\n");
+        }
     }
 }
 
