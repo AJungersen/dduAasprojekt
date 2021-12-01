@@ -11,17 +11,15 @@ package org.openjfx.dduaarsprojekt.TestClasses;
  */
 public class Question {
     private int question_ID;
-    private String type;
-    private String question;
+    private QuestionsType type;
+    String question;
 
-    public Question(int question_ID, String type, String question) {
+    public Question(int question_ID, String question) {
         this.question_ID = question_ID;
-        this.type = type;
         this.question = question;
     }
     
-    public Question(String type, String question) {
-        this.type = type;
+    public Question(String question) {
         this.question = question;
     }
     
@@ -29,8 +27,12 @@ public class Question {
         return question_ID;
     }
 
-    public String getType() {
+    public QuestionsType getType() {
         return type;
+    }
+
+    public void setType(QuestionsType type) {
+        this.type = type;
     }
     
     public String getQuestion() {
@@ -41,5 +43,7 @@ public class Question {
         this.question = question;
     }
     
-    
+    public CorrectAnswerBasedQuestion asCorrectAnswerBasedQuestion(){
+        return (CorrectAnswerBasedQuestion )this; 
+    }
 }

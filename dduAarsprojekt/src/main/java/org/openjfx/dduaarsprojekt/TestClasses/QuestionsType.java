@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.openjfx.dduaarsprojekt;
+package org.openjfx.dduaarsprojekt.TestClasses;
 
 /**
  *
- * @author danie
+ * @author chris
  */
-public class Test {
-    String name;
-    float correctness;
-    float participation;
+public enum QuestionsType {
+    correctAnswerBasedQuestion,
+    multipelChoiseQuestion,
+    textAnswerBasedQuestion;
 }

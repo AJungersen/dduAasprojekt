@@ -12,6 +12,7 @@ package org.openjfx.dduaarsprojekt;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import org.openjfx.dduaarsprojekt.App;
 
 public class MainController {
 

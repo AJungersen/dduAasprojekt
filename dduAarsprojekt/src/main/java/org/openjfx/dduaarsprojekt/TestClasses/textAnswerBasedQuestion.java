@@ -11,11 +11,13 @@ package org.openjfx.dduaarsprojekt.TestClasses;
  */
 public class textAnswerBasedQuestion extends Question{
     
-    public textAnswerBasedQuestion(int question_ID, String type, String question) {
-        super(question_ID, type, question);
+    public textAnswerBasedQuestion(int question_ID, String question) {
+        super(question_ID, question);
+        setType(QuestionsType.textAnswerBasedQuestion);
     }
     
-    public textAnswerBasedQuestion(String type, String question) {
-        super(type, question);
+    public textAnswerBasedQuestion(String question) {
+        super(question);
+        setType(QuestionsType.textAnswerBasedQuestion);
     }
 }

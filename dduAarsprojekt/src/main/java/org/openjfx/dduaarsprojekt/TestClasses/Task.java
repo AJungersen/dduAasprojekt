@@ -13,16 +13,23 @@ public class Task {
     private int task_ID;
     private Question question;
     private String answer;
+    private String comment;
 
-    public Task(int task_ID, Question question, String answer) {
+    public Task(int task_ID, Question question, String answer, String comment) {
         this.task_ID = task_ID;
         this.question = question;
         this.answer = answer;
+        this.comment = comment;
     }
     
-    public Task(Question question, String answer) {
+    public Task(Question question, String answer, String comment) {
         this.question = question;
         this.answer = answer;
+        this.comment = comment;
+    }
+
+    public int getTask_ID() {
+        return task_ID;
     }
     
     public Question getQuestion() {
@@ -40,4 +47,14 @@ public class Task {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+    
+    
 }

@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import org.openjfx.dduaarsprojekt.App;
 /**
  *
  * @author danie
@@ -32,7 +33,7 @@ public class TestStaffController implements Initializable{
     
    @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        ArrayList<Test> tests = new ArrayList<>();
+        //ArrayList<Test> tests = new ArrayList<>();
         //tests = UserDatabasemethods.getAllTests();
     }
     

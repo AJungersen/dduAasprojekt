@@ -7,6 +7,7 @@ package org.openjfx.dduaarsprojekt;
 
 import org.openjfx.dduaarsprojekt.databaseRepository.UserDatabasemethods;
 import java.net.URL;
+import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -18,12 +19,18 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import org.openjfx.dduaarsprojekt.App;
+import org.openjfx.dduaarsprojekt.random.*;
+import org.openjfx.dduaarsprojekt.random.SecurityMethods;
+import org.openjfx.dduaarsprojekt.TestClasses.QuestionsType;
 
 /**
  *
  * @author chris
  */
 public class LoginController implements Initializable{
+    private static User loggedInUser = new User();
+    
     @FXML
     private TextField textFieldUsername;
     @FXML
@@ -35,7 +42,11 @@ public class LoginController implements Initializable{
     
     @Override
     public void initialize(URL url, ResourceBundle rb){
+        QuestionsType qType = QuestionsType.valueOf("correctAnswerBasedQuestion");
         
+        System.out.println(qType);
+        
+        System.out.println("\n" + qType.toString());
     }
     
     @FXML
@@ -66,5 +77,8 @@ public class LoginController implements Initializable{
     @FXML
     private void switchToCreateUser(ActionEvent event) throws Exception {
         App.setRoot("createUser");
+    }
+    public static User getLoggedInUser() {
+        return loggedInUser;
     }
 }

@@ -6,6 +6,7 @@
 package org.openjfx.dduaarsprojekt;
 
 import org.openjfx.dduaarsprojekt.databaseRepository.UserDatabasemethods;
+import org.openjfx.dduaarsprojekt.*;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,6 +15,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import org.openjfx.dduaarsprojekt.App;
+import org.openjfx.dduaarsprojekt.random.SecurityMethods;
+import org.openjfx.dduaarsprojekt.random.Teacher;
 
 /**
  *
