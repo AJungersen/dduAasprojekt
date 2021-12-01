@@ -48,7 +48,7 @@ public class TestDatabaseMethods {
 
             while (rs.next()) {
 
-                taskSets.add(new TaskSet(rs.getInt("taskSet_ID"), _assignmentID, rs.getInt("user_ID"), rs.getString("taskSetName"), rs.getString("nameOfTheFiller"), null));
+                taskSets.add(new TaskSet(rs.getInt("taskSet_ID"), _assignmentID, rs.getInt("user_ID"), rs.getString("taskSetName"), rs.getString("description"), rs.getString("nameOfTheFiller"), null));
             }
 
             //lav for loop til at hente alle task

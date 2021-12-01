@@ -21,7 +21,7 @@ public class TaskSet {
     private String nameOfTheFiller;
     private ArrayList<Task> tasks = new ArrayList<>();
 
-    public TaskSet(int taskSet_ID, int assignment_ID, int user_ID, String name,String description, String nameOfTheFiller, ArrayList<Task> tasks) {
+    public TaskSet(int taskSet_ID, int assignment_ID, int user_ID, String name, String description, String nameOfTheFiller, ArrayList<Task> tasks) {
         this.taskSet_ID = taskSet_ID;
         this.assignment_ID = assignment_ID;
         this.user_ID = user_ID;
