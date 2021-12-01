@@ -16,9 +16,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import org.openjfx.dduaarsprojekt.TestClasses.Question;
 import org.openjfx.dduaarsprojekt.TestClasses.Task;
 import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
-import org.openjfx.dduaarsprojekt.controllers.LoginController;
 
 /**
  * FXML Controller class
@@ -27,7 +27,7 @@ import org.openjfx.dduaarsprojekt.controllers.LoginController;
  */
 public class TestMakerController implements Initializable {
     public static TaskSet current;
-    public static ArrayList<Task> tasks;
+    public static ArrayList<Question> tasks;
     
     @FXML
     ListView questionList;
@@ -38,7 +38,8 @@ public class TestMakerController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         current = new TaskSet(App.getLoggedInUser().getUser_ID(),testName.getText(),tasks);
+        ArrayList<Question>taskList = new ArrayList<Question>(tasks);
+         current = new TaskSet(App.getLoggedInUser().getUser_ID(),testName.getText(),taskList);
          for(int i = 0; i < tasks.size(); i++){
              questions.getItems().add(tasks.get(i).getQuestion());
          }

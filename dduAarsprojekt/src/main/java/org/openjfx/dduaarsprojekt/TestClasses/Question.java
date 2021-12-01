@@ -12,7 +12,7 @@ package org.openjfx.dduaarsprojekt.TestClasses;
 public class Question {
     private int question_ID;
     private QuestionsType type;
-    private String question;
+    String question;
 
     public Question(int question_ID, String question) {
         this.question_ID = question_ID;
