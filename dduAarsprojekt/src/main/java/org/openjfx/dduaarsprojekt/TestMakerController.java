@@ -27,7 +27,7 @@ import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
  */
 public class TestMakerController implements Initializable {
     public static TaskSet current;
-    public static ArrayList<Question> tasks;
+    public static ArrayList<Task> tasks;
     
     @FXML
     ListView questionList;
@@ -38,8 +38,8 @@ public class TestMakerController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ArrayList<Question>taskList = new ArrayList<Question>(tasks);
-         current = new TaskSet(App.getLoggedInUser().getUser_ID(),testName.getText(),taskList);
+        ArrayList<Task>taskList = new ArrayList<Task>(tasks);
+         current = new TaskSet(testName.getText(),"Teacher",taskList);
          for(int i = 0; i < tasks.size(); i++){
              questions.getItems().add(tasks.get(i).getQuestion());
          }
