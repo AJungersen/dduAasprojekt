@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import org.openjfx.dduaarsprojekt.App;
+import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
 /**
  *
  * @author danie
@@ -33,19 +34,27 @@ public class TestStaffController implements Initializable{
     
    @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        //ArrayList<Test> tests = new ArrayList<>();
-        //tests = UserDatabasemethods.getAllTests();
+        ArrayList<TaskSet> tests = new ArrayList<>();
+        tests = UserDatabasemethods.getAllTaskSets();
     }
     
     @FXML
     private void mineHold() throws IOException {
-        App.setRoot("mineHold");
+        App.setRoot("teamStaff");
     }
     
     @FXML
     private void minePrøver() throws IOException {
-        App.setRoot("minePrøver");
+        App.setRoot("testStaff");
     }
-
     
+    @FXML
+    private void forside() throws IOException{
+        App.setRoot("main");
+    }
+    
+    @FXML
+    private void logud() throws IOException{
+        App.setRoot("login");
+    }
 }
