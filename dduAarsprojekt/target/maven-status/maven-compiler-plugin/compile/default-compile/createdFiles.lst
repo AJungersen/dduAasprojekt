@@ -18,7 +18,9 @@ org\openjfx\dduaarsprojekt\LoginController.class
 org\openjfx\dduaarsprojekt\TestClasses\QuestionsType.class
 org\openjfx\dduaarsprojekt\TestClasses\Question.class
 org\openjfx\dduaarsprojekt\TestClasses\Task.class
+org\openjfx\dduaarsprojekt\AnswerAnswerbasedController.class
 org\openjfx\dduaarsprojekt\MainController.class
+org\openjfx\dduaarsprojekt\AnswerMult.class
 org\openjfx\dduaarsprojekt\TestClasses\MultipelChoiseAnswer.class
 math\Crypt.class
 org\openjfx\dduaarsprojekt\CreateUserController.class

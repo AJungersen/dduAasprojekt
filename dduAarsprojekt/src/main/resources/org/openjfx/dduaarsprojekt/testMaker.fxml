@@ -15,6 +15,6 @@
       <Button layoutX="336.0" layoutY="429.0" mnemonicParsing="false" onAction="#createMultQuestion" prefHeight="96.0" prefWidth="176.0" text="Create multiplechoice question" wrapText="true" />
       <ComboBox fx:id="options" layoutX="652.0" layoutY="14.0" prefWidth="150.0" />
       <ListView fx:id="questionList" layoutX="666.0" layoutY="88.0" prefHeight="465.0" prefWidth="150.0" />
-      <Button layoutX="538.0" layoutY="499.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="106.0" text="Save" />
+      <Button layoutX="538.0" layoutY="499.0" mnemonicParsing="false" onAction="#savetaskSet" prefHeight="53.0" prefWidth="106.0" text="Save" />
    </children>
 </AnchorPane>

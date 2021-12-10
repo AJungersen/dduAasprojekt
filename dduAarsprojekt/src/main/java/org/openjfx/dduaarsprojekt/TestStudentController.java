@@ -9,6 +9,7 @@ package org.openjfx.dduaarsprojekt;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
@@ -22,8 +23,10 @@ import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
  * @author Clara Maj
  */
 public class TestStudentController implements Initializable {
-   
+    
+    @FXML
     ListView<String> OngoingTests;
+    @FXML
     TableView<TaskSet> done = new TableView();
     
     @Override
@@ -41,6 +44,8 @@ public class TestStudentController implements Initializable {
         
         done.getColumns().add(testName);
         done.getColumns().add(percent);*/
-    }   
+    }
+    
+    
 
 }
