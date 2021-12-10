@@ -12,7 +12,8 @@ package org.openjfx.dduaarsprojekt.TestClasses;
 public class Question {
     private int question_ID;
     private QuestionsType type;
-    String question;
+    private String question;
+
 
     public Question(int question_ID, String question) {
         this.question_ID = question_ID;
@@ -45,5 +46,9 @@ public class Question {
     
     public CorrectAnswerBasedQuestion asCorrectAnswerBasedQuestion(){
         return (CorrectAnswerBasedQuestion )this; 
+    }
+    
+    public MultipelChoiseQuestion asMultipelChoiseQuestion() {
+        return (MultipelChoiseQuestion) this;
     }
 }

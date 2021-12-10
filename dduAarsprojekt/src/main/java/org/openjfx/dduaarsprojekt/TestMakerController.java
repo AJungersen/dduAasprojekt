@@ -27,7 +27,7 @@ import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
  */
 public class TestMakerController implements Initializable {
     public static TaskSet current;
-    public static ArrayList<Task> tasks;
+    public static ArrayList<Question> tasks;
     
     @FXML
     ListView questionList;
@@ -38,8 +38,7 @@ public class TestMakerController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ArrayList<Task>taskList = new ArrayList<Task>(tasks);
-         current = new TaskSet(testName.getText(),"Teacher",taskList);
+        ArrayList<Question>taskList = new ArrayList<Question>(tasks);
          for(int i = 0; i < tasks.size(); i++){
              questions.getItems().add(tasks.get(i).getQuestion());
          }
@@ -61,7 +60,28 @@ public class TestMakerController implements Initializable {
     }
     
     @FXML
+    private void mineHold() throws IOException {
+        App.setRoot("teamStaff");
+    }
+    
+    @FXML
+    private void minePrøver() throws IOException {
+        App.setRoot("testStaff");
+    }
+    
+    @FXML
+    private void forside() throws IOException{
+        App.setRoot("main");
+    }
+    
+    @FXML
+    private void logud() throws IOException{
+        App.setRoot("login");
+    }
+    
+    @FXML
     public void savetaskSet(){
         //når funktionen er klar refereres til database og taskset uploades
     }
+    
 }

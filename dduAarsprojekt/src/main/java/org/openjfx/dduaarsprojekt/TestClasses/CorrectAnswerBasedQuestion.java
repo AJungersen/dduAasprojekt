@@ -18,7 +18,8 @@ public class CorrectAnswerBasedQuestion extends Question{
         setType(QuestionsType.correctAnswerBasedQuestion);
     }
 
-    public CorrectAnswerBasedQuestion(java.lang.String correctAnswer, java.lang.String question) {
+ 
+    public CorrectAnswerBasedQuestion(String correctAnswer, String question) {
         super(question);
         this.correctAnswer = correctAnswer;
         setType(QuestionsType.correctAnswerBasedQuestion);

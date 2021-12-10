@@ -6,7 +6,6 @@
 package org.openjfx.dduaarsprojekt.TestClasses;
 
 import java.util.ArrayList;
-import org.openjfx.dduaarsprojekt.App;
 
 /**
  *
@@ -17,29 +16,25 @@ public class TaskSet {
     private int assignment_ID;
     private int user_ID;
     private String name;
-    private String description;
     private String nameOfTheFiller;
-    private ArrayList<Task> tasks = new ArrayList<>();
+    ArrayList<Task> taks;
 
-    public TaskSet(int taskSet_ID, int assignment_ID, int user_ID, String name, String description, String nameOfTheFiller, ArrayList<Task> tasks) {
+    public TaskSet(int taskSet_ID, int assignment_ID, int user_ID, String name, String nameOfTheFiller, ArrayList<Task> taks) {
         this.taskSet_ID = taskSet_ID;
         this.assignment_ID = assignment_ID;
         this.user_ID = user_ID;
         this.name = name;
-        this.description = description;
         this.nameOfTheFiller = nameOfTheFiller;
-        this.tasks = tasks;
+        this.taks = taks;
     }
     
-    public TaskSet(String name, String description, String nameOfTheFiller, ArrayList<Task> tasks) {
-        this.user_ID = App.getLoggedInUser().getUser_ID();
+    public TaskSet(int assignment_ID, int user_ID, String name, String nameOfTheFiller, ArrayList<Task> taks) {
+        this.assignment_ID = assignment_ID;
+        this.user_ID = user_ID;
         this.name = name;
-        this.description = description;
         this.nameOfTheFiller = nameOfTheFiller;
-        this.tasks = tasks;
+        this.taks = taks;
     }
-    
-    
     
     public int getTaskSet_ID() {
         return taskSet_ID;
@@ -72,22 +67,12 @@ public class TaskSet {
     public void setNameOfTheFiller(String nameOfTheFiller) {
         this.nameOfTheFiller = nameOfTheFiller;
     }
-
-    public ArrayList<Task> getTask() {
-        return tasks;
-    }
-
-    public void setTasks(ArrayList<Task> tasks) {
-        this.tasks = tasks;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
     
-    
+    public ArrayList<Task> getTaks() {
+        return taks;
+    }
+
+    public void setTaks(ArrayList<Task> taks) {
+        this.taks = taks;
+    }
 }

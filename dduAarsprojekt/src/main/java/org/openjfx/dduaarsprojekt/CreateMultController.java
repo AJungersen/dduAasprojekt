@@ -55,7 +55,7 @@ public class CreateMultController implements Initializable {
         answers.add(MultipelChoiseAnswer(Answer3.getText(),correct3.pressedProperty()));
         answers.add(MultipelChoiseAnswer(Answer4.getText(),correct4.pressedProperty()));
         
-        TestMakerController.tasks.add(new MultipelChoiseQuestion(answers,"type",question.getText()));
+        TestMakerController.tasks.add(new MultipelChoiseQuestion(answers,question.getText()));
         App.setRoot("testMaker");
     }
 

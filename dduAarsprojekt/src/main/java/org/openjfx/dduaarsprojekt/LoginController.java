@@ -20,6 +20,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import org.openjfx.dduaarsprojekt.App;
+import static org.openjfx.dduaarsprojekt.App.main;
 import org.openjfx.dduaarsprojekt.random.*;
 import org.openjfx.dduaarsprojekt.random.SecurityMethods;
 import org.openjfx.dduaarsprojekt.TestClasses.QuestionsType;
@@ -42,8 +43,7 @@ public class LoginController implements Initializable{
     
     @Override
     public void initialize(URL url, ResourceBundle rb){
-        QuestionsType qType = QuestionsType.valueOf("correctAnswerBasedQuestion");
-        
+        QuestionsType qType = QuestionsType.valueOf("correctAnswerBasedQuestion");        
         System.out.println(qType);
         
         System.out.println("\n" + qType.toString());
@@ -65,6 +65,7 @@ public class LoginController implements Initializable{
                 App.setLoggedInUser(userDatabasemethods.getLoggedInUser(textFieldUsername.getText()));
                 
                 System.out.println(App.getLoggedInUser().getType() + " logged in");
+                App.setRoot("main");
 
             } else {
                 textErrorMessage.setText("user dosen't exist or password dont match");

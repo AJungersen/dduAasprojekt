@@ -15,6 +15,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import org.openjfx.dduaarsprojekt.App;
+import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
+import org.openjfx.dduaarsprojekt.databaseRepository.TestDatabaseMethods;
 /**
  *
  * @author danie
@@ -22,30 +24,50 @@ import org.openjfx.dduaarsprojekt.App;
 public class TestStaffController implements Initializable{
     @FXML
     TableView doneTest;
+    @FXML
     TableView pendingTests;
+    @FXML
     TableColumn doneName;
+    @FXML
     TableColumn doneCorrect;
+    @FXML
     TableColumn doneParticipation;
+    @FXML
     TableColumn pendingName;
+    @FXML
     TableColumn pendingCorrect;
+    @FXML
     TableColumn pendingParticipation;
     
     
    @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        //ArrayList<Test> tests = new ArrayList<>();
-        //tests = UserDatabasemethods.getAllTests();
+        ArrayList<TaskSet> tests = new ArrayList<>();
+        tests = TestDatabaseMethods.getAllTaskSets();
     }
     
     @FXML
     private void mineHold() throws IOException {
-        App.setRoot("mineHold");
+        App.setRoot("teamStaff");
     }
     
     @FXML
     private void minePrøver() throws IOException {
-        App.setRoot("minePrøver");
+        App.setRoot("testStaff");
     }
-
     
+    @FXML
+    private void forside() throws IOException{
+        App.setRoot("main");
+    }
+    
+    @FXML
+    private void logud() throws IOException{
+        App.setRoot("login");
+    }
+    
+    @FXML
+    private void createNewTaskSet() throws IOException{
+        App.setRoot("testMaker");
+    }
 }

@@ -14,10 +14,10 @@
    <children>
       <MenuButton layoutX="677.0" layoutY="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" text="Menu">
          <items>
-            <MenuItem mnemonicParsing="false" text="Forside" />
-            <MenuItem mnemonicParsing="false" text="Mine hold" />
-            <MenuItem mnemonicParsing="false" text="Mine prøver" />
-            <MenuItem mnemonicParsing="false" text="Log ud" />
+            <MenuItem mnemonicParsing="false" onAction="#forside" text="Forside" />
+            <MenuItem mnemonicParsing="false" onAction="#mineHold" text="Mine hold" />
+            <MenuItem mnemonicParsing="false" onAction="#minePrøver" text="Mine prøver" />
+            <MenuItem mnemonicParsing="false" onAction="#logud" text="Log ud" />
          </items>
       </MenuButton>
       <Text layoutX="61.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mine hold:" wrappingWidth="160.0" />

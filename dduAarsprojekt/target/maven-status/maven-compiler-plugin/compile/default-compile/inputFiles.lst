@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+<<<<<<< Updated upstream
 C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\MainController.java
 C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\MultipelChoiseQuestion.java
 C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\UserLoginController.java
@@ -30,31 +32,41 @@ C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\o
 C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\CorrectAnswerBasedQuestion.java
 C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\module-info.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\controllers\TeamStaffController.java
+=======
+C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\random\Student.java
+>>>>>>> 10c0ccf0413a118d80faef35599ba8cd740883c1
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\databaseRepository\TestDatabaseMethods.java
-C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\SecurityMethods.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestMakerController.java
+C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\MainController.java
+C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\QuestionsType.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\App.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\MultipelChoiseQuestion.java
-C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\controllers\CreateUserController.java
-C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\controllers\TeamStudentController.java
-C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\Teacher.java
+C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\LoginController.java
+C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\random\Teacher.java
+C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\AnswerAnswerbasedController.java
+C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\random\User.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\math\MathStats.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\textAnswerBasedQuestion.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\CreateMultController.java
-C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\controllers\LoginController.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\Question.java
+C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TeamStudentController.java
+C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\CreateAnswerbasedController.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\databaseRepository\UserDatabasemethods.java
-C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\controllers\TestStaffController.java
+C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\random\SecurityMethods.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\Task.java
-C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\Student.java
+C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestStudentController.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\TaskSet.java
-C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\controllers\MainController.java
-C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\User.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\CorrectAnswerBasedQuestion.java
+C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestStaffController.java
+C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\AnswerMult.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\math\Crypt.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\module-info.java
-C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\controllers\TestStudentController.java
+C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TeamStaffController.java
+C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\CreateUserController.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\MultipelChoiseAnswer.java
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\CreateUserController.java
 C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\MainController.java
 C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\TaskSet.java
@@ -81,4 +93,9 @@ C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\math\
 C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestMakerController.java
 C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\module-info.java
 C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\LoginController.java
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> 10c0ccf0413a118d80faef35599ba8cd740883c1

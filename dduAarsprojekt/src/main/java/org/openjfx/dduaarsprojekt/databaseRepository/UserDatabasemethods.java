@@ -187,7 +187,7 @@ public class UserDatabasemethods {
         try {
             Statement stat = conn.createStatement();
 
-            ResultSet rs = stat.executeQuery("SELECT teacher_ID FROM Teachers WHERE teacher_ID = (SELECT MAX(teacher_ID) FROM Teachers);");
+            ResultSet rs = stat.executeQuery("SELECT MAX(teacher_ID) FROM Teachers;");
 
             rs.next();
 
@@ -240,7 +240,7 @@ public class UserDatabasemethods {
         try {
             Statement stat = conn.createStatement();
 
-            ResultSet rs = stat.executeQuery("SELECT student_ID FROM Students WHERE student_ID = (SELECT MAX(student_ID) FROM Students);");
+            ResultSet rs = stat.executeQuery("SELECT MAX(student_ID) FROM Students;");
 
             rs.next();
 
