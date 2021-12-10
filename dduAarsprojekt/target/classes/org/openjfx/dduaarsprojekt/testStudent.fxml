@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
@@ -20,20 +21,13 @@
       </MenuButton>
       <Text layoutX="61.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manglende prøver" wrappingWidth="160.0" />
       <Text layoutX="61.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Færdiggjorte prøver" wrappingWidth="115.8753662109375" />
-      <TableView layoutX="61.0" layoutY="55.0" prefHeight="200.0" prefWidth="302.0">
+      <TableView fx:id="done" layoutX="61.0" layoutY="288.0" prefHeight="200.0" prefWidth="302.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="Prøve navn" />
-            <TableColumn prefWidth="109.5999755859375" text="Rigtighedsprocent" />
-            <TableColumn prefWidth="116.80002441406248" text="Deltagelsesprocent" />
-         </columns>
-      </TableView>
-      <TableView layoutX="61.0" layoutY="288.0" prefHeight="200.0" prefWidth="302.0">
-         <columns>
-            <TableColumn prefWidth="75.0" text="Prøve navn" />
-            <TableColumn prefWidth="109.5999755859375" text="Rigtighedsprocent" />
-            <TableColumn prefWidth="116.80002441406248" text="Deltagelsesprocent" />
+            <TableColumn prefWidth="153.0" text="Prøve navn" />
+            <TableColumn prefWidth="148.0" text="Rigtighedsprocent" />
          </columns>
       </TableView>
       <Button layoutX="543.0" layoutY="259.0" mnemonicParsing="false" text="Start prøve" />
+      <ListView fx:id="OngoingTests" layoutX="61.0" layoutY="56.0" prefHeight="189.0" prefWidth="302.0" />
    </children>
 </AnchorPane>
