@@ -23,19 +23,26 @@ import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
 public class TestStaffController implements Initializable{
     @FXML
     TableView doneTest;
+    @FXML
     TableView pendingTests;
+    @FXML
     TableColumn doneName;
+    @FXML
     TableColumn doneCorrect;
+    @FXML
     TableColumn doneParticipation;
+    @FXML
     TableColumn pendingName;
+    @FXML
     TableColumn pendingCorrect;
+    @FXML
     TableColumn pendingParticipation;
     
     
    @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        ArrayList<TaskSet> tests = new ArrayList<>();
-        tests = UserDatabasemethods.getAllTaskSets();
+        //ArrayList<TaskSet> tests = new ArrayList<>();
+        //tests = UserDatabasemethods.getAllTaskSets();
     }
     
     @FXML
@@ -56,5 +63,10 @@ public class TestStaffController implements Initializable{
     @FXML
     private void logud() throws IOException{
         App.setRoot("login");
+    }
+    
+    @FXML
+    private void createNewTaskSet() throws IOException{
+        App.setRoot("testMaker");
     }
 }
