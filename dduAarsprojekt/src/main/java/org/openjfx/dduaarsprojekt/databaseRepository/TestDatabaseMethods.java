@@ -160,12 +160,12 @@ public class TestDatabaseMethods {
             int taskSet_ID = rs.getInt("taskSet_ID");
 
             //create task
-            for (int i = 0; i < _taskSet.getTask().size(); i++) {
+            for (int i = 0; i < _taskSet.getTasks().size(); i++) {
 
                 int question_ID = 0;
                 
                 //insert questions from tasks
-                switch (_taskSet.getTask().get(i).getQuestion().getType()) {
+                switch (_taskSet.getTasks().get(i).getQuestion().getType()) {
                     case multipelChoiseQuestion:
 
                         sql = "INSERT INTO multipelChoiseQuestion";
@@ -184,7 +184,7 @@ public class TestDatabaseMethods {
                             System.out.println("\n Database error (create multiepl choice questien ( get question_ID): " + e.getMessage() + "\n");
                         }
 
-                        MultipelChoiseQuestion question = _taskSet.getTask().get(i).getQuestion().asMultipelChoiseQuestion();
+                        MultipelChoiseQuestion question = _taskSet.getTasks().get(i).getQuestion().asMultipelChoiseQuestion();
 
                         for (int u = 0; u < question.getAnswerOptions().size(); u++) {
                             sql = "INSERT INTO multipelChoiseAnswers(multipelChoiseQuestion_ID, answer, correct) VALUES"
@@ -201,7 +201,7 @@ public class TestDatabaseMethods {
 
                     case correctAnswerBasedQuestion:
 
-                        CorrectAnswerBasedQuestion correctAnswerBasedQuestion = _taskSet.getTask().get(i).getQuestion().asCorrectAnswerBasedQuestion();
+                        CorrectAnswerBasedQuestion correctAnswerBasedQuestion = _taskSet.getTasks().get(i).getQuestion().asCorrectAnswerBasedQuestion();
 
                         sql = "INSERT INTOR CorrectAnswerBasedQuestion(correctAnswer) VALUES ('" + correctAnswerBasedQuestion.getCorrectAnswer() + "')";
 
@@ -229,8 +229,8 @@ public class TestDatabaseMethods {
                 //insert task to questions
                 sql = "INSERT INTO tasks (taskSet_ID, question_ID, questionType, question) "
                         + "VALUES ('" + taskSet_ID +"', '" + question_ID + "', "
-                        + "'" + _taskSet.getTask().get(i).getQuestion().getType() +"', "
-                        + "'" + _taskSet.getTask().get(i).getQuestion().getQuestion() + "')";
+                        + "'" + _taskSet.getTasks().get(i).getQuestion().getType() +"', "
+                        + "'" + _taskSet.getTasks().get(i).getQuestion().getQuestion() + "')";
 
                 try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
                     pstmt.executeUpdate();

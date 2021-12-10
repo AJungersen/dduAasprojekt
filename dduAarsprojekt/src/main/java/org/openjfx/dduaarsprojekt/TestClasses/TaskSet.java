@@ -16,22 +16,27 @@ public class TaskSet {
     private int assignment_ID;
     private int user_ID;
     private String name;
+    private String description;
     private String nameOfTheFiller;
+    private boolean handedIn = false;
     ArrayList<Task> taks;
 
-    public TaskSet(int taskSet_ID, int assignment_ID, int user_ID, String name, String nameOfTheFiller, ArrayList<Task> taks) {
+    public TaskSet(int taskSet_ID, int assignment_ID, int user_ID, String name, String description, String nameOfTheFiller, boolean handedIn, ArrayList<Task> taks) {
         this.taskSet_ID = taskSet_ID;
         this.assignment_ID = assignment_ID;
         this.user_ID = user_ID;
         this.name = name;
+        this.description = description;
         this.nameOfTheFiller = nameOfTheFiller;
+        this.handedIn = handedIn;
         this.taks = taks;
     }
     
-    public TaskSet(int assignment_ID, int user_ID, String name, String nameOfTheFiller, ArrayList<Task> taks) {
+    public TaskSet(int assignment_ID, int user_ID, String name, String description, String nameOfTheFiller, ArrayList<Task> taks) {
         this.assignment_ID = assignment_ID;
         this.user_ID = user_ID;
         this.name = name;
+        this.description = description;
         this.nameOfTheFiller = nameOfTheFiller;
         this.taks = taks;
     }
@@ -60,6 +65,14 @@ public class TaskSet {
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
     public String getNameOfTheFiller() {
         return nameOfTheFiller;
     }
@@ -68,11 +81,19 @@ public class TaskSet {
         this.nameOfTheFiller = nameOfTheFiller;
     }
     
-    public ArrayList<Task> getTaks() {
+    public boolean getHandedIn() {
+        return handedIn;
+    }
+    
+    public void setHandedIn() {
+        this.handedIn = handedIn;
+    }
+    
+    public ArrayList<Task> getTasks() {
         return taks;
     }
 
-    public void setTaks(ArrayList<Task> taks) {
+    public void setTasks(ArrayList<Task> taks) {
         this.taks = taks;
     }
 }
