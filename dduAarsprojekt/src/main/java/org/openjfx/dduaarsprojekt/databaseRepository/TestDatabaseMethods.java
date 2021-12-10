@@ -104,7 +104,6 @@ public class TestDatabaseMethods {
         } catch (SQLException e) {
             //Skrive fejlhåndtering her
             System.out.println("\n Database error (get all task set answers (get data): " + e.getMessage() + "\n");
-            System.out.println("\n Database error (check for matching user (resultset): " + e.getMessage() + "\n");
         }
 
         return taskSets;
