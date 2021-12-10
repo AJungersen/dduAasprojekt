@@ -16,6 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import org.openjfx.dduaarsprojekt.App;
 import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
+import org.openjfx.dduaarsprojekt.databaseRepository.TestDatabaseMethods;
 /**
  *
  * @author danie
@@ -41,8 +42,8 @@ public class TestStaffController implements Initializable{
     
    @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        //ArrayList<TaskSet> tests = new ArrayList<>();
-        //tests = UserDatabasemethods.getAllTaskSets();
+        ArrayList<TaskSet> tests = new ArrayList<>();
+        tests = TestDatabaseMethods.getAllTaskSets();
     }
     
     @FXML

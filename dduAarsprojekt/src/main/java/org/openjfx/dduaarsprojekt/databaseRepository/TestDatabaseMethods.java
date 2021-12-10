@@ -135,6 +135,13 @@ public class TestDatabaseMethods {
             System.out.println("\n Database error (create task set (connection): " + e.getMessage() + "\n");
         }
     }
+    
+    public static ArrayList<TaskSet> getAllTaskSets(){
+        ArrayList alltasksets = new ArrayList();
+        //placeholder
+        // lav rigtig funktion senere
+        return alltasksets;
+    }
 }
 
 
