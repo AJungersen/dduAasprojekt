@@ -39,7 +39,6 @@ public class TestMakerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ArrayList<Question>taskList = new ArrayList<Question>(tasks);
-         current = new TaskSet(App.getLoggedInUser().getUser_ID(),testName.getText(),taskList);
          for(int i = 0; i < tasks.size(); i++){
              questions.getItems().add(tasks.get(i).getQuestion());
          }
@@ -58,6 +57,26 @@ public class TestMakerController implements Initializable {
         current.setName(testName.getText());
         current.setDescription(description.getText());
         App.setRoot("createAnswerbased");
+    }
+    
+    @FXML
+    private void mineHold() throws IOException {
+        App.setRoot("teamStaff");
+    }
+    
+    @FXML
+    private void minePrøver() throws IOException {
+        App.setRoot("testStaff");
+    }
+    
+    @FXML
+    private void forside() throws IOException{
+        App.setRoot("main");
+    }
+    
+    @FXML
+    private void logud() throws IOException{
+        App.setRoot("login");
     }
     
     @FXML

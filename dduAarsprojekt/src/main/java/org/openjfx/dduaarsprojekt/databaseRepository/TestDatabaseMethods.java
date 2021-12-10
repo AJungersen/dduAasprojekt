@@ -48,7 +48,7 @@ public class TestDatabaseMethods {
 
             while (rs.next()) {
 
-                taskSets.add(new TaskSet(rs.getInt("taskSet_ID"), _assignmentID, rs.getInt("user_ID"), rs.getString("taskSetName"), rs.getString("nameOfTheFiller"), null));
+                taskSets.add(new TaskSet(rs.getInt("taskSet_ID"), _assignmentID, rs.getInt("user_ID"), rs.getString("taskSetName"), rs.getString("description"), rs.getString("nameOfTheFiller"), null));
             }
 
             //lav for loop til at hente alle task
@@ -120,13 +120,27 @@ public class TestDatabaseMethods {
         try {
             Statement stat = conn.createStatement();
             
-            ResultSet rs = stat.executeQuery("");
+            //make assignment
+            ResultSet rs = stat.executeQuery("INSERT INTO ");
+            
+            //make taskset
+            
+            //make tasks
+            
+                //insertquestions from tasks
             
             conn = DriverManager.getConnection(connectionString);
         } catch (SQLException e) {
             //Skrive fejlhåndtering her
             System.out.println("\n Database error (create task set (connection): " + e.getMessage() + "\n");
         }
+    }
+    
+    public static ArrayList<TaskSet> getAllTaskSets(){
+        ArrayList alltasksets = new ArrayList();
+        //placeholder
+        // lav rigtig funktion senere
+        return alltasksets;
     }
 }
 

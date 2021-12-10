@@ -6,6 +6,7 @@
 package org.openjfx.dduaarsprojekt.TestClasses;
 
 import java.util.ArrayList;
+import org.openjfx.dduaarsprojekt.App;
 
 /**
  *
@@ -16,22 +17,24 @@ public class TaskSet {
     private int assignment_ID;
     private int user_ID;
     private String name;
+    private String description;
     private String nameOfTheFiller;
     private ArrayList<Task> tasks = new ArrayList<>();
 
-    public TaskSet(int taskSet_ID, int assignment_ID, int user_ID, String name, String nameOfTheFiller, ArrayList<Task> tasks) {
+    public TaskSet(int taskSet_ID, int assignment_ID, int user_ID, String name, String description, String nameOfTheFiller, ArrayList<Task> tasks) {
         this.taskSet_ID = taskSet_ID;
         this.assignment_ID = assignment_ID;
         this.user_ID = user_ID;
         this.name = name;
+        this.description = description;
         this.nameOfTheFiller = nameOfTheFiller;
         this.tasks = tasks;
     }
     
-    public TaskSet(int assignment_ID, int user_ID, String name, String nameOfTheFiller, ArrayList<Task> tasks) {
-        this.assignment_ID = assignment_ID;
-        this.user_ID = user_ID;
+    public TaskSet(String name, String description, String nameOfTheFiller, ArrayList<Task> tasks) {
+        this.user_ID = App.getLoggedInUser().getUser_ID();
         this.name = name;
+        this.description = description;
         this.nameOfTheFiller = nameOfTheFiller;
         this.tasks = tasks;
     }
@@ -77,4 +80,14 @@ public class TaskSet {
     public void setTasks(ArrayList<Task> tasks) {
         this.tasks = tasks;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+    
 }

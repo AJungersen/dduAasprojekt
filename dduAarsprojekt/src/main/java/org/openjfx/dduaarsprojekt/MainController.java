@@ -11,18 +11,34 @@
 package org.openjfx.dduaarsprojekt;
 
 import java.io.IOException;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import org.openjfx.dduaarsprojekt.App;
 
 public class MainController {
+    
 
     @FXML
     private void mineHold() throws IOException {
-        App.setRoot("mineHold");
+        App.setRoot("teamStaff");
     }
     
     @FXML
     private void minePrøver() throws IOException {
-        App.setRoot("minePrøver");
+        App.setRoot("testStaff");
+    }
+    
+    @FXML
+    private void forside() throws IOException{
+        App.setRoot("main");
+    }
+    
+    @FXML
+    private void logud() throws IOException{
+        App.setRoot("login");
     }
 }
