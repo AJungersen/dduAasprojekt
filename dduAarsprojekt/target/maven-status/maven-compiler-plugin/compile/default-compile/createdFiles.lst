@@ -8,6 +8,7 @@ org\openjfx\dduaarsprojekt\random\Teacher.class
 org\openjfx\dduaarsprojekt\TeamStudentController.class
 org\openjfx\dduaarsprojekt\databaseRepository\TestDatabaseMethods$1.class
 org\openjfx\dduaarsprojekt\TestMakerController.class
+org\openjfx\dduaarsprojekt\random\Teams.class
 org\openjfx\dduaarsprojekt\TestClasses\CorrectAnswerBasedQuestion.class
 module-info.class
 org\openjfx\dduaarsprojekt\TestClasses\MultipelChoiseQuestion.class
@@ -27,10 +28,5 @@ org\openjfx\dduaarsprojekt\CreateUserController.class
 org\openjfx\dduaarsprojekt\TeamStaffController.class
 org\openjfx\dduaarsprojekt\random\SecurityMethods.class
 org\openjfx\dduaarsprojekt\databaseRepository\TestDatabaseMethods.class
-org\openjfx\dduaarsprojekt\controllers\TeamStaffController.class
-org\openjfx\dduaarsprojekt\controllers\MainController.class
 org\openjfx\dduaarsprojekt\random\Student.class
 org\openjfx\dduaarsprojekt\random\User.class
-org\openjfx\dduaarsprojekt\random\Student.class
-org\openjfx\dduaarsprojekt\random\User.class
-
