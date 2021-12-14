@@ -63,6 +63,8 @@ public class UserDatabasemethods {
         if (_username.equalsIgnoreCase(databaseUsername)) {
             return true;
         }
+        
+        conn.close();
 
         return false;
     }
@@ -104,7 +106,7 @@ public class UserDatabasemethods {
         if (_password.equals(databasePassword)) {
             return true;
         }
-
+        conn.close();
         return false;
     }
 
@@ -152,6 +154,7 @@ public class UserDatabasemethods {
         } catch (SQLException e) {
             System.out.println("\n Database error (create user (insert user)): " + e.getMessage() + "\n");
         }
+        conn.close();
     }
 
     //------------------------------------
@@ -184,27 +187,29 @@ public class UserDatabasemethods {
         }
 
         //get teacher id
-        try {
+        try {   
             Statement stat = conn.createStatement();
 
             ResultSet rs = stat.executeQuery("SELECT MAX(teacher_ID) FROM Teachers;");
 
             rs.next();
 
-            userType_ID = rs.getInt("teacher_ID");
+            userType_ID = rs.getInt("MAX(teacher_ID)");
+            System.out.println(userType_ID);
 
             rs.close();
         } catch (SQLException e) {
             //Skrive fejlhåndtering her
             System.out.println("\n Database error (create teacher (result set get teacher id)): " + e.getMessage() + "\n");
         }
-
+        
+        conn.close();
+        
         User newUser = _newTeacher;
 
         newUser.setUserType_ID(userType_ID);
 
-        UserDatabasemethods userDatabasemethods = new UserDatabasemethods();
-        userDatabasemethods.createUser(newUser, _newTeacher.getKey());
+        createUser(newUser, _newTeacher.getKey());
     }
 
     //------------------------------------
@@ -244,20 +249,21 @@ public class UserDatabasemethods {
 
             rs.next();
 
-            userType_ID = rs.getInt("student_ID");
+            userType_ID = rs.getInt("MAX(student_ID)");
 
             rs.close();
         } catch (SQLException e) {
             //Skrive fejlhåndtering her
             System.out.println("\n Database error (create student (resultset get student ID): " + e.getMessage() + "\n");
         }
-
+        
+        conn.close();
+        
         User newUser = _newStudent;
 
         newUser.setUserType_ID(userType_ID);
 
-        UserDatabasemethods userDatabasemethods = new UserDatabasemethods();
-        userDatabasemethods.createUser(newUser, key);
+        createUser(newUser, key);
     }
 
     //----------------------------------------
@@ -318,7 +324,9 @@ public class UserDatabasemethods {
             //Skrive fejlhåndtering her
             System.out.println("\n Database error (get logged ind user (result set get user)): " + e.getMessage() + "\n");
         }
-
+        
+        conn.close();
+        
         return loggedInUser;
     }
 
@@ -357,7 +365,9 @@ public class UserDatabasemethods {
         if (_key.equals(databasekey)) {
             return true;
         }
-
+        
+        conn.close();
+        
         return false;
     }
 }

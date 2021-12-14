@@ -83,6 +83,7 @@ public class CreateUserController {
                                     
                                     //hop vider mangler fxml App.setRoot("");
                                     System.out.println(App.getLoggedInUser().getType() + " logged in");
+                                    
                                 } else {
                                     textErroMessage.setText("School key dosent exist");
                                 }
