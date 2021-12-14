@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * JavaFX App
+ * Branch test
  */
 public class App extends Application {
     private static User loggedInUser = new User();
