@@ -1,35 +1,3 @@
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\MainController.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\MultipelChoiseQuestion.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\UserLoginController.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\textAnswerBasedQuestion.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\databaseRepository\UserDatabasemethods.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\Test.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\Teacher.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TeamStaffController.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\MultipelChoiseAnswer.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\math\Crypt.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\SecurityMethods.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\logInSystem.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\App.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestMakerController.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\QuestionFolder\MultipleChoiceAnswer.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\databaseRepository\TestDatabaseMethods.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestStudentController.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\QuestionFolder\MultipleChoiceQuestion.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\QuestionFolder\Question.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\CreateUserController.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestStaffController.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\TaksSet.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\User.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\math\MathStats.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\Student.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TeamStudentController.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\Question.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\Task.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\LoginController.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\CorrectAnswerBasedQuestion.java
-C:\Users\Clara Maj\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\module-info.java
-C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\controllers\TeamStaffController.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\random\Student.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\databaseRepository\TestDatabaseMethods.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestMakerController.java
@@ -60,30 +28,3 @@ C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TeamStaffController.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\CreateUserController.java
 C:\Users\danie\Documents\NetBeansProjects\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\MultipelChoiseAnswer.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\CreateUserController.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\MainController.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\TaskSet.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\random\Student.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\Task.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\random\User.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\MultipelChoiseQuestion.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestStaffController.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\CorrectAnswerBasedQuestion.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\Question.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\random\SecurityMethods.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\textAnswerBasedQuestion.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\random\Teacher.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\MultipelChoiseAnswer.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\databaseRepository\UserDatabasemethods.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestStudentController.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TeamStudentController.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TeamStaffController.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\math\MathStats.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\databaseRepository\TestDatabaseMethods.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\App.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\QuestionsType.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\math\Crypt.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestMakerController.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\module-info.java
-C:\Users\chris\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\LoginController.java
-
