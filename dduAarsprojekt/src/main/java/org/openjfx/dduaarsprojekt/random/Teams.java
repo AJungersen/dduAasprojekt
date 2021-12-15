@@ -31,10 +31,25 @@ public class Teams {
         students = new ArrayList();
     }
     
-    private int getTeam_ID(){
+    public int getTeam_ID(){
         return team_ID;
     }
-    private String getTeamName(){
+    public String getTeamName(){
         return teamName;
+    }
+    public ArrayList<TaskSet> getTaskSets(){
+        return taskSets;
+    }
+    public ArrayList<Student> getStudents(){
+        return students;
+    }
+    public void setTeamName(String tName){
+        teamName = tName;
+    }
+    public void setTaskSets(ArrayList<TaskSet> tasks){
+        taskSets = tasks;
+    }
+    public void setStudents(ArrayList<Student> studs){
+        students = studs;
     }
 }
