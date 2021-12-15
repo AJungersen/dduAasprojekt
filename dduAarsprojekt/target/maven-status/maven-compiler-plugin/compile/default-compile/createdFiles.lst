@@ -8,6 +8,7 @@ org\openjfx\dduaarsprojekt\random\Teacher.class
 org\openjfx\dduaarsprojekt\TeamStudentController.class
 org\openjfx\dduaarsprojekt\databaseRepository\TestDatabaseMethods$1.class
 org\openjfx\dduaarsprojekt\TestMakerController.class
+org\openjfx\dduaarsprojekt\random\Teams.class
 org\openjfx\dduaarsprojekt\TestClasses\CorrectAnswerBasedQuestion.class
 module-info.class
 org\openjfx\dduaarsprojekt\TestClasses\MultipelChoiseQuestion.class
