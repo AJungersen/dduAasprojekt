@@ -35,6 +35,6 @@ public class Teams {
         return team_ID;
     }
     private String getTeamName(){
-        
+        return teamName;
     }
 }
