@@ -24,26 +24,34 @@ public class TestDatabaseMethods {
 
     private final String connectionString = "jdbc:sqlite:Database.db";
 
-    //-------------------------------------------------
-    //---------- load user from usertype id -----------
-    //-------------------------------------------------
-    
+    //--------------------------------
+    //---------- load user -----------
+    //--------------------------------
+    private User loadUser(Connection conn, int _userID) throws SQLException, Exception {
+        User loadedUser = new User();
+
+        Class.forName("org.sqlite.JDBC");
+
+        try {
+            Statement stat = conn.createStatement();
+            ResultSet rs = stat.executeQuery("SELECT * FROM users WHERE user_ID=('" + _userID + "')");
+
+            loadedUser = new User(_userID, rs.getInt("userType_ID"), rs.getString("username"), rs.getString("password"));
+
+        } catch (SQLException e) {
+            System.out.println("\n Database error (load user (load info): " + e.getMessage() + "\n");
+        }
+
+        return loadedUser;
+    }
+
     //-----------------------------------
     //---------- load students ----------
     //-----------------------------------
-    private ArrayList<Student> loadStudents(ResultSet rs) throws SQLException, Exception {
+    private ArrayList<Student> loadStudents(Connection conn, ResultSet rs) throws SQLException, Exception {
         ArrayList<Student> loadedeStudents = new ArrayList<>();
 
-        Connection conn = null;
         Class.forName("org.sqlite.JDBC");
-
-        //Skab forbindelse til databasen...
-        try {
-            conn = DriverManager.getConnection(connectionString);
-        } catch (SQLException e) {
-            //Skrive fejlhåndtering her
-            System.out.println("\n Database error (load students (connection): " + e.getMessage() + "\n");
-        }
 
         Statement stat = conn.createStatement();
 
@@ -54,9 +62,21 @@ public class TestDatabaseMethods {
         } catch (SQLException e) {
             System.out.println("\n Database error (load students (load student info): " + e.getMessage() + "\n");
         }
+        try {
 
-        for (int i = 0; i < loadedeStudents.size(); i++) {
+            for (int i = 0; i < loadedeStudents.size(); i++) {
+                rs = stat.executeQuery("SELECT user_ID FROM Users WHERE userType_ID = "
+                        + "('" + loadedeStudents.get(i).getUserType_ID() + "') "
+                        + "AND type = ('" + "student" + "')");
 
+                User loadeUser = loadUser(conn, rs.getInt("user_ID"));
+
+                loadedeStudents.get(i).setUser_ID(loadeUser.getUser_ID());
+                loadedeStudents.get(i).setUsername(loadeUser.getUsername());
+                loadedeStudents.get(i).setPassword(loadeUser.getPassword());
+            }
+        } catch (SQLException e) {
+            System.out.println("\n Database error (load students (get user id): " + e.getMessage() + "\n");
         }
 
         return loadedeStudents;
@@ -65,29 +85,19 @@ public class TestDatabaseMethods {
     //----------------------------------
     //---------- load teacher ----------
     //----------------------------------
-    
     //-----------------------------------
     //---------- load task set ----------
     //-----------------------------------
-    private ArrayList<TaskSet> loadTaskSets(ResultSet rs, int _assignmentID) throws SQLException, Exception {
+    private ArrayList<TaskSet> loadTaskSets(Connection conn, ResultSet rs) throws SQLException, Exception {
         ArrayList<TaskSet> loadedTaskSets = new ArrayList<>();
 
-        Connection conn = null;
         Class.forName("org.sqlite.JDBC");
-
-        //Skab forbindelse til databasen...
-        try {
-            conn = DriverManager.getConnection(connectionString);
-        } catch (SQLException e) {
-            //Skrive fejlhåndtering her
-            System.out.println("\n Database error (load task sets (connection): " + e.getMessage() + "\n");
-        }
 
         try {
             Statement stat = conn.createStatement();
 
             while (rs.next()) {
-                loadedTaskSets.add(new TaskSet(rs.getInt("taskSet_ID"), _assignmentID, rs.getInt("user_ID"), rs.getString("taskSetName"), rs.getString("description"), rs.getString("nameOfTheFiller"), (rs.getInt("handedIn") == 1 ? true : false), null));
+                loadedTaskSets.add(new TaskSet(rs.getInt("taskSet_ID"), rs.getInt("assignment_ID"), rs.getInt("user_ID"), rs.getString("taskSetName"), rs.getString("description"), rs.getString("nameOfTheFiller"), (rs.getInt("handedIn") == 1 ? true : false), null));
             }
 
             //lav for loop til at hente alle task
@@ -151,25 +161,16 @@ public class TestDatabaseMethods {
     //-------------------------------
     //---------- load team ----------
     //-------------------------------
-    private ArrayList<Team> loadTeams(ResultSet rs) throws SQLException, Exception {
+    private ArrayList<Team> loadTeams(Connection conn, ResultSet rs, int _userID) throws SQLException, Exception {
         ArrayList<Team> loadedTeams = new ArrayList<>();
 
-        Connection conn = null;
         Class.forName("org.sqlite.JDBC");
-
-        //Skab forbindelse til databasen...
-        try {
-            conn = DriverManager.getConnection(connectionString);
-        } catch (SQLException e) {
-            //Skrive fejlhåndtering her
-            System.out.println("\n Database error (load teams (connection): " + e.getMessage() + "\n");
-        }
 
         Statement stat = conn.createStatement();
 
         try {
             while (rs.next()) {
-                loadedTeams.add(new Team(rs.getInt("team_ID"), rs.getString("teamName"), null, null));
+                loadedTeams.add(new Team(rs.getInt("team_ID"), rs.getInt("teacher_ID"), rs.getString("teamName"), null, null));
             }
         } catch (SQLException e) {
             System.out.println("\n Database error (load teams (load team info): " + e.getMessage() + "\n");
@@ -180,9 +181,13 @@ public class TestDatabaseMethods {
                 rs = stat.executeQuery("SELECT * FROM Students WHERE student_ID IN"
                         + "(SELECT student_ID FROM TeamsAndStudents WHERE team_ID = ('" + loadedTeams.get(i).getTeam_ID() + "'))");
 
-                ArrayList<Student> loadedTeamsStudents = new ArrayList<>();
+                loadedTeams.get(i).setStudents(loadStudents(conn, rs));
 
-                loadedTeams.get(i).setStudents(loadedTeamsStudents);
+                rs = stat.executeQuery("SELECT * taskSets WHERE assignment_ID IN"
+                        + "(SELECT assignmetn_ID FROM teamasAndAssignments WHERE team_Id=('" + loadedTeams.get(i).getTeam_ID() + "'))"
+                        + "AND user_ID = ('" + _userID + "')");
+
+                loadedTeams.get(i).setTaskSet(loadTaskSets(conn, rs));
             }
         } catch (SQLException e) {
             System.out.println("\n Database error (load teams (load students): " + e.getMessage() + "\n");
@@ -192,7 +197,9 @@ public class TestDatabaseMethods {
     }
 
     //--------------------------------------------------------------------
+    //--------------------------------------------------------------------
     //------------------------------ public ------------------------------
+    //--------------------------------------------------------------------
     //--------------------------------------------------------------------
     //----------------------------------------------
     //---------- get all task set answers ----------
@@ -217,7 +224,7 @@ public class TestDatabaseMethods {
             //hent information til alle task setne
             ResultSet rs = stat.executeQuery("SELECT * FROM taskSets WHERE assignment_ID=('" + _assignmentID + "') AND WHERE NOT user_ID=('" + App.getLoggedInUser().getUser_ID() + "')");
 
-            loadTaskSets(rs, _assignmentID);
+            loadTaskSets(conn, rs);
 
             rs.close();
 
@@ -225,6 +232,8 @@ public class TestDatabaseMethods {
             //Skrive fejlhåndtering her
             System.out.println("\n Database error (get all task set answers (get data): " + e.getMessage() + "\n");
         }
+
+        conn.close();
 
         return taskSets;
     }
@@ -362,24 +371,46 @@ public class TestDatabaseMethods {
             //Skrive fejlhåndtering her
             System.out.println("\n Database error (create task set (insert): " + e.getMessage() + "\n");
         }
+
+        conn.close();
     }
 
-    //-----------------------------------------
-    //---------- get users task sets ----------
-    //-----------------------------------------
-    public ArrayList<Task> getUsersTasksSets() throws SQLException, Exception {
-        ArrayList<Task> usersTasksSets = new ArrayList<>();
+    //----------------------------------------------------
+    //---------- get users task individual sets ----------
+    //----------------------------------------------------
+    public ArrayList<TaskSet> getUsersIndividualTasksSets() throws SQLException, Exception {
+        ArrayList<TaskSet> usersIndividualTasksSets = new ArrayList<>();
 
-        return usersTasksSets;
+        Connection conn = null;
+        Class.forName("org.sqlite.JDBC");
+
+        try {
+            conn = DriverManager.getConnection(connectionString);
+        } catch (SQLException e) {
+            //Skrive fejlhåndtering her
+            System.out.println("\n Database error (create task set (connection): " + e.getMessage() + "\n");
+        }
+
+        return usersIndividualTasksSets;
     }
 
-    //-----------------------------------------
-    //---------- get teams task sets ----------
-    //-----------------------------------------
-    public ArrayList<Task> getTeamsTaskSets() throws SQLException, Exception {
-        ArrayList<Task> teamTaskSets = new ArrayList<>();
+    //-------------------------------------------------------
+    //---------- get teachers individual task sets ----------
+    //-------------------------------------------------------
+    public ArrayList<TaskSet> getTeachersIndividualTaskSets() throws SQLException, Exception {
+        ArrayList<TaskSet> teachersIndividualTaskSets = new ArrayList<>();
 
-        return teamTaskSets;
+        Connection conn = null;
+        Class.forName("org.sqlite.JDBC");
+
+        try {
+            conn = DriverManager.getConnection(connectionString);
+        } catch (SQLException e) {
+            //Skrive fejlhåndtering her
+            System.out.println("\n Database error (create task set (connection): " + e.getMessage() + "\n");
+        }
+
+        return teachersIndividualTaskSets;
     }
 
     //------------------------------------------------
@@ -388,6 +419,38 @@ public class TestDatabaseMethods {
     public ArrayList<Team> getStudentsTeams(int _studentID) throws SQLException, Exception {
         ArrayList<Team> studentsTeams = new ArrayList<>();
 
+        Connection conn = null;
+        Class.forName("org.sqlite.JDBC");
+
+        try {
+            conn = DriverManager.getConnection(connectionString);
+        } catch (SQLException e) {
+            //Skrive fejlhåndtering her
+            System.out.println("\n Database error (get students teams (connection): " + e.getMessage() + "\n");
+        }
+
+        try {
+            Statement stat = conn.createStatement();
+           
+            //hent user id
+            ResultSet rs = stat.executeQuery("SELECT user_ID FROM Users WHERE userType_ID = "
+                    + "('" + _studentID + "') "
+                    + "AND type = ('" + "student" + "')");
+            
+            int user_ID = rs.getInt("user_ID");
+            
+            //hent result set of teams
+            rs = stat.executeQuery("SELECT * FROM Teams WHERE team_ID IN"
+                    + "(SELECT team_ID FROM teamsAndStudents WHERE student_ID =('" + _studentID + "'))");
+
+            studentsTeams = loadTeams(conn, rs, user_ID);
+            
+        } catch (SQLException e) {
+            System.out.println("\n Database error (get students teams (get info): " + e.getMessage() + "\n");
+        }
+        
+        conn.close();
+        
         return studentsTeams;
     }
 
@@ -397,6 +460,37 @@ public class TestDatabaseMethods {
     public ArrayList<Team> getTeachersTeams(int _teacherID) throws SQLException, Exception {
         ArrayList<Team> teachersTeams = new ArrayList<>();
 
+        Connection conn = null;
+        Class.forName("org.sqlite.JDBC");
+
+        try {
+            conn = DriverManager.getConnection(connectionString);
+        } catch (SQLException e) {
+            //Skrive fejlhåndtering her
+            System.out.println("\n Database error (get teachers teams (connection): " + e.getMessage() + "\n");
+        }
+        
+        try {
+            Statement stat = conn.createStatement();
+           
+            //hent user id
+            ResultSet rs = stat.executeQuery("SELECT user_ID FROM Users WHERE userType_ID = "
+                    + "('" + _teacherID + "') "
+                    + "AND type = ('" + "teacher" + "')");
+            
+            int user_ID = rs.getInt("user_ID");
+            
+            //hent result set of teams
+            rs = stat.executeQuery("SELECT * FROM Teams WHERE teacher_ID = ('" + _teacherID + "'))");
+
+            teachersTeams = loadTeams(conn, rs, user_ID);
+            
+        } catch (SQLException e) {
+            System.out.println("\n Database error (get teachers teams (get info): " + e.getMessage() + "\n");
+        }
+        
+        conn.close();
+        
         return teachersTeams;
     }
 
@@ -405,6 +499,16 @@ public class TestDatabaseMethods {
     //------------------------------------------
     public ArrayList<Student> getSchoolsStudents(int _schoolID) throws SQLException, Exception {
         ArrayList<Student> students = new ArrayList<>();
+
+        Connection conn = null;
+        Class.forName("org.sqlite.JDBC");
+
+        try {
+            conn = DriverManager.getConnection(connectionString);
+        } catch (SQLException e) {
+            //Skrive fejlhåndtering her
+            System.out.println("\n Database error (create task set (connection): " + e.getMessage() + "\n");
+        }
 
         return students;
     }
