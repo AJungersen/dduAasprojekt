@@ -49,6 +49,10 @@ public class TaskSet {
         return assignment_ID;
     }
 
+    public void setAssignment_ID(int assignment_ID) {
+        this.assignment_ID = assignment_ID;
+    }
+
     public int getUser_ID() {
         return user_ID;
     }
