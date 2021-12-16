@@ -21,7 +21,10 @@ import org.openjfx.dduaarsprojekt.TestClasses.*;
  * @author chris
  */
 public class TestDatabaseMethods {
-
+    
+    public TestDatabaseMethods(){
+        
+    }
     private final String connectionString = "jdbc:sqlite:Database.db";
 
     //--------------------------------

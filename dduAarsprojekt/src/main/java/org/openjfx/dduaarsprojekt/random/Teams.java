@@ -13,7 +13,7 @@ import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
  * @author danie
  */
 public class Teams {
-    private int team_ID;
+    /*private int team_ID;
     private String teamName;
     private ArrayList<TaskSet> taskSets;
     private ArrayList<Student> students;
@@ -51,5 +51,5 @@ public class Teams {
     }
     public void setStudents(ArrayList<Student> studs){
         students = studs;
-    }
+    }*/
 }
