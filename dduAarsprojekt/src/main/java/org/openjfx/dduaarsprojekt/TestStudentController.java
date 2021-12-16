@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package org.openjfx.dduaarsprojekt;
 
 import java.net.URL;
@@ -32,16 +33,12 @@ public class TestStudentController implements Initializable {
     TestDatabaseMethods tdb = new TestDatabaseMethods();
     
     @FXML
-    ListView<String> teams;
-    @FXML
     TableView<TaskSet> done = new TableView();
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
             ArrayList<String> taskSetNames = new ArrayList();
             ArrayList<TaskSet> nameListTask = new ArrayList();
-        String[] names = {};
-        ArrayList<TaskSet> nameListTask = new ArrayList();
         try {
             nameListTask = Student.getThisStudentTasks(App.getLoggedInUser().getUser_ID());
         } catch (Exception ex) {
@@ -59,8 +56,3 @@ public class TestStudentController implements Initializable {
         }
         }
     }
-        for (int i = 0; i < nameListTask.size(); i++) {
-
-        }
-    }
-}
