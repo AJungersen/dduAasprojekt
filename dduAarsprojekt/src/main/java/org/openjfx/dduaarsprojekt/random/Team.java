@@ -14,17 +14,20 @@ import org.openjfx.dduaarsprojekt.TestClasses.*;
  */
 public class Team {
     private int team_ID;
+    private int teacher_ID;
     private String teamName;
     private ArrayList<TaskSet> taskSet;
     private ArrayList<Student> students;
 
     
-    public Team(String teamName){
+    public Team(int teacher_ID, String teamName){
+        this.teacher_ID = teacher_ID;
         this.teamName = teamName;
     }
     
-    public Team(int team_ID, String teamName, ArrayList<TaskSet> taskSet, ArrayList<Student> students) {
+    public Team(int team_ID, int teacher_ID, String teamName, ArrayList<TaskSet> taskSet, ArrayList<Student> students) {
         this.team_ID = team_ID;
+        this.teacher_ID = teacher_ID;
         this.teamName = teamName;
         this.taskSet = taskSet;
         this.students = students;
@@ -34,6 +37,14 @@ public class Team {
         return team_ID;
     }
 
+    public int getTeacher_ID() {
+        return teacher_ID;
+    }
+
+    public void setTeacher_ID(int teacher_ID) {
+        this.teacher_ID = teacher_ID;
+    }
+    
     public String getTeamName() {
         return teamName;
     }

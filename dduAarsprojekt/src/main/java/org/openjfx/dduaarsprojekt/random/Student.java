@@ -5,6 +5,10 @@
  */
 package org.openjfx.dduaarsprojekt.random;
 
+import java.util.ArrayList;
+import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
+import org.openjfx.dduaarsprojekt.databaseRepository.TestDatabaseMethods;
+
 /**
  *
  * @author danie
@@ -35,5 +39,14 @@ public class Student extends User{
 
     public void setName(String name) {
         this.name = name;
+    }
+    public static ArrayList<TaskSet> getThisStudentTasks(int ID) throws Exception{
+        TestDatabaseMethods db = new TestDatabaseMethods();
+        ArrayList<TaskSet> allTaskSets = new ArrayList();
+        ArrayList<Team> allStudentTeams = db.getStudentsTeams(ID);
+        for(int i = 0; i < allStudentTeams.size(); i++){
+            allTaskSets.addAll(allStudentTeams.get(i).getTaskSet());
+        }
+        return allTaskSets;
     }
 }
