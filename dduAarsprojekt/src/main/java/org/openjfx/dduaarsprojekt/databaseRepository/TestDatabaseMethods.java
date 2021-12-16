@@ -526,7 +526,6 @@ public class TestDatabaseMethods {
             System.out.println("\n Database error (create task set (connection): " + e.getMessage() + "\n");
         }
 
-
         conn.close();
 
         return usersIndividualTasksSets;
@@ -571,26 +570,26 @@ public class TestDatabaseMethods {
 
         try {
             Statement stat = conn.createStatement();
-           
+
             //hent user id
             ResultSet rs = stat.executeQuery("SELECT user_ID FROM Users WHERE userType_ID = "
                     + "('" + _studentID + "') "
                     + "AND type = ('" + "student" + "')");
-            
+
             int user_ID = rs.getInt("user_ID");
-            
+
             //hent result set of teams
             rs = stat.executeQuery("SELECT * FROM Teams WHERE team_ID IN"
                     + "(SELECT team_ID FROM teamsAndStudents WHERE student_ID =('" + _studentID + "'))");
 
             studentsTeams = loadTeams(conn, rs, user_ID);
-            
+
         } catch (SQLException e) {
             System.out.println("\n Database error (get students teams (get info): " + e.getMessage() + "\n");
         }
-        
+
         conn.close();
-        
+
         return studentsTeams;
     }
 
@@ -609,22 +608,22 @@ public class TestDatabaseMethods {
             //Skrive fejlhåndtering her
             System.out.println("\n Database error (get teachers teams (connection): " + e.getMessage() + "\n");
         }
-        
+
         try {
             Statement stat = conn.createStatement();
-           
+
             //hent user id
             ResultSet rs = stat.executeQuery("SELECT user_ID FROM Users WHERE userType_ID = "
                     + "('" + _teacherID + "') "
                     + "AND type = ('" + "teacher" + "')");
-            
+
             int user_ID = rs.getInt("user_ID");
-            
+
             //hent result set of teams
             rs = stat.executeQuery("SELECT * FROM Teams WHERE teacher_ID = ('" + _teacherID + "'))");
 
             teachersTeams = loadTeams(conn, rs, user_ID);
-            
+
         } catch (SQLException e) {
             System.out.println("\n Database error (get teachers teams (get info): " + e.getMessage() + "\n");
         }
@@ -656,9 +655,6 @@ public class TestDatabaseMethods {
         } catch (SQLException e) {
             System.out.println("\n Database error (create team (insert info)" + e.getMessage() + "\n");
         }
-
-        
-        return teachersTeams;
     }
 
     //------------------------------------------
@@ -760,7 +756,7 @@ public class TestDatabaseMethods {
             //Skrive fejlhåndtering her
             System.out.println("\n Database error (assign task set to individual(connection): " + e.getMessage() + "\n");
         }
-        
+
         //assign the coresponding assignment
         String sql = "INSERT INTO StudentsAndAssignments(student_ID, assignment_ID)"
                 + "VALUES('" + _student.getUserType_ID() + "', '" + _assignment_ID + "')";
@@ -814,12 +810,8 @@ public class TestDatabaseMethods {
         } catch (SQLException e) {
             System.out.println("\n Database error (assign taskSet to team (insert assign)" + e.getMessage() + "\n");
         }
-            System.out.println("\n Database error (create task set (connection): " + e.getMessage() + "\n");
-        }
 
         conn.close();
-
-        return students;
     }
 
     public static ArrayList<TaskSet> getAllTaskSets() {
