@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package org.openjfx.dduaarsprojekt;
 
 import java.net.URL;
@@ -27,25 +26,25 @@ import org.openjfx.dduaarsprojekt.random.Student;
  * @author Clara Maj
  */
 public class TestStudentController implements Initializable {
-    
+
     @FXML
     ListView<String> teams;
     @FXML
     TableView<TaskSet> done = new TableView();
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-            String[] names = {};
-            ArrayList<TaskSet> nameListTask = new ArrayList();
+        String[] names = {};
+        ArrayList<TaskSet> nameListTask = new ArrayList();
         try {
             nameListTask = Student.getThisStudentTasks(App.getLoggedInUser().getUser_ID());
         } catch (Exception ex) {
             Logger.getLogger(TestStudentController.class.getName()).log(Level.SEVERE, null, ex);
         }
-            for(int i = 0; i < nameListTask.size(); i++){
-                
-            }
-            /*ObservableList currentTests = getAllOngoingTests();
+        for (int i = 0; i < nameListTask.size(); i++) {
+
+        }
+        /*ObservableList currentTests = getAllOngoingTests();
             
             ListView<String> OngoingTests = new ListView<>(currentTests);
             
@@ -58,9 +57,5 @@ public class TestStudentController implements Initializable {
             done.getColumns().add(testName);
             done.getColumns().add(percent);
             Logger.getLogger(TestStudentController.class.getName()).log(Level.SEVERE, null, ex);*/
-        }
     }
-    
-    
-
 }

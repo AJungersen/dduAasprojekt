@@ -552,7 +552,7 @@ public class TestDatabaseMethods {
     }
 
     //------------------------------------------
-    //---------- get schools students ---------- needs work
+    //---------- get schools students ----------
     //------------------------------------------
     public ArrayList<Student> getSchoolsStudents(int _schoolID) throws SQLException, Exception {
         ArrayList<Student> students = new ArrayList<>();
@@ -564,7 +564,21 @@ public class TestDatabaseMethods {
             conn = DriverManager.getConnection(connectionString);
         } catch (SQLException e) {
             //Skrive fejlhåndtering her
-            System.out.println("\n Database error (create task set (connection): " + e.getMessage() + "\n");
+            System.out.println("\n Database error (get school students (connection): " + e.getMessage() + "\n");
+        }
+        
+        try {
+            Statement stat = conn.createStatement();
+            
+            ResultSet rs = stat.executeQuery("SELECT * FROM Students WHERE student_ID IN "
+                    + "(SELECT userType_ID FROM users WHERE school_ID = ('" + _schoolID + "') AND type = ('" + "student" + "'))");
+            
+            students = loadStudents(conn, rs);
+            
+            rs.close();
+            
+        } catch (SQLException e) {
+            System.err.println("\n Database error (get school students (connection): " + e.getMessage() + "\n");
         }
         
         conn.close();
