@@ -55,4 +55,9 @@ public class TestStudentController implements Initializable {
             Logger.getLogger(TestStudentController.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
+    
+    @FXML
+    public void setTeamTasks(){
+        
+    }
     }
