@@ -55,7 +55,7 @@ public class TestMakerController implements Initializable {
     @FXML
     public void createAnswerbasedQuestion() throws IOException{
         current.setName(testName.getText());
-        current.setDescription(description.getText());
+        //current.setDescription(description.getText());
         App.setRoot("createAnswerbased");
     }
     
