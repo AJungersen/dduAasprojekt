@@ -1,21 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.dduaarsprojekt.MainController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.dduaarsprojekt.MainController">
    <children>
-      <Button layoutX="51.0" layoutY="50.0" mnemonicParsing="false" onAction="#mineHold" prefHeight="26.0" prefWidth="484.0" text="Mine hold" />
-      <Button layoutX="51.0" layoutY="103.0" mnemonicParsing="false" onAction="#minePrøver" prefHeight="26.0" prefWidth="484.0" text="Mine prøver" />
-      <MenuButton layoutX="535.0" layoutY="2.0" mnemonicParsing="false" text="Menu">
-        <items>
-          <MenuItem mnemonicParsing="false" onAction="#forside" text="Forside" />
-          <MenuItem mnemonicParsing="false" onAction="#mineHold" text="Mine hold" />
-            <MenuItem mnemonicParsing="false" onAction="#minePrøver" text="Mine prøver" />
-            <MenuItem mnemonicParsing="false" onAction="#logud" text="Log ud" />
-        </items>
+      <Pane layoutX="-22.0" layoutY="-9.0" prefHeight="55.0" prefWidth="1024.0" styleClass="navigator" stylesheets="@styles.css">
+         <children>
+            <Button layoutX="970.0" layoutY="8.0" mnemonicParsing="false" onAction="#exit" prefHeight="47.0" prefWidth="54.0" styleClass="exitButton" stylesheets="@styles.css" text="X">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+      <AnchorPane layoutX="-21.0" layoutY="46.0" prefHeight="559.0" prefWidth="274.0" styleClass="seperator" stylesheets="@styles.css">
+         <effect>
+            <InnerShadow height="0.0" radius="4.75" />
+         </effect>
+         <children>
+            <Line endX="149.0" layoutX="125.0" layoutY="64.0" startX="-108.0" stroke="#aaaaaa" />
+            <Button layoutX="38.0" layoutY="508.0" mnemonicParsing="false" onAction="#teams" prefHeight="27.0" prefWidth="216.0" stylesheets="@styles.css" text="Mere">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ListView layoutX="29.0" layoutY="73.0" prefHeight="435.0" prefWidth="234.0" styleClass="seperator" stylesheets="@styles.css" />
+            <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="39.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../layout-DDU/layout-test/src/main/resources/com/mycompany/layout/test/teams.png" />
+               </image>
+            </ImageView>
+            <Text fill="#4b4b4b" layoutX="77.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hold">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <HBox alignment="CENTER" layoutX="287.0" layoutY="146.0" prefHeight="383.0" prefWidth="666.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#teams" prefHeight="177.0" prefWidth="150.0" styleClass="loginButton" stylesheets="@styles.css" text="HOLD">
+               <effect>
+                  <DropShadow height="25.0" radius="12.0" width="25.0">
+                     <color>
+                        <Color opacity="0.3644251525402069" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <HBox.margin>
+                  <Insets right="50.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#tests" prefHeight="177.0" prefWidth="150.0" styleClass="loginButton" stylesheets="@styles.css" text="PRØVER">
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+               <effect>
+                  <DropShadow height="25.0" radius="12.0" width="25.0">
+                     <color>
+                        <Color opacity="0.3644251525402069" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </HBox>
+      <MenuButton layoutX="861.0" layoutY="59.0" mnemonicParsing="false" stylesheets="@styles.css" text="MenuButton">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#back" text="Forside" />
+            <MenuItem mnemonicParsing="false" onAction="#teams" text="Hold" />
+            <MenuItem mnemonicParsing="false" onAction="#tests" text="Prøver" />
+            <MenuItem mnemonicParsing="false" onAction="#logout" text="Log ud" />
+         </items>
+         <styleClass>
+            <String fx:value="context-menu" />
+            <String fx:value="menu-bar" />
+            <String fx:value="menu-button" />
+            <String fx:value="menu-item" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </MenuButton>
    </children>
 </AnchorPane>

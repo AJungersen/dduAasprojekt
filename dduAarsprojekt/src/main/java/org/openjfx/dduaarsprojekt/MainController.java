@@ -11,35 +11,46 @@
 package org.openjfx.dduaarsprojekt;
 
 import java.io.IOException;
-import javafx.event.Event;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import org.openjfx.dduaarsprojekt.App;
+import javafx.fxml.Initializable;
 
-public class MainController {
+/**
+ * FXML Controller class
+ *
+ * @author Clara Maj
+ */
+public class MainController implements Initializable {
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }    
     
-
     @FXML
-    private void mineHold() throws IOException {
+    private void exit() {
+        System.exit(0);
+    }
+    @FXML
+    private void tests() throws IOException{
+       App.setRoot("testStaff");
+    }
+    @FXML
+    private void back() throws IOException{
+        App.setRoot("mainStaff");
+    }
+    @FXML
+    private void logout() throws IOException{
+        App.setRoot("frontPage");
+    }
+    @FXML
+    private void teams() throws IOException{
         App.setRoot("teamStaff");
     }
-    
-    @FXML
-    private void minePrøver() throws IOException {
-        App.setRoot("testStaff");
-    }
-    
-    @FXML
-    private void forside() throws IOException{
-        App.setRoot("main");
-    }
-    
-    @FXML
-    private void logud() throws IOException{
-        App.setRoot("login");
-    }
+     
     
 }

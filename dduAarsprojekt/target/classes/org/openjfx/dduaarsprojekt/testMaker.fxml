@@ -1,20 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="609.0" prefWidth="816.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.dduaarsprojekt.TestMakerController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.dduaarsprojekt.TestMakerController">
    <children>
-      <TextField fx:id="textName" layoutX="16.0" layoutY="14.0" prefHeight="53.0" prefWidth="628.0" promptText="Testname" />
-      <TextArea fx:id="description" layoutX="16.0" layoutY="88.0" prefHeight="292.0" prefWidth="628.0" text="Description" />
-      <Button layoutX="81.0" layoutY="429.0" mnemonicParsing="false" onAction="#createAnswerbasedQuestion" prefHeight="96.0" prefWidth="176.0" text="Create answerbased Question" />
-      <Button layoutX="336.0" layoutY="429.0" mnemonicParsing="false" onAction="#createMultQuestion" prefHeight="96.0" prefWidth="176.0" text="Create multiplechoice question" wrapText="true" />
-      <ComboBox fx:id="options" layoutX="652.0" layoutY="14.0" prefWidth="150.0" />
-      <ListView fx:id="questionList" layoutX="666.0" layoutY="88.0" prefHeight="465.0" prefWidth="150.0" />
-      <Button layoutX="538.0" layoutY="499.0" mnemonicParsing="false" onAction="#savetaskSet" prefHeight="53.0" prefWidth="106.0" text="Save" />
+      <Pane layoutX="-22.0" layoutY="-9.0" prefHeight="55.0" prefWidth="1024.0" styleClass="navigator" stylesheets="@styles.css">
+         <children>
+            <Button layoutX="970.0" layoutY="8.0" mnemonicParsing="false" onAction="#exit" prefHeight="47.0" prefWidth="54.0" styleClass="exitButton" stylesheets="@styles.css" text="X">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+      <AnchorPane layoutX="-33.0" layoutY="46.0" prefHeight="559.0" prefWidth="287.0" styleClass="seperator" stylesheets="@styles.css">
+         <effect>
+            <InnerShadow height="0.0" radius="4.75" />
+         </effect>
+         <children>
+            <Line endX="149.0" layoutX="136.0" layoutY="62.0" startX="-108.0" stroke="#aaaaaa" />
+            <Button layoutX="46.0" layoutY="508.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="121.0" stylesheets="@styles.css" text="Gå til valgte spørgsmål">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <ListView fx:id="questionList" layoutX="52.0" layoutY="73.0" prefHeight="423.0" prefWidth="216.0" styleClass="seperator" stylesheets="@styles.css" />
+            <Text fill="#4b4b4b" layoutX="44.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spørgsmål:">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <Button layoutX="178.0" layoutY="508.0" mnemonicParsing="false" onAction="#tests" prefHeight="27.0" prefWidth="95.0" stylesheets="@styles.css" text="Gem prøve">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <VBox fx:id="create" layoutX="254.0" layoutY="101.0" prefHeight="499.0" prefWidth="369.0" stylesheets="@styles.css" />
+      <VBox fx:id="show" layoutX="631.0" layoutY="101.0" prefHeight="499.0" prefWidth="369.0" stylesheets="@styles.css" />
+      <Button layoutX="542.0" layoutY="64.0" mnemonicParsing="false" onAction="#newMult" stylesheets="@styles.css" text="Tilføj mult spørgsmål">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+      <Button layoutX="400.0" layoutY="64.0" mnemonicParsing="false" onAction="#newCorrect" stylesheets="@styles.css" text="Tilføj korrekt spørgsmål">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+      <Button layoutX="265.0" layoutY="64.0" mnemonicParsing="false" onAction="#newAnswerbased" stylesheets="@styles.css" text="Tilføj åbent spørgsmål">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+      <Line endX="20.0" endY="-125.0" layoutX="607.0" layoutY="227.0" startX="20.0" startY="373.0" stroke="#aaaaaa" />
+      <Button layoutX="794.0" layoutY="63.0" mnemonicParsing="false" stylesheets="@styles.css" text="Slet spørgsmål">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="11.0" />
+         </font>
+         <effect>
+            <DropShadow height="10.0" radius="4.5" width="10.0">
+               <color>
+                  <Color opacity="0.7917570471763611" />
+               </color>
+            </DropShadow>
+         </effect>
+         <styleClass>
+            <String fx:value="loginButton" />
+            <String fx:value="exitButton" />
+         </styleClass>
+      </Button>
+      <Button layoutX="895.0" layoutY="63.0" mnemonicParsing="false" styleClass="loginButton" stylesheets="@styles.css" text="Gem spørgsmål">
+         <effect>
+            <DropShadow height="10.0" radius="4.5" width="10.0">
+               <color>
+                  <Color opacity="0.7917570471763611" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

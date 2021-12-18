@@ -19,7 +19,8 @@ public class CorrectAnswer {
         TestDatabaseMethods tdb = new TestDatabaseMethods();
         ArrayList<TaskSet> tasksets = new ArrayList();
         Task myTask = new Task();
-        tasksets.addAll(tdb.getUsersIndividualTasksSets());
+        //tasksets.addAll(tdb.getUsersIndividualTasksSets());
+        return false; //netbeans kræver at jeg sætter et return statement på, ellers vil den ikke køre
         
     }
 }

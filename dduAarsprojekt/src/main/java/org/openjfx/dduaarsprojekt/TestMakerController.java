@@ -10,14 +10,18 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import org.openjfx.dduaarsprojekt.TestClasses.Question;
-import org.openjfx.dduaarsprojekt.TestClasses.Task;
 import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
 
 /**
@@ -36,8 +40,16 @@ public class TestMakerController implements Initializable {
     ComboBox options;
     ListView questions;
     
+    @FXML private VBox create;
+    @FXML private VBox show;  
+    private Parent fxml1;
+    private Parent fxml2;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        create.getChildren().removeAll();
+        show.getChildren().removeAll();
+        
         ArrayList<Question>taskList = new ArrayList<Question>(tasks);
          for(int i = 0; i < tasks.size(); i++){
              questions.getItems().add(tasks.get(i).getQuestion());
@@ -47,16 +59,38 @@ public class TestMakerController implements Initializable {
 
     @FXML
     public void createMultQuestion() throws IOException{
-        current.setName(testName.getText());
-        current.setDescription(description.getText());
-        App.setRoot("createMult");
+        try {
+            fxml1 = FXMLLoader.load(getClass().getResource("answerMult.fxml"));
+            fxml2 = FXMLLoader.load(getClass().getResource("createMult.fxml"));
+            show.getChildren().setAll(fxml1);   
+            create.getChildren().setAll(fxml2); 
+        } catch (IOException ex) {
+            Logger.getLogger(TestMakerController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
     
     @FXML
     public void createAnswerbasedQuestion() throws IOException{
-        current.setName(testName.getText());
-        current.setDescription(description.getText());
-        App.setRoot("createAnswerbased");
+        try {
+            fxml1 = FXMLLoader.load(getClass().getResource("answerAnswerbased.fxml"));
+            fxml2 = FXMLLoader.load(getClass().getResource("createAnswerbased.fxml"));
+            show.getChildren().setAll(fxml1);   
+            create.getChildren().setAll(fxml2); 
+        } catch (IOException ex) {
+            Logger.getLogger(TestMakerController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    public void createCorrectQuestion() throws IOException{
+        try {
+            fxml1 = FXMLLoader.load(getClass().getResource("answerCorrect.fxml"));
+            fxml2 = FXMLLoader.load(getClass().getResource("createCorrect.fxml"));
+            show.getChildren().setAll(fxml1);   
+            create.getChildren().setAll(fxml2); 
+        } catch (IOException ex) {
+            Logger.getLogger(TestMakerController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @FXML
@@ -83,5 +117,8 @@ public class TestMakerController implements Initializable {
     public void savetaskSet(){
         //når funktionen er klar refereres til database og taskset uploades
     }
-    
+    @FXML
+    private void exit() {
+        System.exit(0);
+    }
 }
