@@ -6,7 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import javafx.stage.StageStyle;
+import javafx.scene.paint.Color;
 import java.io.IOException;
 
 /**
@@ -18,8 +19,11 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("login"));
+        Parent root = FXMLLoader.load(getClass().getResource("frontPage.fxml"));  
+        scene = new Scene(loadFXML("frontPage"));
+        scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
+        stage.initStyle(StageStyle.TRANSPARENT); 
         stage.show();
     }
 
