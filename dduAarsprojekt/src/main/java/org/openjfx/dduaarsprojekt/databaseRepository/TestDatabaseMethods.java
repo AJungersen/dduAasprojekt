@@ -439,6 +439,8 @@ public class TestDatabaseMethods {
             System.out.println("\n Database error (get users individual unassigned task sets (get tasksets): " + e.getMessage() + "\n");
         }
 
+        conn.close();
+
         return studentsIndividualUnassignedTaskSets;
     }
 
@@ -477,6 +479,7 @@ public class TestDatabaseMethods {
             int assignmnet_ID = rs.getInt("MAX(assignment_ID)");
 
             _taskSet.setAssignment_ID(assignmnet_ID);
+            _taskSet.setNameOfTheFiller("teacher");
 
             inserTaskSet(conn, _taskSet);
 
@@ -702,10 +705,58 @@ public class TestDatabaseMethods {
     }
 
     //-------------------------------------
-    //---------- answer task set ---------- needs work
+    //---------- answer task set ----------
     //-------------------------------------
     public void answerTaskSet(TaskSet _taskSet) throws SQLException, Exception {
+        Connection conn = null;
+        Class.forName("org.sqlite.JDBC");
 
+        try {
+            conn = DriverManager.getConnection(connectionString);
+        } catch (SQLException e) {
+            //Skrive fejlhåndtering her
+            System.out.println("\n Database error (edit task set (connection): " + e.getMessage() + "\n");
+        }
+
+        //update task
+        for (int i = 0; i < _taskSet.getTasks().size(); i++) {
+            String sql = "UPDATE tasks SET answer = '" + _taskSet.getTasks().get(i).getAnswer() + "' "
+                    + "WHERE task_ID = ('" + _taskSet.getTasks().get(i).getTask_ID() + "')";
+
+            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println("\n Database error (answer task set (update answer)" + e.getMessage());
+            }
+        }
+        conn.close();
+    }
+
+    //--------------------------------------
+    //---------- comment task set ----------
+    //--------------------------------------
+    public void commentTaskSet(TaskSet _taskSet) throws SQLException, Exception {
+        Connection conn = null;
+        Class.forName("org.sqlite.JDBC");
+
+        try {
+            conn = DriverManager.getConnection(connectionString);
+        } catch (SQLException e) {
+            //Skrive fejlhåndtering her
+            System.out.println("\n Database error (comment task set (connection): " + e.getMessage() + "\n");
+        }
+
+        for (int i = 0; i < _taskSet.getTasks().size(); i++) {
+            String sql = "UPDATE tasks SET teacherComment = '" + _taskSet.getTasks().get(i).getComment() + "'"
+                    + "WHERE task_ID = ('" + _taskSet.getTasks().get(i).getTask_ID() + "')";
+
+            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println("\n Database error (comment task set (update comment)" + e.getMessage());
+            }
+        }
+        conn.close();
     }
 
     //-------------------------------------
