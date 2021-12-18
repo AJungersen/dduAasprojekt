@@ -117,7 +117,7 @@
             <TableColumn prefWidth="148.0" text="Rigtighedsprocent" />
          </columns>
       </TableView>
-      <Button layoutX="791.0" layoutY="332.0" mnemonicParsing="false" onAction="#answer" styleClass="loginButton" stylesheets="@styles.css" text="Se feedback">
+      <Button layoutX="791.0" layoutY="332.0" mnemonicParsing="false" onAction="#feedback" styleClass="loginButton" stylesheets="@styles.css" text="Se feedback">
          <effect>
             <DropShadow height="10.0" radius="4.5" width="10.0">
                <color>

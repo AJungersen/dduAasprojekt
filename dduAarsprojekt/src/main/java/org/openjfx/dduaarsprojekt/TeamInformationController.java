@@ -35,7 +35,7 @@ public class TeamInformationController implements Initializable {
     }
     @FXML
     private void teams() throws IOException{
-        App.setRoot("teamsStaff");
+        App.setRoot("teamStaff");
     }
     @FXML
     private void exit() {

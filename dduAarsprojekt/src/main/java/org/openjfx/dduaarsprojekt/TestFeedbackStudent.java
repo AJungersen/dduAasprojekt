@@ -75,6 +75,8 @@ public class TestFeedbackStudent implements Initializable {
     private void test () throws IOException {
         App.setRoot("testStudent");
     }
-
-
+    @FXML
+    private void exit(){
+        System.exit(0);   
+    }
 }
