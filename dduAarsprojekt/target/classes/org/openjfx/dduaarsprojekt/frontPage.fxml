@@ -47,6 +47,7 @@
             </Text>
             <ImageView fitHeight="122.0" fitWidth="138.0" layoutX="400.0" layoutY="149.0" opacity="0.93" pickOnBounds="true" preserveRatio="true">
                <image>
+
                   <Image url="@Images/loginIcon.png" />
                </image>
             </ImageView>
@@ -61,6 +62,9 @@
                </image>
             </ImageView>
             <Button fx:id="loginButton" layoutX="436.0" layoutY="413.0" mnemonicParsing="false" onAction="#login" prefHeight="33.0" prefWidth="62.0" styleClass="loginButton" stylesheets="@styles.css" text="Login">
+                  <Image url="@loginBackground1.png" />
+               </image>
+            </ImageView>
                <effect>
                   <DropShadow height="10.0" radius="4.5" width="10.0" />
                </effect>
@@ -80,6 +84,9 @@
          </children>
       </Pane>
       <VBox fx:id="vbox" layoutX="-3.0" layoutY="-443.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="806.0" stylesheets="@styles.css">
+         </children>
+      </Pane>
+      <VBox fx:id="vbox" layoutX="-3.0" layoutY="-443.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="806.0">
          <effect>
             <DropShadow />
          </effect>

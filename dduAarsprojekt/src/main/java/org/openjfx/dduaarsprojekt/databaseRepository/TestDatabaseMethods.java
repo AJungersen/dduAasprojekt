@@ -210,81 +210,91 @@ public class TestDatabaseMethods {
         //create task
         for (int i = 0; i < _taskSet.getTasks().size(); i++) {
 
-            int question_ID = 0;
+            insertTaskAndQuestion(conn, _taskSet.getTasks().get(i), taskSet_ID);
+        }
+    }
 
-            //insert questions from tasks
-            switch (_taskSet.getTasks().get(i).getQuestion().getType()) {
-                case multipelChoiseQuestion:
+    //----------------------------------------------
+    //---------- insert task and question ----------
+    //----------------------------------------------
+    private void insertTaskAndQuestion(Connection conn, Task _task, int _taskSet_ID) throws SQLException, Exception {
+        int question_ID = 0;
+        String sql = "";
+        ResultSet rs;
+        Statement stat = conn.createStatement();
 
-                    sql = "INSERT INTO multipelChoiseQuestion";
+        //insert questions from tasks
+        switch (_task.getQuestion().getType()) {
+            case multipelChoiseQuestion:
 
-                    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                        pstmt.executeUpdate();
-                    } catch (SQLException e) {
-                        System.out.println("\n Database error (insert task set (create multipel choise question (create question)" + e.getMessage());
-                    }
-                    try {
-                        rs = stat.executeQuery("SELECT MAX(multipelChoiseQuestion_ID) FROM multipelChoiseQuestions");
+                sql = "INSERT INTO multipelChoiseQuestion";
 
-                        question_ID = rs.getInt("MAX(multipelChoiseQuestion_ID)");
+                try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                    pstmt.executeUpdate();
+                } catch (SQLException e) {
+                    System.out.println("\n Database error (insert task set (create multipel choise question (create question)" + e.getMessage());
+                }
+                try {
+                    rs = stat.executeQuery("SELECT MAX(multipelChoiseQuestion_ID) FROM multipelChoiseQuestions");
 
-                    } catch (SQLException e) {
-                        System.out.println("\n Database error (insert task set (create multiepl choice questien ( get question_ID): " + e.getMessage() + "\n");
-                    }
+                    question_ID = rs.getInt("MAX(multipelChoiseQuestion_ID)");
 
-                    MultipelChoiseQuestion question = _taskSet.getTasks().get(i).getQuestion().asMultipelChoiseQuestion();
+                } catch (SQLException e) {
+                    System.out.println("\n Database error (insert task set (create multiepl choice questien ( get question_ID): " + e.getMessage() + "\n");
+                }
 
-                    for (int u = 0; u < question.getAnswerOptions().size(); u++) {
-                        sql = "INSERT INTO multipelChoiseAnswers(multipelChoiseQuestion_ID, answer, correct) VALUES"
-                                + "('" + question_ID + "', '" + question.getAnswerOptions().get(i).getAnswer() + "', "
-                                + "'" + (question.getAnswerOptions().get(i).getCorrect() ? 1 : 0) + "')";
+                MultipelChoiseQuestion question = _task.getQuestion().asMultipelChoiseQuestion();
 
-                        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                            pstmt.executeUpdate();
-                        } catch (SQLException e) {
-                            System.out.println("\n Database error (insert task set (create multipel choise question (create answers)" + e.getMessage());
-                        }
-                    }
-                    break;
-
-                case correctAnswerBasedQuestion:
-
-                    CorrectAnswerBasedQuestion correctAnswerBasedQuestion = _taskSet.getTasks().get(i).getQuestion().asCorrectAnswerBasedQuestion();
-
-                    sql = "INSERT INTOR CorrectAnswerBasedQuestion(correctAnswer) VALUES ('" + correctAnswerBasedQuestion.getCorrectAnswer() + "')";
+                for (int u = 0; u < question.getAnswerOptions().size(); u++) {
+                    sql = "INSERT INTO multipelChoiseAnswers(multipelChoiseQuestion_ID, answer, correct) VALUES"
+                            + "('" + question_ID + "', '" + question.getAnswerOptions().get(u).getAnswer() + "', "
+                            + "'" + (question.getAnswerOptions().get(u).getCorrect() ? 1 : 0) + "')";
 
                     try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
                         pstmt.executeUpdate();
                     } catch (SQLException e) {
-                        System.out.println("\n Database error (insert task set (create correct answer based question (create question)" + e.getMessage());
+                        System.out.println("\n Database error (insert task set (create multipel choise question (create answers)" + e.getMessage());
                     }
+                }
+                break;
 
-                    try {
-                        rs = stat.executeQuery("SELECT MAX(correctAnswerBasedQuestion_ID) FROM CorrectAnswerBasedQuestion");
+            case correctAnswerBasedQuestion:
 
-                        question_ID = rs.getInt("MAX(correctAnswerBasedQuestion_ID)");
+                CorrectAnswerBasedQuestion correctAnswerBasedQuestion = _task.getQuestion().asCorrectAnswerBasedQuestion();
 
-                    } catch (SQLException e) {
-                        System.out.println("\n Database error (insert task set (create correct answer based question (get question_ID): " + e.getMessage() + "\n");
-                    }
-                    break;
+                sql = "INSERT INTOR CorrectAnswerBasedQuestion(correctAnswer) VALUES ('" + correctAnswerBasedQuestion.getCorrectAnswer() + "')";
 
-                case textAnswerBasedQuestion:
-                    //this question dosent havent any extra informaton
-                    question_ID = 0;
-                    break;
-            }
-            //insert task to questions
-            sql = "INSERT INTO tasks (taskSet_ID, question_ID, questionType, question) "
-                    + "VALUES ('" + taskSet_ID + "', '" + question_ID + "', "
-                    + "'" + _taskSet.getTasks().get(i).getQuestion().getType() + "', "
-                    + "'" + _taskSet.getTasks().get(i).getQuestion().getQuestion() + "')";
+                try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                    pstmt.executeUpdate();
+                } catch (SQLException e) {
+                    System.out.println("\n Database error (insert task set (create correct answer based question (create question)" + e.getMessage());
+                }
 
-            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                pstmt.executeUpdate();
-            } catch (SQLException e) {
-                System.out.println("\n Database error (insert task set (create task)" + e.getMessage());
-            }
+                try {
+                    rs = stat.executeQuery("SELECT MAX(correctAnswerBasedQuestion_ID) FROM CorrectAnswerBasedQuestion");
+
+                    question_ID = rs.getInt("MAX(correctAnswerBasedQuestion_ID)");
+
+                } catch (SQLException e) {
+                    System.out.println("\n Database error (insert task set (create correct answer based question (get question_ID): " + e.getMessage() + "\n");
+                }
+                break;
+
+            case textAnswerBasedQuestion:
+                //this question dosent havent any extra informaton
+                question_ID = 0;
+                break;
+        }
+        //insert task to questions
+        sql = "INSERT INTO tasks (taskSet_ID, question_ID, questionType, question) "
+                + "VALUES ('" + _taskSet_ID + "', '" + question_ID + "', "
+                + "'" + _task.getQuestion().getType().toString() + "', "
+                + "'" + _task.getQuestion().getQuestion() + "')";
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("\n Database error (insert task set (create task)" + e.getMessage());
         }
     }
 
@@ -368,6 +378,72 @@ public class TestDatabaseMethods {
         return taskSets;
     }
 
+    //----------------------------------------------------
+    //---------- get users individual task sets ----------
+    //----------------------------------------------------
+    public ArrayList<TaskSet> getUsersIndividualTasksSets(int _user_ID) throws SQLException, Exception {
+        ArrayList<TaskSet> usersIndividualTasksSets = new ArrayList<>();
+
+        Connection conn = null;
+        Class.forName("org.sqlite.JDBC");
+
+        try {
+            conn = DriverManager.getConnection(connectionString);
+        } catch (SQLException e) {
+            //Skrive fejlhåndtering her
+            System.out.println("\n Database error (create task set (connection): " + e.getMessage() + "\n");
+        }
+
+        try {
+            Statement stat = conn.createStatement();
+            ResultSet rs = stat.executeQuery("SELECT * FROM TaskSets WHERE user_ID= ('" + _user_ID + "')");
+
+            usersIndividualTasksSets = loadTaskSets(conn, rs);
+
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println("\n Database error (get users individual task (get info): " + e.getMessage() + "\n");
+        }
+
+        conn.close();
+
+        return usersIndividualTasksSets;
+    }
+
+    //----------------------------------------------------------------
+    //---------- get students indidual unassigned task sets ----------
+    //-----------------------------------...--------------------------
+    public ArrayList<TaskSet> getStudentsIndividualUnassignedTaskSets(int _student_ID, int _teacherUser_ID) throws SQLException, Exception {
+        ArrayList<TaskSet> studentsIndividualUnassignedTaskSets = new ArrayList<>();
+
+        Connection conn = null;
+        Class.forName("org.sqlite.JDBC");
+
+        try {
+            conn = DriverManager.getConnection(connectionString);
+        } catch (SQLException e) {
+            //Skrive fejlhåndtering her
+            System.out.println("\n Database error (get users individual unassigned task sets (connection): " + e.getMessage() + "\n");
+        }
+
+        try {
+            Statement stat = conn.createStatement();
+
+            ResultSet rs = stat.executeQuery("SELECT * FROM TaskSets WHERE assignment_ID NOT IN "
+                    + "(SELECT assignment_ID FROM studentsAndAssignments WHERE student_ID = ('" + _student_ID + "')) "
+                    + "AND user_ID = ('" + _teacherUser_ID + "') ");
+
+            studentsIndividualUnassignedTaskSets = loadTaskSets(conn, rs);
+
+        } catch (SQLException e) {
+            System.out.println("\n Database error (get users individual unassigned task sets (get tasksets): " + e.getMessage() + "\n");
+        }
+
+        conn.close();
+
+        return studentsIndividualUnassignedTaskSets;
+    }
+
     //-------------------------------------
     //---------- create task set ----------
     //-------------------------------------
@@ -403,6 +479,7 @@ public class TestDatabaseMethods {
             int assignmnet_ID = rs.getInt("MAX(assignment_ID)");
 
             _taskSet.setAssignment_ID(assignmnet_ID);
+            _taskSet.setNameOfTheFiller("teacher");
 
             inserTaskSet(conn, _taskSet);
 
@@ -436,7 +513,7 @@ public class TestDatabaseMethods {
                         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
                             pstmt.executeUpdate();
                         } catch (SQLException e) {
-                            System.out.println("\n Database error (create multipel choise question (create question)" + e.getMessage());
+                            System.out.println("\n Database error (create multipel choise mcq (create mcq)" + e.getMessage());
                         }
                         try {
                             rs = stat.executeQuery("SELECT MAX(multipelChoiseQuestion_ID) FROM multipelChoiseQuestions");
@@ -447,17 +524,17 @@ public class TestDatabaseMethods {
                             System.out.println("\n Database error (create multiepl choice questien ( get question_ID): " + e.getMessage() + "\n");
                         }
 
-                        MultipelChoiseQuestion question = _taskSet.getTasks().get(i).getQuestion().asMultipelChoiseQuestion();
+                        MultipelChoiseQuestion mcq = _taskSet.getTasks().get(i).getQuestion().asMultipelChoiseQuestion();
 
-                        for (int u = 0; u < question.getAnswerOptions().size(); u++) {
+                        for (int u = 0; u < mcq.getAnswerOptions().size(); u++) {
                             sql = "INSERT INTO multipelChoiseAnswers(multipelChoiseQuestion_ID, answer, correct) VALUES"
-                                    + "('" + question_ID + "', '" + question.getAnswerOptions().get(i).getAnswer() + "', "
-                                    + "'" + (question.getAnswerOptions().get(i).getCorrect() ? 1 : 0) + "')";
+                                    + "('" + question_ID + "', '" + mcq.getAnswerOptions().get(u).getAnswer() + "', "
+                                    + "'" + (mcq.getAnswerOptions().get(u).getCorrect() ? 1 : 0) + "')";
 
                             try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
                                 pstmt.executeUpdate();
                             } catch (SQLException e) {
-                                System.out.println("\n Database error (create multipel choise question (create answers)" + e.getMessage());
+                                System.out.println("\n Database error (create multipel choise mcq (create answers)" + e.getMessage());
                             }
                         }
                         break;
@@ -471,7 +548,7 @@ public class TestDatabaseMethods {
                         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
                             pstmt.executeUpdate();
                         } catch (SQLException e) {
-                            System.out.println("\n Database error (create correct answer based question (create question)" + e.getMessage());
+                            System.out.println("\n Database error (create correct answer based mcq (create mcq)" + e.getMessage());
                         }
 
                         try {
@@ -480,17 +557,17 @@ public class TestDatabaseMethods {
                             question_ID = rs.getInt("MAX(correctAnswerBasedQuestion_ID)");
 
                         } catch (SQLException e) {
-                            System.out.println("\n Database error (create correct answer based question (get question_ID): " + e.getMessage() + "\n");
+                            System.out.println("\n Database error (create correct answer based mcq (get question_ID): " + e.getMessage() + "\n");
                         }
                         break;
 
                     case textAnswerBasedQuestion:
-                        //this question dosent havent any extra informaton
+                        //this mcq dosent havent any extra informaton
                         question_ID = 0;
                         break;
                 }
                 //insert task to questions
-                sql = "INSERT INTO tasks (taskSet_ID, question_ID, questionType, question) "
+                sql = "INSERT INTO tasks (taskSet_ID, question_ID, questionType, mcq) "
                         + "VALUES ('" + taskSet_ID + "', '" + question_ID + "', "
                         + "'" + _taskSet.getTasks().get(i).getQuestion().getType() + "', "
                         + "'" + _taskSet.getTasks().get(i).getQuestion().getQuestion() + "')";
@@ -510,12 +587,10 @@ public class TestDatabaseMethods {
         conn.close();
     }
 
-    //----------------------------------------------------
-    //---------- get users task individual sets ----------
-    //----------------------------------------------------
-    public ArrayList<TaskSet> getUsersIndividualTasksSets() throws SQLException, Exception {
-        ArrayList<TaskSet> usersIndividualTasksSets = new ArrayList<>();
-
+    //-----------------------------------
+    //---------- edit task set ----------
+    //-----------------------------------
+    public void editTaskSet(TaskSet _taskSet) throws SQLException, Exception {
         Connection conn = null;
         Class.forName("org.sqlite.JDBC");
 
@@ -523,20 +598,116 @@ public class TestDatabaseMethods {
             conn = DriverManager.getConnection(connectionString);
         } catch (SQLException e) {
             //Skrive fejlhåndtering her
-            System.out.println("\n Database error (create task set (connection): " + e.getMessage() + "\n");
+            System.out.println("\n Database error (edit task set (connection): " + e.getMessage() + "\n");
         }
 
-        conn.close();
+        Statement stat = conn.createStatement();
+        ResultSet rs;
 
-        return usersIndividualTasksSets;
+        //update taskset info
+        String sql = "UPDATE TaskSets SET taskSetName = '" + _taskSet.getName() + "', description = '" + _taskSet.getDescription() + "' "
+                + "WHERE taskSet_ID = ('" + _taskSet.getTaskSet_ID() + "')";
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("\n Database error (insert task set (insert task set)" + e.getMessage());
+        }
+
+        //update task and questions - working
+        for (int i = 0; i < _taskSet.getTasks().size(); i++) {
+            Task taskToUpdate = _taskSet.getTasks().get(i);
+
+            //check if questien exist
+            if (_taskSet.getTasks().get(i).getTask_ID() > -1) {
+                //update task info
+                sql = "UPDATE task SET question = '" + taskToUpdate.getQuestion() + "' "
+                        + "WHERE task_ID = ('" + taskToUpdate.getTask_ID() + "')";
+
+                try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                    pstmt.executeUpdate();
+                } catch (SQLException e) {
+                    System.out.println("\n Database error (insert task set (insert task)" + e.getMessage());
+                }
+
+                // update coresponding questien
+                switch (_taskSet.getTasks().get(i).getQuestion().getType()) {
+                    case multipelChoiseQuestion:
+                        MultipelChoiseQuestion mcq = taskToUpdate.getQuestion().asMultipelChoiseQuestion();
+
+                        ArrayList<Integer> existingAnswer_IDs = new ArrayList<>();
+
+                        try {
+                            rs = stat.executeQuery("SELECT multipelChoicesAnswer_ID FROM multipelChoicesAnswers"
+                                    + "WHERE multipelChoicesQuestion_ID = ('" + mcq.getQuestion_ID() + "')");
+
+                            while (rs.next()) {
+                                existingAnswer_IDs.add(rs.getInt("multipelChoicesAnswers_ID"));
+                            }
+
+                        } catch (SQLException e) {
+                            System.out.println("\n Database error (insert task set (multipel choice question (get existing answers)" + e.getMessage());
+                        }
+
+                        for (int u = 0; u < mcq.getAnswerOptions().size(); u++) {
+                            if (existingAnswer_IDs.contains(mcq.getAnswerOptions().get(u).getAnswer_ID())) {
+
+                                sql = "UPDATE multipelChoiceAnswers SET answer = '" + mcq.getAnswerOptions().get(u).getAnswer() + "',"
+                                        + "correct = '" + (mcq.getAnswerOptions().get(u).getCorrect() ? 1 : 0) + "' "
+                                        + "WHERE multipelChoicesAnswer_ID = ('" + mcq.getAnswerOptions().get(u).getAnswer_ID() + "')";
+
+                                try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                                    pstmt.executeUpdate();
+                                } catch (SQLException e) {
+                                    System.out.println("\n Database error (insert task set (multipel choice question (update answer)" + e.getMessage());
+                                }
+
+                            } else {
+
+                                sql = "INSERT INTO multipelChoiseAnswers(multipelChoiseQuestion_ID, answer, correct) VALUES"
+                                        + "('" + mcq.getQuestion_ID() + "', '" + mcq.getAnswerOptions().get(u).getAnswer() + "', "
+                                        + "'" + (mcq.getAnswerOptions().get(u).getCorrect() ? 1 : 0) + "')";
+
+                                try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                                    pstmt.executeUpdate();
+                                } catch (SQLException e) {
+                                    System.out.println("\n Database error (insert task set (multipel choice question "
+                                            + "(create new answer)" + e.getMessage());
+                                }
+                            }
+                        }
+                        break;
+
+                    case correctAnswerBasedQuestion:
+                        CorrectAnswerBasedQuestion cabq = taskToUpdate.getQuestion().asCorrectAnswerBasedQuestion();
+
+                        sql = "UPDATE correctAnswerBasedQuestions SET correctAnswer = '" + cabq.getCorrectAnswer() + "' "
+                                + "WHERE correctAnswerBasedQuestion = ('" + cabq.getQuestion_ID() + "') ";
+
+                        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                            pstmt.executeUpdate();
+                        } catch (SQLException e) {
+                            System.out.println("\n Database error (insert task set (correct answer based question "
+                                    + "(update correct answer)" + e.getMessage());
+                        }
+                        break;
+
+                    case textAnswerBasedQuestion:
+                        //there is nothing extra to add
+                        break;
+                }
+            } else {
+                //insert new task and question
+                insertTaskAndQuestion(conn, taskToUpdate, _taskSet.getTaskSet_ID());
+            }
+        }
+        conn.close();
     }
 
-    //-------------------------------------------------------
-    //---------- get teachers individual task sets ----------
-    //-------------------------------------------------------
-    public ArrayList<TaskSet> getTeachersIndividualTaskSets() throws SQLException, Exception {
-        ArrayList<TaskSet> teachersIndividualTaskSets = new ArrayList<>();
-
+    //-------------------------------------
+    //---------- answer task set ----------
+    //-------------------------------------
+    public void answerTaskSet(TaskSet _taskSet) throws SQLException, Exception {
         Connection conn = null;
         Class.forName("org.sqlite.JDBC");
 
@@ -544,12 +715,73 @@ public class TestDatabaseMethods {
             conn = DriverManager.getConnection(connectionString);
         } catch (SQLException e) {
             //Skrive fejlhåndtering her
-            System.out.println("\n Database error (create task set (connection): " + e.getMessage() + "\n");
+            System.out.println("\n Database error (edit task set (connection): " + e.getMessage() + "\n");
+        }
+
+        //update task
+        for (int i = 0; i < _taskSet.getTasks().size(); i++) {
+            String sql = "UPDATE tasks SET answer = '" + _taskSet.getTasks().get(i).getAnswer() + "' "
+                    + "WHERE task_ID = ('" + _taskSet.getTasks().get(i).getTask_ID() + "')";
+
+            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println("\n Database error (answer task set (update answer)" + e.getMessage());
+            }
+        }
+        conn.close();
+    }
+
+    //--------------------------------------
+    //---------- comment task set ----------
+    //--------------------------------------
+    public void commentTaskSet(TaskSet _taskSet) throws SQLException, Exception {
+        Connection conn = null;
+        Class.forName("org.sqlite.JDBC");
+
+        try {
+            conn = DriverManager.getConnection(connectionString);
+        } catch (SQLException e) {
+            //Skrive fejlhåndtering her
+            System.out.println("\n Database error (comment task set (connection): " + e.getMessage() + "\n");
+        }
+
+        for (int i = 0; i < _taskSet.getTasks().size(); i++) {
+            String sql = "UPDATE tasks SET teacherComment = '" + _taskSet.getTasks().get(i).getComment() + "'"
+                    + "WHERE task_ID = ('" + _taskSet.getTasks().get(i).getTask_ID() + "')";
+
+            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println("\n Database error (comment task set (update comment)" + e.getMessage());
+            }
+        }
+        conn.close();
+    }
+
+    //-------------------------------------
+    //---------- delete task set ----------
+    //-------------------------------------
+    public void deleteTaskSet(int _taskSet_ID) throws SQLException, Exception {
+        Connection conn = null;
+        Class.forName("org.sqlite.JDBC");
+
+        try {
+            conn = DriverManager.getConnection(connectionString);
+        } catch (SQLException e) {
+            //Skrive fejlhåndtering her
+            System.out.println("\n Database error (get students teams (connection): " + e.getMessage() + "\n");
+        }
+
+        String sql = "DELETE FROM TaskSets WHERE taskSet_ID = ('" + _taskSet_ID + "')";
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("\n Database error (assign taskSet to team (insert assign)" + e.getMessage() + "\n");
         }
 
         conn.close();
-
-        return teachersIndividualTaskSets;
     }
 
     //------------------------------------------------
@@ -814,6 +1046,18 @@ public class TestDatabaseMethods {
         conn.close();
     }
 
+    //----------------------------------------------------
+    //---------- get teams uansiggned task sets ---------- needs work
+    //----------------------------------------------------
+    //---------------------------------------------------
+    //---------- get teams assiggned task sets ---------- needs work
+    //---------------------------------------------------
+    //---------------------------------------------------
+    //---------- get teams unasiggend students ---------- needs work
+    //---------------------------------------------------
+    //-------------------------------------------------
+    //---------- get teams assigned students ---------- needs work
+    //-------------------------------------------------
     public static ArrayList<TaskSet> getAllTaskSets() {
         ArrayList alltasksets = new ArrayList();
         //placeholder
