@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.layout.test.FrontPageController">
+   <children>
+      <Pane layoutX="-68.0" layoutY="55.0" prefHeight="805.0" prefWidth="871.0" style="-fx-background-color: #FEFEFE;">
+         <children>
+            <ImageView fitHeight="458.0" fitWidth="523.0" layoutX="346.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@loginBackground3.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="454.0" fitWidth="666.0" layoutX="-160.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@loginBackground2.png" />
+               </image>
+            </ImageView>
+            <PasswordField layoutX="370.0" layoutY="338.0" prefHeight="31.0" prefWidth="202.0" promptText="Password" styleClass="loginBox" stylesheets="@styles.css">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+            <TextField layoutX="370.0" layoutY="285.0" prefHeight="31.0" prefWidth="202.0" promptText="Username" styleClass="loginBox" stylesheets="@styles.css">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Text fill="#041378" fontSmoothingType="LCD" layoutX="391.0" layoutY="105.0" nodeOrientation="RIGHT_TO_LEFT" strokeType="OUTSIDE" strokeWidth="0.0" text="ExaMe" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial" size="52.0" />
+               </font>
+               <effect>
+                  <DropShadow height="9.14" radius="4.07" width="9.14" />
+               </effect>
+            </Text>
+            <ImageView fitHeight="122.0" fitWidth="138.0" layoutX="400.0" layoutY="149.0" opacity="0.93" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@loginIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="352.0" fitWidth="530.0" layoutX="-32.0" layoutY="454.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@loginBackground1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="350.0" fitWidth="445.0" layoutX="427.0" layoutY="454.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@loginBackground1.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="loginButton" layoutX="436.0" layoutY="413.0" mnemonicParsing="false" onAction="#openMain" prefHeight="33.0" prefWidth="62.0" styleClass="loginButton" stylesheets="@styles.css" text="Login">
+               <effect>
+                  <DropShadow height="10.0" radius="4.5" width="10.0" />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="379.0" layoutY="466.0" mnemonicParsing="false" onAction="#teacher" prefHeight="33.0" prefWidth="186.0" styleClass="loginButton" stylesheets="@styles.css" text="Ny bruger? Opret en konto">
+               <effect>
+                  <DropShadow height="10.0" radius="4.5" width="10.0" />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <TextField fx:id="errorField" layoutX="374.0" layoutY="371.0" prefHeight="22.0" prefWidth="196.0" style="-fx-background-color: transparent; -fx-text-fill: RED; -fx-text-underline: 1px; -fx-text-wrap: 150;">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+      <VBox fx:id="vbox" layoutX="-3.0" layoutY="-443.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="806.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </VBox>
+      <Pane layoutX="-3.0" prefHeight="55.0" prefWidth="806.0" style="-fx-background-color: #52ABFC;" stylesheets="@styles.css">
+         <children>
+            <Button fx:id="returnButton" layoutX="14.0" layoutY="-47.0" mnemonicParsing="false" onAction="#openLogin" rotate="-178.3" style="-fx-background-color: transparent; -fx-border-color: transparent;" styleClass="returnButton" stylesheets="@styles.css" text="V" textFill="#0b006f">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="752.0" mnemonicParsing="false" onAction="#handleClose" prefHeight="55.0" prefWidth="54.0" styleClass="exitButton" stylesheets="@styles.css" text="X">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+   </children>
+</AnchorPane>
