@@ -99,4 +99,8 @@ public class TestStudentController implements Initializable {
         private void answer () throws IOException{
             App.setRoot("answerTest");
         }
+        @FXML
+        private void feedback () throws IOException{
+            App.setRoot("testFeedbackStudent");
+        }
     }
