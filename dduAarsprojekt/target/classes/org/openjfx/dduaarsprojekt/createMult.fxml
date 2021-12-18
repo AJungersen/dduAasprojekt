@@ -1,27 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="558.0" prefWidth="751.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="org.openjfx.dduaarsprojekt.CreateMultController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="369.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.dduaarsprojekt.CreateMultController">
    <children>
-      <TextArea layoutX="39.0" layoutY="14.0" prefHeight="66.0" prefWidth="674.0" promptText="Question" />
-      <TextArea layoutX="26.0" layoutY="104.0" prefHeight="200.0" prefWidth="350.0" promptText="Answer option 1" />
-      <TextArea layoutX="378.0" layoutY="104.0" prefHeight="200.0" prefWidth="350.0" promptText="Answer option 2" />
-      <TextArea layoutX="26.0" layoutY="304.0" prefHeight="200.0" prefWidth="350.0" promptText="Answer option 3" />
-      <TextArea layoutX="378.0" layoutY="304.0" prefHeight="200.0" prefWidth="350.0" promptText="Answer option 4" />
-      <ToggleButton layoutX="321.0" layoutY="279.0" mnemonicParsing="false" text="Correct">
-         <toggleGroup>
-            <ToggleGroup fx:id="forkert" />
-         </toggleGroup>
-      </ToggleButton>
-      <ToggleButton layoutX="673.0" layoutY="279.0" mnemonicParsing="false" text="Correct" />
-      <ToggleButton layoutX="673.0" layoutY="479.0" mnemonicParsing="false" text="Correct" />
-      <ToggleButton layoutX="321.0" layoutY="479.0" mnemonicParsing="false" text="Correct" />
-      <Button layoutX="506.0" layoutY="519.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="233.0" text="Save question" />
+      <Pane prefHeight="501.0" prefWidth="369.0" styleClass="createQuestionBackground" stylesheets="@styles.css">
+         <children>
+            <Text fill="#4b4b4b" layoutX="14.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nr.">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Text>
+            <Text fx:id="questionNumber" fill="#4b4b4b" layoutX="51.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="X">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Text>
+            <TextField fx:id="question" layoutX="24.0" layoutY="64.0" prefHeight="30.0" prefWidth="322.0" promptText="Spørgmål?" styleClass="createQuestionBox" stylesheets="@styles.css">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <Button layoutX="220.0" layoutY="441.0" mnemonicParsing="false" onAction="#save" prefHeight="27.0" prefWidth="118.0" styleClass="loginButton" stylesheets="@styles.css" text="Gem spørgsmål">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow height="10.0" radius="4.5" width="10.0">
+                     <color>
+                        <Color opacity="0.7917570471763611" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <TextField fx:id="Answer1" layoutX="93.0" layoutY="110.0" prefHeight="30.0" prefWidth="254.0" promptText="Svarmulighed" styleClass="createQuestionBox" stylesheets="@styles.css">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <CheckBox layoutX="22.0" layoutY="117.0" mnemonicParsing="false" text="Rigtig?">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </CheckBox>
+            <Button layoutX="34.0" layoutY="441.0" mnemonicParsing="false" onAction="#addAnswer" styleClass="loginButton" stylesheets="@styles.css" text="Tilføj svarmulighed">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow height="10.0" radius="4.5" width="10.0">
+                     <color>
+                        <Color opacity="0.7917570471763611" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+         </children>
+      </Pane>
    </children>
-</AnchorPane>
+</VBox>

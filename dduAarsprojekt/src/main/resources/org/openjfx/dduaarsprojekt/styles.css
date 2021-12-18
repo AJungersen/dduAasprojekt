@@ -1,0 +1,166 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17. nov. 2021, 11.19.46
+    Author     : Clara Maj
+*/
+
+/* */
+.navigator{
+    -fx-background-color: #52ABFC;
+    -fx-text-fill: #F68A1F;
+}
+
+.seperator{
+    -fx-background-color: #F0F0F0;
+}
+
+.main{
+    -fx-background-color: #F7F7F7;
+}
+
+.loginBox{
+    -fx-background-color: whitesmoke;
+    -fx-border-color: #041378;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 1px;
+    -fx-background-radius: 1px;   
+}
+
+.answerQuestion{
+    
+}
+
+
+.createQuestionBackground{
+    -fx-background-color: linear-gradient(to top, #92A2B8, #F4F4F4);
+}
+
+.createQuestionBox{
+    -fx-background-color: white;
+    -fx-border-color: #041378;
+    -fx-border-radius: 1px;
+    -fx-border-width: 0px 0px 1px 0px;
+    -fx-text-fill: #041378;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 5.0, 5.0);
+}
+
+.text-area {
+	-fx-background-color: white;
+        -fx-border-color: #041378;
+        -fx-border-radius: 1px;
+        -fx-border-width: 0px 0px 0px 0px;
+        -fx-text-fill: #041378;
+	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 5.0, 5.0);
+}
+.text-area .content {
+	-fx-background-color: white;
+	-fx-background-insets: 0;
+	-fx-background-radius: 0;
+        -fx-text-fill: #041378;
+}
+.text-area:focused .content {
+	-fx-background-color: white;
+	-fx-background-insets: 0;
+	-fx-background-radius: 0;
+        -fx-text-fill: #041378;
+}
+
+
+/* Diverse knapper */
+.button{
+    -fx-background-color: transparent;
+    -fx-background-radius: 5px;
+    -fx-border-color: #52ABFC;
+    -fx-text-fill: #4b4b4b;
+}
+
+.exitButton{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-radius: 0px;
+    -fx-background-radius: 0px;
+    -fx-text-fill: #4b4b4b;
+}
+.exitButton:hover{
+    -fx-background-color: #E81123;
+    -fx-border-color: transparent;
+    -fx-border-radius: 0px;
+    -fx-background-radius: 0px;
+    -fx-text-fill: whitesmoke;
+}
+
+.loginButton{
+    -fx-background-color: #79CDFF;
+    -fx-border-radius: 2px;
+    -fx-background-radius: 2px;
+    -fx-text-fill: #4b4b4b;
+    -fx-border-color: #041378;
+}
+.loginButton:hover{
+    -fx-background-color: #A5DDFF;
+}
+
+/* sign up stuff*/
+.signUpButton{
+    -fx-background-color: #D8ECFE;
+    -fx-border-radius: 2px;
+    -fx-background-radius: 2px;
+    -fx-text-fill: #4b4b4b;
+    -fx-border-color: #041378;
+}
+.signUpButton:hover{
+    -fx-background-color: #D3D3D3;
+}
+.signUpBackground{
+    -fx-background-color: linear-gradient(to bottom, #B0E0FD, #52ABFC);
+}
+.returnButton:hover{
+    -fx-text-fill:#E81123;
+}
+
+
+
+/* Dropdown menuen */
+.menu-bar {
+    -fx-background-color: black ;
+    -fx-opacity: 0.5;
+    -fx-border-width: 2.0;
+
+}
+.menu-bar .label {
+    -fx-font-size: 14.0 pt;
+    -fx-font-family: "Bookman Old Style";
+    -fx-text-fill: white;
+    -fx-font-weight: bold; 
+    -fx-padding: 10.0px;
+
+}
+.menu-bar .menu-button:hover, .menu-bar .menu-button:focused, .menu-bar .menu-button:showing {
+    -fx-background: black ;
+    -fx-opacity: 0.5;
+    -fx-text-fill: #041378 ;
+}
+
+.menu-item {
+    -fx-padding: 0.0em 0.0em 0.0em 0.0em;
+    -fx-text-fill: black;
+    -fx-background: darkgray ;
+}
+.menu-item .label{
+    -fx-font-size: 14.0 pt;
+    -fx-text-fill: #0F304D;
+}
+.menu-item .label:hover{
+    -fx-font-size: 14.0 pt;
+    -fx-background: black ;
+    -fx-text-fill: #2E90E8;
+}
+.context-menu {
+    -fx-background-color:#C8C8C8 ;
+    -fx-border-width: 0.2px;
+    -fx-border-color: black;
+}

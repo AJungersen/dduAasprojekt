@@ -6,6 +6,7 @@
 
 package org.openjfx.dduaarsprojekt;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -46,7 +47,7 @@ public class TestStudentController implements Initializable {
             ArrayList<TaskSet> nameListTask = new ArrayList();
             String[] teamNamesString = {};
         try {
-            nameListTask = Student.getThisStudentTasks(App.getLoggedInUser().getUser_ID());
+           // nameListTask = Student.getThisStudentTasks(App.getLoggedInUser().getUser_ID());
         } catch (Exception ex) {
             Logger.getLogger(TestStudentController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -72,5 +73,30 @@ public class TestStudentController implements Initializable {
                 selectedTeamTaskSets = teams.getSelectionModel().getSelectedItem().getTaskSet();
             }
         }*/
+        }
+    
+        @FXML
+        private void back() throws IOException{
+            App.setRoot("mainStudent");
+        }
+        @FXML
+        private void logout() throws IOException{
+            App.setRoot("frontPage");
+        }
+        @FXML
+        private void tests() throws IOException{
+            App.setRoot("testStudent");
+        }
+        @FXML
+        private void exit() {
+            System.exit(0);
+        }
+        @FXML
+        private void teams() throws IOException{
+            App.setRoot("teamStudent");
+        }
+        @FXML
+        private void answer () throws IOException{
+            App.setRoot("answerTest");
         }
     }

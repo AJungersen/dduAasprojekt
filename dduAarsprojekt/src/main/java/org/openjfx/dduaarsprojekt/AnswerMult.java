@@ -11,15 +11,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 /**
  *
  * @author danie
  */
 public class AnswerMult implements Initializable {
-    
-    Label Question;
-    TextField Answer;
+    @FXML private Text questionNumber;
+    @FXML Label Question;
+    @FXML TextField Answer;
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {

@@ -27,13 +27,8 @@ public class TeamStaffController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
-    @FXML
-    public void createNewTaskSet() throws IOException{
-        App.setRoot("testMaker");
-    }
-
-    @FXML
+   
+   @FXML
     private void mineHold() throws IOException {
         App.setRoot("teamStaff");
     }
@@ -50,6 +45,14 @@ public class TeamStaffController implements Initializable {
     
     @FXML
     private void logud() throws IOException{
-        App.setRoot("login");
+        App.setRoot("frontPage");
+    }
+    @FXML
+    private void exit() {
+        System.exit(0);
+    }
+    @FXML
+    private void info () throws IOException{
+        App.setRoot("teamInformation");
     }
 }
