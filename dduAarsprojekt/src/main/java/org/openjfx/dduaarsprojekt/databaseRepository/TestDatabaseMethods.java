@@ -410,9 +410,38 @@ public class TestDatabaseMethods {
         return usersIndividualTasksSets;
     }
 
-    //------------------------------------------------------------
-    //---------- get users indidual uassigned task sets ----------
-    //------------------------------------------------------------
+    //----------------------------------------------------------------
+    //---------- get students indidual unassigned task sets ----------
+    //-----------------------------------...--------------------------
+    public ArrayList<TaskSet> getStudentsIndividualUnassignedTaskSets(int _student_ID, int _teacherUser_ID) throws SQLException, Exception {
+        ArrayList<TaskSet> studentsIndividualUnassignedTaskSets = new ArrayList<>();
+
+        Connection conn = null;
+        Class.forName("org.sqlite.JDBC");
+
+        try {
+            conn = DriverManager.getConnection(connectionString);
+        } catch (SQLException e) {
+            //Skrive fejlhåndtering her
+            System.out.println("\n Database error (get users individual unassigned task sets (connection): " + e.getMessage() + "\n");
+        }
+
+        try {
+            Statement stat = conn.createStatement();
+
+            ResultSet rs = stat.executeQuery("SELECT * FROM TaskSets WHERE assignment_ID NOT IN "
+                    + "(SELECT assignment_ID FROM studentsAndAssignments WHERE student_ID = ('" + _student_ID + "')) "
+                    + "AND user_ID = ('" + _teacherUser_ID + "') ");
+
+            studentsIndividualUnassignedTaskSets = loadTaskSets(conn, rs);
+
+        } catch (SQLException e) {
+            System.out.println("\n Database error (get users individual unassigned task sets (get tasksets): " + e.getMessage() + "\n");
+        }
+
+        return studentsIndividualUnassignedTaskSets;
+    }
+
     //-------------------------------------
     //---------- create task set ----------
     //-------------------------------------
@@ -700,7 +729,7 @@ public class TestDatabaseMethods {
         } catch (SQLException e) {
             System.out.println("\n Database error (assign taskSet to team (insert assign)" + e.getMessage() + "\n");
         }
-        
+
         conn.close();
     }
 
