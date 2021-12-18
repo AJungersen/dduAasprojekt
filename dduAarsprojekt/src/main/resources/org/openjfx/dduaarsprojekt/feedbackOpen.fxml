@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="369.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.dduaarsprojekt.FeedbackOpen">
+   <children>
+      <Pane prefHeight="501.0" prefWidth="369.0" styleClass="createQuestionBackground" stylesheets="@styles.css">
+         <children>
+            <Text fill="#4b4b4b" layoutX="16.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feedback konsol">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Text>
+            <Text fill="#6f6f6f" layoutX="19.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( antal spørgsmål )" />
+            <Line endX="210.0000457763672" endY="-340.0" layoutX="-210.0" layoutY="434.0" startX="420.50006103515625" startY="-340.0" stroke="#aaaaaa" />
+            <Text fill="#6f6f6f" layoutX="19.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( hvilket hold prøven var tildelt )" />
+         </children>
+      </Pane>
+   </children>
+</VBox>

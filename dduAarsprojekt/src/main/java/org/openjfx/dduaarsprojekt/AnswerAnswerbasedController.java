@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import org.openjfx.dduaarsprojekt.TestClasses.Question;
 
 /**
@@ -18,9 +19,10 @@ import org.openjfx.dduaarsprojekt.TestClasses.Question;
  * @author danie
  */
 public class AnswerAnswerbasedController implements Initializable {
-
-    Label Question;
-    TextField Answer;
+    @FXML private Text questionNumber;
+    @FXML Text Question;
+    @FXML TextField Answer;
+    @FXML TextField Describtion;
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {

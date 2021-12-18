@@ -21,9 +21,10 @@ import org.openjfx.dduaarsprojekt.TestClasses.CorrectAnswerBasedQuestion;
  * @author danie
  */
 public class CreateAnswerbasedController implements Initializable {
-    TextField question;
-    TextArea correct;
-    Button point;
+    @FXML TextField question;
+    @FXML TextArea correct;
+    @FXML TextArea describtion;
+    @FXML TextField point;
 
     /**
      * Initializes the controller class.
