@@ -28,6 +28,10 @@ public class Task {
         this.comment = comment;
     }
 
+    public Task() {
+        
+    }
+
     public int getTask_ID() {
         return task_ID;
     }
