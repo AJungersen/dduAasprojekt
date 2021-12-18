@@ -76,4 +76,8 @@ public class TestStaffController implements Initializable{
     private void exit() {
         System.exit(0);
     }
+    @FXML
+    private void feedback() throws IOException {
+        App.setRoot("testFeedbackStaff");
+    }
 }

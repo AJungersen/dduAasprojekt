@@ -96,7 +96,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Button layoutX="342.0" layoutY="317.0" mnemonicParsing="false" styleClass="loginButton" stylesheets="@styles.css" text="Rediger prøve">
+      <Button layoutX="293.0" layoutY="318.0" mnemonicParsing="false" styleClass="loginButton" stylesheets="@styles.css" text="Rediger prøve">
          <effect>
             <DropShadow height="10.0" radius="4.5" width="10.0">
                <color>
@@ -113,32 +113,8 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Button layoutX="343.0" layoutY="559.0" mnemonicParsing="false" styleClass="loginButton" stylesheets="@styles.css" text="Rediger prøve">
-         <effect>
-            <DropShadow height="10.0" radius="4.5" width="10.0">
-               <color>
-                  <Color opacity="0.7917570471763611" />
-               </color>
-            </DropShadow>
-         </effect>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
       <Text fill="#4b4b4b" layoutX="290.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vælg den prøve du vil redigere" />
-      <Button layoutX="449.0" layoutY="317.0" mnemonicParsing="false" styleClass="loginButton" stylesheets="@styles.css" text="  Slet prøve  ">
-         <effect>
-            <DropShadow height="10.0" radius="4.5" width="10.0">
-               <color>
-                  <Color opacity="0.7917570471763611" />
-               </color>
-            </DropShadow>
-         </effect>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="448.0" layoutY="559.0" mnemonicParsing="false" styleClass="loginButton" stylesheets="@styles.css" text="  Slet prøve  ">
+      <Button layoutX="400.0" layoutY="318.0" mnemonicParsing="false" styleClass="loginButton" stylesheets="@styles.css" text="  Slet prøve  ">
          <effect>
             <DropShadow height="10.0" radius="4.5" width="10.0">
                <color>
@@ -180,5 +156,53 @@
          </items>
       </MenuButton>
       <TextArea fx:id="description" layoutX="701.0" layoutY="252.0" prefHeight="173.0" prefWidth="234.0" stylesheets="@styles.css" text="Description" />
+      <Button layoutX="499.0" layoutY="318.0" mnemonicParsing="false" styleClass="loginButton" stylesheets="@styles.css" text="Giv feedback">
+         <effect>
+            <DropShadow height="10.0" radius="4.5" width="10.0">
+               <color>
+                  <Color opacity="0.7917570471763611" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="290.0" layoutY="559.0" mnemonicParsing="false" styleClass="loginButton" stylesheets="@styles.css" text="Rediger prøve">
+         <effect>
+            <DropShadow height="10.0" radius="4.5" width="10.0">
+               <color>
+                  <Color opacity="0.7917570471763611" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="397.0" layoutY="559.0" mnemonicParsing="false" styleClass="loginButton" stylesheets="@styles.css" text="  Slet prøve  ">
+         <effect>
+            <DropShadow height="10.0" radius="4.5" width="10.0">
+               <color>
+                  <Color opacity="0.7917570471763611" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="496.0" layoutY="559.0" mnemonicParsing="false" styleClass="loginButton" stylesheets="@styles.css" text="Giv feedback">
+         <effect>
+            <DropShadow height="10.0" radius="4.5" width="10.0">
+               <color>
+                  <Color opacity="0.7917570471763611" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>
