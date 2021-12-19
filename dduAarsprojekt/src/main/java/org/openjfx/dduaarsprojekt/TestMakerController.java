@@ -32,8 +32,8 @@ import org.openjfx.dduaarsprojekt.databaseRepository.TestDatabaseMethods;
  * @author Clara Maj
  */
 public class TestMakerController implements Initializable {
-    public static TaskSet current;
-    public static ArrayList<Task> tasks;
+    public static TaskSet current = new TaskSet(App.getLoggedInUser().getUser_ID(),null,null,null, new ArrayList<>());
+    public static ArrayList<Task> tasks = new ArrayList<>();
     
     @FXML
     ListView questionList;
