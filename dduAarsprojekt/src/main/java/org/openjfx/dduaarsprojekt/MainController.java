@@ -12,12 +12,15 @@ package org.openjfx.dduaarsprojekt;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
 import org.openjfx.dduaarsprojekt.databaseRepository.TestDatabaseMethods;
+import org.openjfx.dduaarsprojekt.random.Team;
 
 /**
  * FXML Controller class
@@ -25,16 +28,20 @@ import org.openjfx.dduaarsprojekt.databaseRepository.TestDatabaseMethods;
  * @author Clara Maj
  */
 public class MainController implements Initializable {
-
+    @FXML ListView<String> myTeams;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         TestDatabaseMethods tdb = new TestDatabaseMethods();
-        System.out.println("HELLOWORLD");
         try {
             System.out.print(tdb.getSchoolsStudents(1).get(4).getUser_ID());
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            myTeams.getItems().addAll(getNames(tdb.getTeachersTeams(App.getLoggedInUser().getUser_ID())));
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -62,5 +69,12 @@ public class MainController implements Initializable {
         App.setRoot("teamStaff");
     }
      
+    private ArrayList<String> getNames(ArrayList<Team> teacherTeams) {
+        ArrayList<String> myNames = new ArrayList();
+        for(int i = 0; i < teacherTeams.size(); i++){
+            myNames.add(teacherTeams.get(i).getTeamName());
+        }
+        return myNames;
+    }
     
 }
