@@ -55,6 +55,12 @@ public class TeamInformationController implements Initializable {
         } catch (Exception ex) {
             Logger.getLogger(TeamInformationController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try {
+            allStudents.getItems().addAll(getNames(tdb.getSchoolsStudents(1)));
+        } catch (Exception ex) {
+            Logger.getLogger(TeamInformationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }    
       @FXML
     private void back() throws IOException{
@@ -102,8 +108,17 @@ public class TeamInformationController implements Initializable {
                     p+=1;
                 }
             }
-            myList.add(new AssistantTeamInformationController(checking.get(i).getName(),p/checking.size()));
+            myList.add(new AssistantTeamInformationController(checking.get(i).getName(),100*p/checking.size()));
         }
         return myList;
     }
+
+    private ArrayList<String> getNames(ArrayList<Student> schoolsStudents) {
+        ArrayList<String> myNames = new ArrayList();
+        for(int i = 0; i < schoolsStudents.size(); i++){
+            myNames.add(schoolsStudents.get(i).getName());
+        }
+        return myNames;
+    }
+    
 }
