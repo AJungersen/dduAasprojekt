@@ -158,11 +158,16 @@ public class TeamStaffController implements Initializable {
     @FXML
     private void saveTeam() throws Exception{
         TestDatabaseMethods tdb = new TestDatabaseMethods();
-        tdb.createTeam(new Team(App.getLoggedInUser().getUser_ID(), newTeamName.getText(), new ArrayList<TaskSet>(), studentsOnCurrentTeam));
+        tdb.createTeam(new Team(App.getLoggedInUser().getUser_ID(), newTeamName.getText()));
+        ArrayList<Team> teachTeams = tdb.getTeachersTeams(App.getLoggedInUser().getUser_ID());
+        for(int i = 0; i < studentsOnCurrentTeam.size(); i++){
+            tdb.assignStudentToTeam(teachTeams.get(teachTeams.size()).getTeam_ID(), studentsOnCurrentTeam.get(i), App.getLoggedInUser().getUser_ID());
+        }
+        
         
         //Reset af lister
         studentsOnCurrentTeam.clear();
-        currentStudents.setItems((ObservableList) studentsOnCurrentTeam);
+        //currentStudents.setItems((ObservableList) studentsOnCurrentTeam);
         addStudents.getItems().addAll(tdb.getSchoolsStudents(1));
         
         ArrayList<Team> teachersTeams = new ArrayList();
