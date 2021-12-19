@@ -41,6 +41,7 @@ public class TestStudentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+            TestDatabaseMethods tdb = new TestDatabaseMethods();
             ArrayList<String> taskSetNames = new ArrayList();
             ArrayList<TaskSet> nameListTask = new ArrayList();
             String[] teamNamesString = {};
@@ -71,6 +72,12 @@ public class TestStudentController implements Initializable {
                 selectedTeamTaskSets = teams.getSelectionModel().getSelectedItem().getTaskSet();
             }
         }*/
+         try {
+            myTeams.getItems().addAll(getNames(tdb.getTeachersTeams(App.getLoggedInUser().getUser_ID())));
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         }
     
         @FXML
@@ -101,4 +108,11 @@ public class TestStudentController implements Initializable {
         private void feedback () throws IOException{
             App.setRoot("testFeedbackStudent");
         }
+        private ArrayList<String> getNames(ArrayList<Team> teacherTeams) {
+        ArrayList<String> myNames = new ArrayList();
+        for(int i = 0; i < teacherTeams.size(); i++){
+            myNames.add(teacherTeams.get(i).getTeamName());
+        }
+        return myNames;
+    }
     }
