@@ -25,7 +25,7 @@ public class CreateaCorrectController {
 public void save() {
     String q = question.getText();
     String c = answer.getText();
-    TestMakerController.tasks.add(new Task(new CorrectAnswerBasedQuestion(c,q),null,null));
+    TestMakerController.tasks.add(new Task (new CorrectAnswerBasedQuestion(c,q), null, null));
     }
 
 }
