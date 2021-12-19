@@ -113,6 +113,8 @@ public class TeamStaffController implements Initializable {
     }
     @FXML
     private void info () throws IOException{
+        ArrayList<Team> teachersTeams = new ArrayList();
+        TeamInformationController.currentTeamID = teachersTeams.get(teams.getSelectionModel().getSelectedIndex()).getTeam_ID();
         App.setRoot("teamInformation");
     }
     @FXML
