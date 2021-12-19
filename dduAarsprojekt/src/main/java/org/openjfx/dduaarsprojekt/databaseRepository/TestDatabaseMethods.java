@@ -1075,7 +1075,7 @@ public class TestDatabaseMethods {
             Statement stat = conn.createStatement();
             ResultSet rs = stat.executeQuery("SELECT * FROM Students WHERE student_ID NOT IN "
                     + "(SELECT student_ID FROM teamsAndStudents WHERE team_ID = ('" + _team_ID + "'))"
-                    + "AND student_ID IN((SELECT userType_ID FROM users WHERE school_ID = ('" + _schoolID + "') AND type = ('" + "student" + "')))");
+                    + "AND student_ID IN(SELECT userType_ID FROM users WHERE school_ID = ('" + _schoolID + "') AND type = ('" + "student" + "'))");
 
             teamsUnassignedStudents = loadStudents(conn, rs);
 
