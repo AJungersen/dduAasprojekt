@@ -117,7 +117,7 @@
             <TableColumn prefWidth="148.0" text="Rigtighedsprocent" />
          </columns>
       </TableView>
-      <Button layoutX="791.0" layoutY="332.0" mnemonicParsing="false" onAction="#answer" styleClass="loginButton" stylesheets="@styles.css" text="Se feedback">
+      <Button layoutX="791.0" layoutY="332.0" mnemonicParsing="false" onAction="#feedback" styleClass="loginButton" stylesheets="@styles.css" text="Se feedback">
          <effect>
             <DropShadow height="10.0" radius="4.5" width="10.0">
                <color>
@@ -129,7 +129,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField editable="false" layoutX="670.0" layoutY="184.0" prefHeight="31.0" prefWidth="249.0" style="-fx-background-color: transparent; -fx-text-fill: #4b4b4b; -fx-border-color: transparent;" text="Vælg den prøve du vil se feedback for">
+      <TextField editable="false" layoutX="670.0" layoutY="184.0" prefHeight="31.0" prefWidth="258.0" style="-fx-background-color: transparent; -fx-text-fill: #4b4b4b; -fx-border-color: transparent;" text="Vælg den prøve du vil se feedback for">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

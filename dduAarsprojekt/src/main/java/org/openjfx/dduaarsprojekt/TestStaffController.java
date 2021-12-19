@@ -39,8 +39,6 @@ public class TestStaffController implements Initializable{
     
    @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        ArrayList<TaskSet> tests = new ArrayList<>();
-        tests = TestDatabaseMethods.getAllTaskSets();
     }
     
     @FXML
@@ -50,7 +48,7 @@ public class TestStaffController implements Initializable{
     
     @FXML
     private void minePrøver() throws IOException {
-        App.setRoot("testStaff");
+        //App.setRoot("testStaff");
     }
     
     @FXML
@@ -60,8 +58,6 @@ public class TestStaffController implements Initializable{
        
     @FXML
     private void createNewTaskSet() throws IOException{
-        current.setName(testName.getText());
-        current.setDescription(description.getText());
         App.setRoot("testMaker");
     }
     @FXML

@@ -27,12 +27,12 @@
                   <Image url="@Images/loginBackground2.png" />
                </image>
             </ImageView>
-            <PasswordField fx:id="passwordFieldPassword" layoutX="370.0" layoutY="338.0" prefHeight="31.0" prefWidth="202.0" promptText="Password" styleClass="loginBox" stylesheets="@styles.css">
+            <PasswordField fx:id="passwordFieldPassword" layoutX="370.0" layoutY="338.0" prefHeight="31.0" prefWidth="202.0" promptText="Password" styleClass="loginBox" stylesheets="@styles.css" text="Test!12345">
                <font>
                   <Font size="14.0" />
                </font>
             </PasswordField>
-            <TextField fx:id="textFieldUsername" layoutX="370.0" layoutY="285.0" prefHeight="31.0" prefWidth="202.0" promptText="Username" styleClass="loginBox" stylesheets="@styles.css">
+            <TextField fx:id="textFieldUsername" layoutX="370.0" layoutY="285.0" prefHeight="31.0" prefWidth="202.0" promptText="Username" styleClass="loginBox" stylesheets="@styles.css" text="test">
                <font>
                   <Font size="14.0" />
                </font>

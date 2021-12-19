@@ -103,7 +103,12 @@ public class FrontPageController implements Initializable {
                 App.setLoggedInUser(userDatabasemethods.getLoggedInUser(textFieldUsername.getText()));
                 
                 System.out.println(App.getLoggedInUser().getType() + " logged in");
-                App.setRoot("main");
+                
+                if(App.getLoggedInUser().getType() == "teacher"){
+                    App.setRoot("main");
+                }else{
+                    App.setRoot("mainStudent");
+                }
 
             } else {
                 textErrorMessage.setText("user dosen't exist or password dont match");

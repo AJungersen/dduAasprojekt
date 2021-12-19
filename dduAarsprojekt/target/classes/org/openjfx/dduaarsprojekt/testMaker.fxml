@@ -45,7 +45,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Text>
-            <Button layoutX="178.0" layoutY="508.0" mnemonicParsing="false" onAction="#tests" prefHeight="27.0" prefWidth="95.0" stylesheets="@styles.css" text="Gem prøve">
+            <Button layoutX="178.0" layoutY="508.0" mnemonicParsing="false" onAction="#minePrøver" prefHeight="27.0" prefWidth="95.0" stylesheets="@styles.css" text="Gem prøve">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -57,7 +57,7 @@
       </AnchorPane>
       <VBox fx:id="create" layoutX="254.0" layoutY="101.0" prefHeight="499.0" prefWidth="369.0" stylesheets="@styles.css" />
       <VBox fx:id="show" layoutX="631.0" layoutY="101.0" prefHeight="499.0" prefWidth="369.0" stylesheets="@styles.css" />
-      <Button layoutX="542.0" layoutY="64.0" mnemonicParsing="false" onAction="#newMult" stylesheets="@styles.css" text="Tilføj mult spørgsmål">
+      <Button layoutX="542.0" layoutY="64.0" mnemonicParsing="false" onAction="#createMultQuestion" stylesheets="@styles.css" text="Tilføj mult spørgsmål">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -65,7 +65,7 @@
             <Font size="11.0" />
          </font>
       </Button>
-      <Button layoutX="400.0" layoutY="64.0" mnemonicParsing="false" onAction="#newCorrect" stylesheets="@styles.css" text="Tilføj korrekt spørgsmål">
+      <Button layoutX="400.0" layoutY="64.0" mnemonicParsing="false" onAction="#createCorrectQuestion" stylesheets="@styles.css" text="Tilføj korrekt spørgsmål">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -73,7 +73,7 @@
             <Font size="11.0" />
          </font>
       </Button>
-      <Button layoutX="265.0" layoutY="64.0" mnemonicParsing="false" onAction="#newAnswerbased" stylesheets="@styles.css" text="Tilføj åbent spørgsmål">
+      <Button layoutX="265.0" layoutY="64.0" mnemonicParsing="false" onAction="#createAnswerbasedQuestion" stylesheets="@styles.css" text="Tilføj åbent spørgsmål">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

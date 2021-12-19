@@ -9,6 +9,8 @@ C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\j
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\databaseRepository\UserDatabasemethods.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\QuestionsType.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\Question.java
+C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestFeedbackStudent.java
+C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\AssistantClasses\AssistantMyTeamsForTeamStudentController.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\math\Crypt.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\MultipelChoiseAnswer.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\math\MathStats.java
@@ -17,6 +19,7 @@ C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\j
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\random\Student.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\App.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\module-info.java
+C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestFeedbackStaffController.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\random\SecurityMethods.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\CreateAnswerbasedController.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\CorrectAnswerBasedQuestion.java
@@ -27,12 +30,17 @@ C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\j
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\random\Team.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\random\Teams.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestStudentController.java
+C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\AssistantClasses\AssistantMyTeamsForTeamStaffController.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\MainController.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\CreateaCorrectController.java
+C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\AssistantClasses\AssistantTeamInformationController.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\AnswerMult.java
+C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\FeedbackOpen.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TeamStudentController.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\Task.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\databaseRepository\TestDatabaseMethods.java
+C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\AnswerOpenController.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TestClasses\MultipelChoiseQuestion.java
+C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\Feedback.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\TeamInformationController.java
 C:\Users\clara\OneDrive\Documents\GitHub\dduAasprojekt\dduAarsprojekt\src\main\java\org\openjfx\dduaarsprojekt\AnswerCorrectController.java

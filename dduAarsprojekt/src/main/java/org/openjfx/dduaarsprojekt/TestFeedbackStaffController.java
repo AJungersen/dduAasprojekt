@@ -71,4 +71,12 @@ public class TestFeedbackStaffController implements Initializable {
             Logger.getLogger(TestMakerController.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
+    @FXML
+    private void exit(){
+        System.exit(0);   
+    }
+    @FXML
+    private void tests() throws IOException{
+       App.setRoot("testStaff");
+    }
 }

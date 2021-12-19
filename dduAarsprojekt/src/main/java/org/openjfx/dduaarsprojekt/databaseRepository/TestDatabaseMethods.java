@@ -90,7 +90,7 @@ public class TestDatabaseMethods {
 
                 User loadeUser = loadUser(conn, rs.getInt("user_ID"));
 
-                //loadedeStudents.get(i).setUser_ID(loadeUser.getUser_ID());
+                loadedeStudents.get(i).setUser_ID(loadeUser.getUser_ID());
                 loadedeStudents.get(i).setUsername(loadeUser.getUsername());
                 loadedeStudents.get(i).setPassword(loadeUser.getPassword());
             }
@@ -1119,7 +1119,7 @@ public class TestDatabaseMethods {
         return teamsAssignedStudents;
     }
 
-    public static ArrayList<TaskSet> getAllTaskSets() {
+    public ArrayList<TaskSet> getAllTeachersTaskSets(int teacherID) {
         ArrayList alltasksets = new ArrayList();
         //placeholder
         // lav rigtig funktion senere
