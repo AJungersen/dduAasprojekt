@@ -6,6 +6,7 @@
 
 package org.openjfx.dduaarsprojekt;
 
+import AssistantClasses.AssistantMyTestForTestStudentController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -18,8 +19,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.TableView;
+import javafx.scene.text.Text;
 import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
 import org.openjfx.dduaarsprojekt.databaseRepository.TestDatabaseMethods;
 import org.openjfx.dduaarsprojekt.random.Student;
@@ -36,8 +38,11 @@ public class TestStudentController implements Initializable {
     
     @FXML TableView<TaskSet> done = new TableView();
     @FXML ListView<String> myTeams = new ListView();
-    @FXML ListView<String> teamsList = new ListView();
+    @FXML ListView<String> onGoingTest = new ListView();
+    @FXML ListView<String> onGoingTestDone = new ListView();
     @FXML ArrayList<TaskSet> selectedTeamTaskSets = new ArrayList();
+    @FXML Text name;
+    @FXML TableColumn<AssistantMyTestForTestStudentController, String> teamName;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -45,6 +50,8 @@ public class TestStudentController implements Initializable {
             ArrayList<String> taskSetNames = new ArrayList();
             ArrayList<TaskSet> nameListTask = new ArrayList();
             String[] teamNamesString = {};
+            teamName.setCellValueFactory(new PropertyValueFactory<AssistantMyTestForTestStudentController, String>("teamName"));
+        
         try {
            // nameListTask = Student.getThisStudentTasks(App.getLoggedInUser().getUser_ID());
         } catch (Exception ex) {
@@ -64,17 +71,17 @@ public class TestStudentController implements Initializable {
         for(int i = 0; i < teams.size(); i++){
             teamNamesString[i] = teams.get(i).getTeamName();
         }
-        
-        /*teamsList.getItems().addAll(teamNamesString);
-        teamsList.getSelectionModel().selectedItemIndex().addListener(new ChangeListener<String>(){
-            @Override
-            public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2){
-                selectedTeamTaskSets = teams.getSelectionModel().getSelectedItem().getTaskSet();
-            }
-        }*/
+        //load dine hold
          try {
             myTeams.getItems().addAll(getNames(tdb.getTeachersTeams(App.getLoggedInUser().getUser_ID())));
         } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+        //load dit brugernavn 
+         try{
+             name.setText(App.getLoggedInUser().getUsername());
+         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -115,4 +122,21 @@ public class TestStudentController implements Initializable {
         }
         return myNames;
     }
+        
+       private ArrayList<AssistantMyTestForTestStudentController> AssistantMyTestForTestStudentController(ArrayList<TaskSet> usersIndividualAssignedTasksSets) {
+        TestDatabaseMethods tdb = new TestDatabaseMethods();
+        ArrayList<AssistantMyTestForTestStudentController> myTest = new ArrayList();
+        for(int i = 0; i < usersIndividualAssignedTasksSets.size(); i++){
+                myTest.add(new AssistantMyTestForTestStudentController(usersIndividualAssignedTasksSets.get(i).getName()));
+           }   
+        return myTest;
+       } 
+        
+        
+        
+        
+        
+        
+        
+        
     }
