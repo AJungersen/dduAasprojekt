@@ -112,7 +112,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="890.0" layoutY="226.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="80.0" styleClass="loginButton" stylesheets="@styles.css" text="Gem hold">
+      <Button layoutX="890.0" layoutY="226.0" mnemonicParsing="false" onAction="#saveTeam" prefHeight="47.0" prefWidth="80.0" styleClass="loginButton" stylesheets="@styles.css" text="Gem hold">
          <effect>
             <DropShadow height="10.0" radius="4.5" width="10.0">
                <color>

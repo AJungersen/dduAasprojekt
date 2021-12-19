@@ -33,7 +33,7 @@ public class TeamStudentController implements Initializable {
     @FXML
     TableColumn<AssistantMyTeamsForTeamStudentController, String> teamName;
     @FXML
-    TableColumn<AssistantMyTeamsForTeamStudentController, String> taskSetName;
+    TableColumn<AssistantMyTeamsForTeamStudentController, String> numberOfStudents;
     /**
      * Initializes the controller class.
      */
@@ -41,7 +41,7 @@ public class TeamStudentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         TestDatabaseMethods tdb = new TestDatabaseMethods();
         teamName.setCellValueFactory(new PropertyValueFactory<AssistantMyTeamsForTeamStudentController, String>("teamName"));
-        taskSetName.setCellValueFactory(new PropertyValueFactory<AssistantMyTeamsForTeamStudentController, String>("taskSetName"));
+        numberOfStudents.setCellValueFactory(new PropertyValueFactory<AssistantMyTeamsForTeamStudentController, String>("taskSetName"));
         try {
             myTeams.getItems().addAll(getAssistantMyTeamsForTeamStudentControllerArray(tdb.getStudentsTeams(App.getLoggedInUser().getUser_ID())));
         } catch (Exception ex) {

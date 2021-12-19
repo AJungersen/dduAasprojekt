@@ -6,5 +6,6 @@ module org.openjfx.dduaarsprojekt {
 
     opens org.openjfx.dduaarsprojekt to javafx.fxml;
     opens org.openjfx.dduaarsprojekt.random to javafx.base;
+    opens AssistantClasses to javafx.base;
     exports org.openjfx.dduaarsprojekt;
 }

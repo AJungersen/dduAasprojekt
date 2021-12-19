@@ -42,7 +42,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <ListView layoutX="29.0" layoutY="73.0" prefHeight="435.0" prefWidth="234.0" styleClass="seperator" stylesheets="@styles.css" />
+            <ListView fx:id="myTeams" layoutX="29.0" layoutY="73.0" prefHeight="435.0" prefWidth="234.0" styleClass="seperator" stylesheets="@styles.css" />
             <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="39.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/teams.png" />
@@ -87,7 +87,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <ListView fx:id="OngoingTests" layoutX="293.0" layoutY="174.0" prefHeight="152.0" prefWidth="300.0" styleClass="main" stylesheets="@styles.css" />
+      <ListView fx:id="onGoingTest" layoutX="293.0" layoutY="170.0" prefHeight="152.0" prefWidth="300.0" styleClass="main" stylesheets="@styles.css" />
       <Line endX="210.5" layoutX="382.0" layoutY="372.0" startX="-128.5" stroke="#aaaaaa" />
       <ImageView fitHeight="278.0" fitWidth="300.0" layoutX="701.0" layoutY="316.0" opacity="0.24" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -111,9 +111,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TableView fx:id="done" layoutX="292.0" layoutY="409.0" prefHeight="175.0" prefWidth="302.0">
+      <TableView fx:id="myTest" layoutX="292.0" layoutY="409.0" prefHeight="175.0" prefWidth="302.0">
          <columns>
-            <TableColumn prefWidth="153.0" text="Prøve navn" />
+            <TableColumn fx:id="teamName" prefWidth="153.0" text="Prøve navn" />
             <TableColumn prefWidth="148.0" text="Rigtighedsprocent" />
          </columns>
       </TableView>
@@ -139,6 +139,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <ListView fx:id="OngoingTests1" layoutX="682.0" layoutY="215.0" prefHeight="104.0" prefWidth="300.0" styleClass="main" stylesheets="@styles.css" />
+      <ListView fx:id="onGoingTestDone" layoutX="682.0" layoutY="215.0" prefHeight="104.0" prefWidth="300.0" styleClass="main" stylesheets="@styles.css" />
    </children>
 </AnchorPane>
