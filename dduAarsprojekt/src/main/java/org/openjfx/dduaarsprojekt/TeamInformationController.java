@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
@@ -44,17 +46,18 @@ public class TeamInformationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         TestDatabaseMethods tdb = new TestDatabaseMethods();
+        ArrayList<TaskSet> myTasks = tdb.getAllTeachersTaskSets(App.getLoggedInUser().getUser_ID());
         for(int i = 0; i < tdb.getAllTeachersTaskSets(App.getLoggedInUser().getUser_ID()).size(); i++){
-            yourTasks.getItems().add(tdb.getAllTeachersTaskSets(App.getLoggedInUser().getUser_ID()).get(i).getName());
+            yourTasks.getItems().add(myTasks.get(i).getName());
         }
         cellFactory();
         try {
-            teamsTasks.getItems().addAll(getAssistantTeamInformationControllerArray(tdb.getTeamsAssignedTaskSets(currentTeamID ,App.getLoggedInUser().getUser_ID())));
+            teamsTasks.setItems(getAssistantTeamInformationControllerArray(tdb.getTeamsAssignedTaskSets(currentTeamID ,App.getLoggedInUser().getUser_ID())));
         } catch (Exception ex) {
             Logger.getLogger(TeamInformationController.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            allStudents.getItems().addAll(getNames(tdb.getSchoolsStudents(1)));
+            allStudents.getItems().addAll(getNames(tdb.getTeamsUnassignedStudents(currentTeamID)));
         } catch (Exception ex) {
             Logger.getLogger(TeamInformationController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -98,7 +101,7 @@ public class TeamInformationController implements Initializable {
         participation.setCellValueFactory(new PropertyValueFactory<AssistantTeamInformationController, Integer>("participation"));
     }
 
-    private ArrayList<AssistantTeamInformationController> getAssistantTeamInformationControllerArray(ArrayList<TaskSet> allTeachersTaskSets) throws Exception {
+    private ObservableList<AssistantTeamInformationController> getAssistantTeamInformationControllerArray(ArrayList<TaskSet> allTeachersTaskSets) throws Exception {
         TestDatabaseMethods tdb = new TestDatabaseMethods();
         ArrayList<AssistantTeamInformationController> myList = new ArrayList();
         
@@ -112,7 +115,7 @@ public class TeamInformationController implements Initializable {
             }
             myList.add(new AssistantTeamInformationController(checking.get(i).getName(),100*p/checking.size()));
         }
-        return myList;
+        return FXCollections.observableArrayList(myList);
     }
 
     private ArrayList<String> getNames(ArrayList<Student> schoolsStudents) {

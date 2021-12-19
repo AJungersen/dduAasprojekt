@@ -1119,7 +1119,8 @@ public class TestDatabaseMethods {
 
         return teamsAssignedStudents;
     }
-
+    
+//returner alle lærerens tasksets
     public ArrayList<TaskSet> getAllTeachersTaskSets(int teacherID) {
         ArrayList alltasksets = new ArrayList();
         //placeholder
