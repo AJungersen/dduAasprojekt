@@ -22,7 +22,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.dduaarsprojekt.TestStaffController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.dduaarsprojekt.TestStaffController">
    <children>
       <Pane layoutX="-22.0" layoutY="-9.0" prefHeight="55.0" prefWidth="1024.0" styleClass="navigator" stylesheets="@styles.css">
          <children>
@@ -44,7 +44,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <ListView layoutX="29.0" layoutY="86.0" prefHeight="410.0" prefWidth="234.0" styleClass="seperator" stylesheets="@styles.css" />
+            <ListView fx:id="teamsView" layoutX="29.0" layoutY="86.0" prefHeight="410.0" prefWidth="234.0" styleClass="seperator" stylesheets="@styles.css" />
             <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="39.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/teams.png" />
@@ -58,7 +58,7 @@
             <Text fill="#4b4b4b" layoutX="77.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vælg det hold du vil se prøver for" />
          </children>
       </AnchorPane>
-      <MenuButton layoutX="861.0" layoutY="59.0" mnemonicParsing="false" stylesheets="@styles.css" text="MenuButton">
+      <MenuButton layoutX="856.0" layoutY="59.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="81.0" stylesheets="@styles.css" text="Menu" textAlignment="CENTER">
          <items>
             <MenuItem mnemonicParsing="false" onAction="#forside" text="Forside" />
             <MenuItem mnemonicParsing="false" onAction="#mineHold" text="Hold" />

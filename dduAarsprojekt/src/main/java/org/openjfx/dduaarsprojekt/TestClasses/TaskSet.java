@@ -40,6 +40,9 @@ public class TaskSet {
         this.nameOfTheFiller = nameOfTheFiller;
         this.task = taks;
     }
+
+    public TaskSet() {
+    }
     
     public int getTaskSet_ID() {
         return taskSet_ID;
