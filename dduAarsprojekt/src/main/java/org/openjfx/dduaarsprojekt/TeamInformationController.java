@@ -87,6 +87,6 @@ public class TeamInformationController implements Initializable {
     private ArrayList<AssistantTeamInformationController> getAssistantTeamInformationControllerArray(ArrayList<TaskSet> allTeachersTaskSets) {
         ArrayList<AssistantTeamInformationController> myList = new ArrayList();
         
-            
+        return myList;
     }
 }
