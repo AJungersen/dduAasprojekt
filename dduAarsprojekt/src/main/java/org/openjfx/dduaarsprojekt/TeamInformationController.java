@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
@@ -48,7 +50,11 @@ public class TeamInformationController implements Initializable {
             yourTasks.getItems().add(tdb.getAllTeachersTaskSets(App.getLoggedInUser().getUser_ID()).get(i).getName());
         }
         cellFactory();
-        teamsTasks.getItems().addAll(getAssistantTeamInformationControllerArray(tdb.getAllTeachersTaskSets(App.getLoggedInUser().getUser_ID())));
+        try {
+            teamsTasks.getItems().addAll(getAssistantTeamInformationControllerArray(tdb.getAllTeachersTaskSets(App.getLoggedInUser().getUser_ID())));
+        } catch (Exception ex) {
+            Logger.getLogger(TeamInformationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
       @FXML
     private void back() throws IOException{
@@ -84,9 +90,20 @@ public class TeamInformationController implements Initializable {
         studentName.setCellValueFactory(new PropertyValueFactory<Student, String>("name"));
     }
 
-    private ArrayList<AssistantTeamInformationController> getAssistantTeamInformationControllerArray(ArrayList<TaskSet> allTeachersTaskSets) {
+    private ArrayList<AssistantTeamInformationController> getAssistantTeamInformationControllerArray(ArrayList<TaskSet> allTeachersTaskSets) throws Exception {
+        TestDatabaseMethods tdb = new TestDatabaseMethods();
         ArrayList<AssistantTeamInformationController> myList = new ArrayList();
         
+        for(int i = 0; i < allTeachersTaskSets.size(); i++){
+            int p = 0;
+            ArrayList<TaskSet> checking = tdb.getAllTaskSetsAnswers(allTeachersTaskSets.get(i).getAssignment_ID());
+            for(int m = 0; m < checking.size(); m++){
+                if(checking.get(m).getHandedIn() == true){
+                    p+=1;
+                }
+            }
+            myList.add(new AssistantTeamInformationController(checking.get(i).getName(),p/checking.size()));
+        }
         return myList;
     }
 }
