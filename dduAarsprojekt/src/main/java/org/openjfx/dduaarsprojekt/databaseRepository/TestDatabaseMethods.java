@@ -323,8 +323,8 @@ public class TestDatabaseMethods {
 
                 loadedTeams.get(i).setStudents(loadStudents(conn, rs));
 
-                rs = stat.executeQuery("SELECT * taskSets WHERE assignment_ID IN"
-                        + "(SELECT assignmetn_ID FROM teamasAndAssignments WHERE team_Id=('" + loadedTeams.get(i).getTeam_ID() + "'))"
+                rs = stat.executeQuery("SELECT * FROM TaskSets WHERE assignment_ID IN"
+                        + "(SELECT assignment_ID FROM teamsAndAssignments WHERE team_Id=('" + loadedTeams.get(i).getTeam_ID() + "'))"
                         + "AND user_ID = ('" + _userID + "')");
 
                 loadedTeams.get(i).setTaskSet(loadTaskSets(conn, rs));
@@ -825,6 +825,7 @@ public class TestDatabaseMethods {
         } catch (SQLException e) {
             System.out.println("\n Database error (create team (insert info)" + e.getMessage() + "\n");
         }
+        conn.close();
     }
 
     //------------------------------------------

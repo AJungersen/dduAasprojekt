@@ -112,8 +112,9 @@ public class TeamStaffController implements Initializable {
         System.exit(0);
     }
     @FXML
-    private void info () throws IOException{
-        ArrayList<Team> teachersTeams = new ArrayList();
+    private void info () throws IOException, Exception{
+        TestDatabaseMethods tdb = new TestDatabaseMethods();
+        ArrayList<Team> teachersTeams = tdb.getTeachersTeams(App.getLoggedInUser().getUser_ID());
         TeamInformationController.currentTeamID = teachersTeams.get(teams.getSelectionModel().getSelectedIndex()).getTeam_ID();
         App.setRoot("teamInformation");
     }
@@ -143,7 +144,7 @@ public class TeamStaffController implements Initializable {
     private void CellValues(){
         teamName.setCellValueFactory(new PropertyValueFactory<AssistantMyTeamsForTeamStaffController, String>("teamName"));
         tests.setCellValueFactory(new PropertyValueFactory<>("tests"));
-        numberOfStudents.setCellValueFactory(new PropertyValueFactory<>("numberOfStudents"));
+        numberOfStudents.setCellValueFactory(new PropertyValueFactory<>("studentCount"));
         studentID.setCellValueFactory(new PropertyValueFactory<>("user_ID"));
         studentFirstName.setCellValueFactory(new PropertyValueFactory<>("username"));
     }
@@ -151,7 +152,17 @@ public class TeamStaffController implements Initializable {
     private ArrayList<AssistantMyTeamsForTeamStaffController> getAssistantMyTeamsForTeamStaffControllerArray(ArrayList<Team> teachersTeams){
         ArrayList<AssistantMyTeamsForTeamStaffController> myList = new ArrayList();
         for(int i = 0; i < teachersTeams.size(); i++){
+            try{
             myList.add(new AssistantMyTeamsForTeamStaffController(teachersTeams.get(i).getTeamName(),teachersTeams.get(i).getTaskSet().size(),teachersTeams.get(i).getStudents().size()));
+            }
+            catch(NullPointerException e){
+                try{
+                myList.add(new AssistantMyTeamsForTeamStaffController(teachersTeams.get(i).getTeamName(),0,teachersTeams.get(i).getStudents().size()));
+                }
+                catch(NullPointerException e1){
+                    myList.add(new AssistantMyTeamsForTeamStaffController(teachersTeams.get(i).getTeamName(),0,0));
+                }
+            }
         }
         return myList;
     }
@@ -161,7 +172,7 @@ public class TeamStaffController implements Initializable {
         tdb.createTeam(new Team(App.getLoggedInUser().getUser_ID(), newTeamName.getText()));
         ArrayList<Team> teachTeams = tdb.getTeachersTeams(App.getLoggedInUser().getUser_ID());
         for(int i = 0; i < studentsOnCurrentTeam.size(); i++){
-            tdb.assignStudentToTeam(teachTeams.get(teachTeams.size()).getTeam_ID(), studentsOnCurrentTeam.get(i), App.getLoggedInUser().getUser_ID());
+            tdb.assignStudentToTeam(teachTeams.get(teachTeams.size()-1).getTeam_ID(), studentsOnCurrentTeam.get(i), App.getLoggedInUser().getUser_ID());
         }
         
         
@@ -176,7 +187,8 @@ public class TeamStaffController implements Initializable {
         } catch (Exception ex) {
             Logger.getLogger(TeamStaffController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        teams.getItems().addAll(getAssistantMyTeamsForTeamStaffControllerArray(teachersTeams));
+        ObservableList<AssistantMyTeamsForTeamStaffController> obsList = FXCollections.observableArrayList(getAssistantMyTeamsForTeamStaffControllerArray(teachersTeams));
+        teams.setItems(obsList);
         
         
     }
