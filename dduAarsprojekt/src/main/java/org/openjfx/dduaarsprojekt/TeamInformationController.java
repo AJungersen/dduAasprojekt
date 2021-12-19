@@ -136,8 +136,7 @@ public class TeamInformationController implements Initializable {
     @FXML
     private void addTaskSet() throws Exception{
         TestDatabaseMethods tdb = new TestDatabaseMethods();
-        TaskSet myTaskSet = new TaskSet();
-        myTaskSet = tdb.getUsersIndividualAssignedTasksSets(App.getLoggedInUser().getUser_ID()).get(yourTasks.getSelectionModel().getSelectedIndex());
+        TaskSet myTaskSet = tdb.getUsersIndividualAssignedTasksSets(App.getLoggedInUser().getUser_ID()).get(yourTasks.getSelectionModel().getSelectedIndex());
         tdb.assignTaskSetToTeam(currentTeamID, myTaskSet);
     }
 }

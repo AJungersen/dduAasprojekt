@@ -24,6 +24,7 @@ import javafx.scene.layout.VBox;
 import org.openjfx.dduaarsprojekt.TestClasses.Question;
 import org.openjfx.dduaarsprojekt.TestClasses.Task;
 import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
+import org.openjfx.dduaarsprojekt.databaseRepository.TestDatabaseMethods;
 
 /**
  * FXML Controller class
@@ -36,8 +37,6 @@ public class TestMakerController implements Initializable {
     
     @FXML
     ListView questionList;
-    TextArea description;
-    TextField testName;
     ComboBox options;
     ListView questions;
     
@@ -115,8 +114,11 @@ public class TestMakerController implements Initializable {
     }
     
     @FXML
-    public void savetaskSet(){
-        //når funktionen er klar refereres til database og taskset uploades
+    public void savetaskSet() throws Exception, Exception{
+        TestDatabaseMethods tdb = new TestDatabaseMethods();
+        current.setTasks(tasks);
+        
+        tdb.createTaskSet(current, App.getLoggedInUser().getUser_ID());
     }
     @FXML
     private void exit() {

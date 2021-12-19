@@ -108,16 +108,19 @@ public class TestStaffController implements Initializable {
     @FXML
     private void createNewTaskSet() throws IOException {
         // begin creation of task set
+        if(testName.getText() != null && description.getText() != null){
         TaskSet createdTaskSet = new TaskSet();
 
         createdTaskSet.setName(testName.getText());
         createdTaskSet.setDescription(description.getText());
-
-        App.setCurrentTaskSetWorkingOn(createdTaskSet);
+        createdTaskSet.setUser_ID(App.getLoggedInUser().getUser_ID());
+        
+        TestMakerController.current = createdTaskSet;
 
         //mangler at sætte hold - måske skal man bare gøre det når man opretter eller 
         //også så skal man gøre det efter man har oprettet prøven
         App.setRoot("testMaker");
+        }
     }
 
     @FXML
