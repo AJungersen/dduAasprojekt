@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
@@ -21,7 +22,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
 import org.openjfx.dduaarsprojekt.databaseRepository.TestDatabaseMethods;
+import org.openjfx.dduaarsprojekt.random.Student;
 import org.openjfx.dduaarsprojekt.random.Team;
 
 /**
@@ -31,6 +34,8 @@ import org.openjfx.dduaarsprojekt.random.Team;
  */
 public class TeamStaffController implements Initializable {
    
+    public static ArrayList<Student> studentsOnCurrentTeam = new ArrayList();
+            
     @FXML
     TableView<AssistantMyTeamsForTeamStaffController> teams;
     @FXML
@@ -40,17 +45,18 @@ public class TeamStaffController implements Initializable {
     @FXML
     TableColumn<AssistantMyTeamsForTeamStaffController, Integer> numberOfStudents;
     @FXML
-    TableView addStudents;
+    TableView<Student> addStudents;
     @FXML
-    TableColumn studentID;
+    TableColumn<Student, Integer> studentID;
     @FXML
-    TableColumn studentFirstName;
-    @FXML
-    TableColumn studentLastName;
+    TableColumn<Student, String> studentFirstName;
+    //@FXML
+    //TableColumn<Student, String> studentLastName;
     @FXML
     TextField newTeamName;
     @FXML
     ListView currentStudents;
+    
     
     
     /**
@@ -58,6 +64,7 @@ public class TeamStaffController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        studentsOnCurrentTeam.clear();
         TestDatabaseMethods tdb = new TestDatabaseMethods();
         ArrayList<Team> teachersTeams = new ArrayList();
         try {
@@ -65,9 +72,17 @@ public class TeamStaffController implements Initializable {
         } catch (Exception ex) {
             Logger.getLogger(TeamStaffController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        addToMyTeams();
+        CellValues();
         //teams.getColumns().addAll(teamName, tests, numberOfStudents);
         teams.getItems().addAll(getAssistantMyTeamsForTeamStaffControllerArray(teachersTeams));
+        try {
+            //ERROR HER
+            //addStudents.getItems().addAll(tdb.getSchoolsStudents(1).removeAll(studentsOnCurrentTeam));
+            //Midlertidig
+            addStudents.getItems().addAll(tdb.getSchoolsStudents(1));
+        } catch (Exception ex) {
+            Logger.getLogger(TeamStaffController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
    
    @FXML
@@ -98,15 +113,32 @@ public class TeamStaffController implements Initializable {
         App.setRoot("teamInformation");
     }
     @FXML
-    private void addStudent(){
-        
+    private void addStudent() throws Exception{
+        TestDatabaseMethods tdb = new TestDatabaseMethods();
+        studentsOnCurrentTeam.add(addStudents.getSelectionModel().getSelectedItem());
+        //ERROR HER
+            //addStudents.getItems().addAll(tdb.getSchoolsStudents(1).removeAll(studentsOnCurrentTeam));
+            //Midlertidig
+            addStudents.getItems().addAll(tdb.getSchoolsStudents(1));
+            currentStudents.setItems((ObservableList) studentsOnCurrentTeam);
     }
     @FXML
-    private void addToMyTeams(){
+    private void removeStudent() throws Exception{
+        TestDatabaseMethods tdb = new TestDatabaseMethods();
+        studentsOnCurrentTeam.remove(currentStudents.getSelectionModel().getSelectedItem());
+        //ERROR HER
+            //addStudents.getItems().addAll(tdb.getSchoolsStudents(1).removeAll(studentsOnCurrentTeam));
+            //Midlertidig
+            addStudents.getItems().addAll(tdb.getSchoolsStudents(1));
+            currentStudents.setItems((ObservableList) studentsOnCurrentTeam);
+    }
+    @FXML
+    private void CellValues(){
         teamName.setCellValueFactory(new PropertyValueFactory<AssistantMyTeamsForTeamStaffController, String>("teamName"));
         tests.setCellValueFactory(new PropertyValueFactory<AssistantMyTeamsForTeamStaffController, Integer>("tests"));
         numberOfStudents.setCellValueFactory(new PropertyValueFactory<AssistantMyTeamsForTeamStaffController, Integer>("numberOfStudents"));
-       
+        studentID.setCellValueFactory(new PropertyValueFactory<Student, Integer>("user_ID"));
+        studentFirstName.setCellValueFactory(new PropertyValueFactory<Student, String>("username"));
     }
     
     private ArrayList<AssistantMyTeamsForTeamStaffController> getAssistantMyTeamsForTeamStaffControllerArray(ArrayList<Team> teachersTeams){
@@ -115,5 +147,25 @@ public class TeamStaffController implements Initializable {
             myList.add(new AssistantMyTeamsForTeamStaffController(teachersTeams.get(i).getTeamName(),teachersTeams.get(i).getTaskSet().size(),teachersTeams.get(i).getStudents().size()));
         }
         return myList;
+    }
+    @FXML
+    private void saveTeam() throws Exception{
+        TestDatabaseMethods tdb = new TestDatabaseMethods();
+        tdb.createTeam(new Team(App.getLoggedInUser().getUser_ID(), newTeamName.getText(), new ArrayList<TaskSet>(), studentsOnCurrentTeam));
+        
+        //Reset af lister
+        studentsOnCurrentTeam.clear();
+        currentStudents.setItems((ObservableList) studentsOnCurrentTeam);
+        addStudents.getItems().addAll(tdb.getSchoolsStudents(1));
+        
+        ArrayList<Team> teachersTeams = new ArrayList();
+        try {
+            teachersTeams = tdb.getTeachersTeams(App.getLoggedInUser().getUser_ID());
+        } catch (Exception ex) {
+            Logger.getLogger(TeamStaffController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        teams.getItems().addAll(getAssistantMyTeamsForTeamStaffControllerArray(teachersTeams));
+        
+        
     }
 }

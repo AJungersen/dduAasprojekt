@@ -7,6 +7,7 @@ package org.openjfx.dduaarsprojekt.random;
 
 import java.util.ArrayList;
 import org.openjfx.dduaarsprojekt.TestClasses.*;
+import org.openjfx.dduaarsprojekt.random.Student;
 
 /**
  *
@@ -32,6 +33,15 @@ public class Team {
         this.taskSet = taskSet;
         this.students = students;
     }
+
+    public Team(int teacher_ID, String teamName, ArrayList<TaskSet> taskSet, ArrayList<Student> students) {
+        this.teacher_ID = teacher_ID;
+        this.teamName = teamName;
+        this.taskSet = taskSet;
+        this.students = students;
+    }
+    
+    
 
     public int getTeam_ID() {
         return team_ID;
