@@ -74,11 +74,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ListView layoutX="14.0" layoutY="150.0" prefHeight="393.0" prefWidth="127.0" styleClass="text-area" stylesheets="@styles.css" />
-      <TableView layoutX="305.0" layoutY="150.0" prefHeight="393.0" prefWidth="201.0">
+      <ListView fx:id="yourTasks" layoutX="14.0" layoutY="150.0" prefHeight="393.0" prefWidth="127.0" styleClass="text-area" stylesheets="@styles.css" />
+      <TableView fx:id="teamsTasks" layoutX="305.0" layoutY="150.0" prefHeight="393.0" prefWidth="201.0">
          <columns>
-            <TableColumn prefWidth="81.5" text="Prøve navn" />
-            <TableColumn prefWidth="118.0" text="Deltagelsesprocent" />
+            <TableColumn fx:id="testName" prefWidth="81.5" text="Prøve navn" />
+            <TableColumn fx:id="participation" prefWidth="118.0" text="Deltagelsesprocent" />
          </columns>
       </TableView>
       <Button layoutX="159.0" layoutY="254.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="133.0" styleClass="loginButton" stylesheets="@styles.css" text="Tilføj prøve til holdet">
@@ -134,10 +134,10 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <ListView layoutX="533.0" layoutY="150.0" prefHeight="393.0" prefWidth="127.0" styleClass="text-area" stylesheets="@styles.css" />
-      <TableView layoutX="787.0" layoutY="154.0" prefHeight="393.0" prefWidth="201.0">
+      <ListView fx:id="allStudents" layoutX="533.0" layoutY="150.0" prefHeight="393.0" prefWidth="127.0" styleClass="text-area" stylesheets="@styles.css" />
+      <TableView fx:id="teamsStudents" layoutX="787.0" layoutY="154.0" prefHeight="393.0" prefWidth="201.0">
          <columns>
-            <TableColumn prefWidth="102.0" text="Elev efternavn" />
+            <TableColumn fx:id="studentName" prefWidth="102.0" text="Elev efternavn" />
             <TableColumn prefWidth="98.0" text="Elev fornavn" />
          </columns>
       </TableView>

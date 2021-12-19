@@ -5,15 +5,20 @@
  */
 package org.openjfx.dduaarsprojekt;
 
+import AssistantClasses.AssistantTeamInformationController;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
 import org.openjfx.dduaarsprojekt.databaseRepository.TestDatabaseMethods;
+import org.openjfx.dduaarsprojekt.random.Student;
 
 /**
  *
@@ -24,17 +29,17 @@ public class TeamInformationController implements Initializable {
     @FXML
     ListView<String> yourTasks;
     @FXML
-    TableView teamsTasks;
+    TableView<AssistantTeamInformationController> teamsTasks;
     @FXML
-    TableColumn testName;
+    TableColumn<AssistantTeamInformationController, String> testName;
     @FXML
-    TableColumn participation;
+    TableColumn<AssistantTeamInformationController, Integer> participation;
     @FXML
-    ListView allStudents;
+    ListView<String> allStudents;
     @FXML
-    TableView teamsStudents;
+    TableView<Student> teamsStudents;
     @FXML
-    TableColumn studentName;
+    TableColumn<Student, String> studentName;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -42,6 +47,8 @@ public class TeamInformationController implements Initializable {
         for(int i = 0; i < tdb.getAllTeachersTaskSets(App.getLoggedInUser().getUser_ID()).size(); i++){
             yourTasks.getItems().add(tdb.getAllTeachersTaskSets(App.getLoggedInUser().getUser_ID()).get(i).getName());
         }
+        cellFactory();
+        teamsTasks.getItems().addAll(getAssistantTeamInformationControllerArray(tdb.getAllTeachersTaskSets(App.getLoggedInUser().getUser_ID())));
     }    
       @FXML
     private void back() throws IOException{
@@ -70,5 +77,16 @@ public class TeamInformationController implements Initializable {
     @FXML
     private void info () throws IOException{
         App.setRoot("teamInformation");
+    }
+    private void cellFactory(){
+        testName.setCellValueFactory(new PropertyValueFactory<AssistantTeamInformationController, String>("testName"));
+        participation.setCellValueFactory(new PropertyValueFactory<AssistantTeamInformationController, Integer>("participation"));
+        studentName.setCellValueFactory(new PropertyValueFactory<Student, String>("name"));
+    }
+
+    private ArrayList<AssistantTeamInformationController> getAssistantTeamInformationControllerArray(ArrayList<TaskSet> allTeachersTaskSets) {
+        ArrayList<AssistantTeamInformationController> myList = new ArrayList();
+        
+            
     }
 }
