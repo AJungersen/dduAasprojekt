@@ -25,7 +25,7 @@
                   <Font name="System Bold" size="23.0" />
                </font>
             </Text>
-            <TextField fx:id="question" layoutX="24.0" layoutY="64.0" prefHeight="30.0" prefWidth="322.0" promptText="Spørgmål?" styleClass="createQuestionBox" stylesheets="@styles.css">
+            <TextField fx:id="question" layoutX="24.0" layoutY="90.0" prefHeight="30.0" prefWidth="322.0" promptText="Spørgmål?" styleClass="createQuestionBox" stylesheets="@styles.css">
                <font>
                   <Font size="13.0" />
                </font>
@@ -33,12 +33,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <TextArea fx:id="describtion" layoutX="24.0" layoutY="117.0" prefHeight="115.0" prefWidth="322.0" promptText="Forklaring" styleClass="text-area" stylesheets="@styles.css">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-            </TextArea>
-            <TextArea fx:id="correct" layoutX="23.0" layoutY="250.0" prefHeight="107.0" prefWidth="322.0" promptText="Rigtige svar" style="-fx-background-color: transparent;" styleClass="text-area" stylesheets="@styles.css">
+            <TextArea fx:id="correct" layoutX="24.0" layoutY="176.0" prefHeight="107.0" prefWidth="322.0" promptText="Rigtige svar" style="-fx-background-color: transparent;" styleClass="text-area" stylesheets="@styles.css">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
@@ -55,14 +50,6 @@
                   </DropShadow>
                </effect>
             </Button>
-            <TextField fx:id="point" layoutX="151.0" layoutY="377.0" prefHeight="30.0" prefWidth="55.0" promptText="Points" styleClass="createQuestionBox" stylesheets="@styles.css">
-               <font>
-                  <Font size="13.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-            </TextField>
          </children>
       </Pane>
    </children>

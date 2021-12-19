@@ -15,6 +15,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import org.openjfx.dduaarsprojekt.TestClasses.CorrectAnswerBasedQuestion; 
 import org.openjfx.dduaarsprojekt.TestClasses.Task;
+import org.openjfx.dduaarsprojekt.TestClasses.textAnswerBasedQuestion;
 
 /**
  * FXML Controller class

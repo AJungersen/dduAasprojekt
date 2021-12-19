@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package org.openjfx.dduaarsprojekt;
 
 import AssistantClasses.AssistantMyTestForTestStudentController;
@@ -33,110 +32,138 @@ import org.openjfx.dduaarsprojekt.random.Team;
  * @author Clara Maj
  */
 public class TestStudentController implements Initializable {
-    
+
     TestDatabaseMethods tdb = new TestDatabaseMethods();
-    
-    @FXML TableView<TaskSet> done = new TableView();
-    @FXML ListView<String> myTeams = new ListView();
-    @FXML ListView<String> onGoingTest = new ListView();
-    @FXML ListView<String> onGoingTestDone = new ListView();
-    @FXML ArrayList<TaskSet> selectedTeamTaskSets = new ArrayList();
-    @FXML Text name;
-    @FXML TableColumn<AssistantMyTestForTestStudentController, String> teamName;
-    
+
+    @FXML
+    TableView<TaskSet> myTest = new TableView();
+    @FXML
+    ListView<String> myTeams = new ListView();
+    @FXML
+    ListView<String> onGoingTest = new ListView();
+    @FXML
+    ListView<String> onGoingTestDone = new ListView();
+    @FXML
+    ArrayList<TaskSet> selectedTeamTaskSets = new ArrayList();
+    @FXML
+    Text name;
+    @FXML
+    TableColumn<TaskSet, String> teamName;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-            TestDatabaseMethods tdb = new TestDatabaseMethods();
-            ArrayList<String> taskSetNames = new ArrayList();
-            ArrayList<TaskSet> nameListTask = new ArrayList();
-            String[] teamNamesString = {};
-            teamName.setCellValueFactory(new PropertyValueFactory<AssistantMyTestForTestStudentController, String>("teamName"));
+        TestDatabaseMethods tdb = new TestDatabaseMethods();
+        ArrayList<String> taskSetNames = new ArrayList();
+        ArrayList<TaskSet> nameListTask = new ArrayList();
+        ArrayList<TaskSet> usersIndividualAssignedTasksSets = new ArrayList();
+        ArrayList<TaskSet> TaskSetsNotDone = new ArrayList();
+        String[] teamNamesString = {};
+       
+        teamName.setCellValueFactory(new PropertyValueFactory<TaskSet, String>("teamName"));
+        myTest.getItems().addAll(usersIndividualAssignedTasksSets);
         
-        try {
-           // nameListTask = Student.getThisStudentTasks(App.getLoggedInUser().getUser_ID());
-        } catch (Exception ex) {
-            Logger.getLogger(TestStudentController.class.getName()).log(Level.SEVERE, null, ex);
+        for (int i = 0; i < nameListTask.size(); i++) {
+            taskSetNames.add(nameListTask.get(i).getName());
         }
-            for(int i = 0; i < nameListTask.size(); i++){
-                taskSetNames.add(nameListTask.get(i).getName());
-            }
-            //upload taskSetNames i den med alle taskSets
-            
-            ArrayList<Team> teams = new ArrayList();
-        try {
-            teams = tdb.getStudentsTeams(App.getLoggedInUser().getUser_ID());
-        } catch (Exception ex) {
-            Logger.getLogger(TestStudentController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        for(int i = 0; i < teams.size(); i++){
+        
+        //upload taskSetNames i den med alle taskSets
+
+        ArrayList<Team> teams = new ArrayList();
+        for (int i = 0; i < teams.size(); i++) {
             teamNamesString[i] = teams.get(i).getTeamName();
         }
         //load dine hold
-         try {
+        try {
             myTeams.getItems().addAll(getNames(tdb.getTeachersTeams(App.getLoggedInUser().getUser_ID())));
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
-        //load dit brugernavn 
-         try{
-             name.setText(App.getLoggedInUser().getUsername());
-         } catch (Exception ex) {
+        //load manglende tasks
+        try {
+            onGoingTest.getItems().addAll(AssistantMissingTests(tdb.getUsersIndividualAssignedTasksSets(App.getLoggedInUser().getUser_ID())));
+        }catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        //load gennemførte tasks
+        try {
+            onGoingTestDone.getItems().addAll(AssistantMissingTestsDone(tdb.getUsersIndividualAssignedTasksSets(App.getLoggedInUser().getUser_ID())));
+        }catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
-        @FXML
-        private void back() throws IOException{
-            App.setRoot("mainStudent");
+
+        //load dit brugernavn 
+        try {
+            name.setText(App.getLoggedInUser().getUsername());
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        @FXML
-        private void logout() throws IOException{
-            App.setRoot("frontPage");
-        }
-        @FXML
-        private void tests() throws IOException{
-            App.setRoot("testStudent");
-        }
-        @FXML
-        private void exit() {
-            System.exit(0);
-        }
-        @FXML
-        private void teams() throws IOException{
-            App.setRoot("teamStudent");
-        }
-        @FXML
-        private void answer () throws IOException{
-            App.setRoot("answerTest");
-        }
-        @FXML
-        private void feedback () throws IOException{
-            App.setRoot("testFeedbackStudent");
-        }
-        private ArrayList<String> getNames(ArrayList<Team> teacherTeams) {
+
+    }
+
+    @FXML
+    private void back() throws IOException {
+        App.setRoot("mainStudent");
+    }
+
+    @FXML
+    private void logout() throws IOException {
+        App.setRoot("frontPage");
+    }
+
+    @FXML
+    private void tests() throws IOException {
+        App.setRoot("testStudent");
+    }
+
+    @FXML
+    private void exit() {
+        System.exit(0);
+    }
+
+    @FXML
+    private void teams() throws IOException {
+        App.setRoot("teamStudent");
+    }
+
+    @FXML
+    private void answer() throws IOException {
+        App.setRoot("answerTest");
+    }
+
+    @FXML
+    private void feedback() throws IOException {
+        App.setRoot("testFeedbackStudent");
+    }
+
+    private ArrayList<String> getNames(ArrayList<Team> teacherTeams) {
         ArrayList<String> myNames = new ArrayList();
-        for(int i = 0; i < teacherTeams.size(); i++){
+        for (int i = 0; i < teacherTeams.size(); i++) {
             myNames.add(teacherTeams.get(i).getTeamName());
         }
         return myNames;
     }
-        
-       private ArrayList<AssistantMyTestForTestStudentController> AssistantMyTestForTestStudentController(ArrayList<TaskSet> usersIndividualAssignedTasksSets) {
+
+    
+    private ArrayList<String> AssistantMissingTests(ArrayList<TaskSet> TaskSetsNotDone) {
         TestDatabaseMethods tdb = new TestDatabaseMethods();
-        ArrayList<AssistantMyTestForTestStudentController> myTest = new ArrayList();
-        for(int i = 0; i < usersIndividualAssignedTasksSets.size(); i++){
-                myTest.add(new AssistantMyTestForTestStudentController(usersIndividualAssignedTasksSets.get(i).getName()));
-           }   
-        return myTest;
-       } 
-        
-        
-        
-        
-        
-        
-        
-        
+        ArrayList<String> missingTests = new ArrayList();
+        for (int i = 0; i < TaskSetsNotDone.size(); i++) {
+            if (TaskSetsNotDone.get(i).getHandedIn() == false) {
+                missingTests.add(TaskSetsNotDone.get(i).getName());
+            }
+        }
+        return missingTests;
     }
+    
+    private ArrayList<String> AssistantMissingTestsDone (ArrayList<TaskSet> TaskSetDone) {
+        TestDatabaseMethods tdb = new TestDatabaseMethods();
+        ArrayList<String> missingTests = new ArrayList();
+        for (int i = 0; i < TaskSetDone.size(); i++) {
+            if (TaskSetDone.get(i).getHandedIn() == true) {
+                missingTests.add(TaskSetDone.get(i).getName());
+            }
+        }
+        return missingTests;
+    }
+
+}

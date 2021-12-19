@@ -477,7 +477,6 @@ public class TestDatabaseMethods {
 
         return studentsIndividualAssignedTaskSets;
     }*/
-
     //-------------------------------------
     //---------- create task set ----------
     //-------------------------------------
@@ -814,7 +813,7 @@ public class TestDatabaseMethods {
             conn = DriverManager.getConnection(connectionString);
         } catch (SQLException e) {
             //Skrive fejlhåndtering her
-            System.out.println("\n Database error (create task set (connection): " + e.getMessage() + "\n");
+            System.out.println("\n Database error (create team (connection): " + e.getMessage() + "\n");
         }
 
         String sql = "INSERT INTO Teams(teacher_ID, teamName) "
@@ -825,7 +824,6 @@ public class TestDatabaseMethods {
         } catch (SQLException e) {
             System.out.println("\n Database error (create team (insert info)" + e.getMessage() + "\n");
         }
-        conn.close();
     }
 
     //------------------------------------------
@@ -1061,7 +1059,7 @@ public class TestDatabaseMethods {
     //---------------------------------------------------
     //---------- get teams unassigend students ----------
     //---------------------------------------------------
-    public ArrayList<Student> getTeamsUnassignedStudents(int _team_ID) throws SQLException, Exception {
+    public ArrayList<Student> getTeamsUnassignedStudents(int _team_ID, int _schoolID) throws SQLException, Exception {
         ArrayList<Student> teamsUnassignedStudents = new ArrayList<>();
         Connection conn = null;
         Class.forName("org.sqlite.JDBC");
@@ -1076,7 +1074,8 @@ public class TestDatabaseMethods {
         try {
             Statement stat = conn.createStatement();
             ResultSet rs = stat.executeQuery("SELECT * FROM Students WHERE student_ID NOT IN "
-                    + "(SELECT student_ID FROM teamsAndStudents WHERE team_ID = ('" + _team_ID + "'))");
+                    + "(SELECT student_ID FROM teamsAndStudents WHERE team_ID = ('" + _team_ID + "'))"
+                    + "AND student_ID IN(SELECT userType_ID FROM users WHERE school_ID = ('" + _schoolID + "') AND type = ('" + "student" + "'))");
 
             teamsUnassignedStudents = loadStudents(conn, rs);
 
@@ -1119,12 +1118,11 @@ public class TestDatabaseMethods {
 
         return teamsAssignedStudents;
     }
-    
-//returner alle lærerens tasksets
+    /*
     public ArrayList<TaskSet> getAllTeachersTaskSets(int teacherID) {
         ArrayList alltasksets = new ArrayList();
         //placeholder
         // lav rigtig funktion senere
         return alltasksets;
-    }
+    }*/
 }
