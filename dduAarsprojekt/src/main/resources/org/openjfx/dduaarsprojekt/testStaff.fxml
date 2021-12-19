@@ -156,7 +156,7 @@
          </items>
       </MenuButton>
       <TextArea fx:id="description" layoutX="701.0" layoutY="252.0" prefHeight="173.0" prefWidth="234.0" promptText="Description" stylesheets="@styles.css" />
-      <Button layoutX="499.0" layoutY="318.0" mnemonicParsing="false" styleClass="loginButton" stylesheets="@styles.css" text="Giv feedback">
+      <Button layoutX="499.0" layoutY="318.0" mnemonicParsing="false" onAction="#feedback" styleClass="loginButton" stylesheets="@styles.css" text="Giv feedback">
          <effect>
             <DropShadow height="10.0" radius="4.5" width="10.0">
                <color>
@@ -192,7 +192,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="496.0" layoutY="559.0" mnemonicParsing="false" styleClass="loginButton" stylesheets="@styles.css" text="Giv feedback">
+      <Button layoutX="496.0" layoutY="559.0" mnemonicParsing="false" onAction="#feedback" styleClass="loginButton" stylesheets="@styles.css" text="Giv feedback">
          <effect>
             <DropShadow height="10.0" radius="4.5" width="10.0">
                <color>

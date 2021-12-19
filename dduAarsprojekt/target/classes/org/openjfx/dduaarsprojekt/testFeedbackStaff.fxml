@@ -28,10 +28,10 @@
             </Text>
             <MenuButton layoutX="23.0" layoutY="14.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="121.0" stylesheets="@styles.css" text="Vælg elev">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#back" text="Forside" />
-                  <MenuItem mnemonicParsing="false" onAction="#teams" text="Hold" />
-                  <MenuItem mnemonicParsing="false" onAction="#tests" text="Prøver" />
-                  <MenuItem mnemonicParsing="false" onAction="#logout" text="Log ud" />
+                  <MenuItem mnemonicParsing="false" text="Elev 1" />
+                  <MenuItem mnemonicParsing="false" text="Elev 2" />
+                  <MenuItem mnemonicParsing="false" text="Elev 3" />
+                  <MenuItem mnemonicParsing="false" text="Elev 4" />
                </items>
                <styleClass>
                   <String fx:value="context-menu" />
@@ -49,7 +49,7 @@
       <VBox fx:id="question" layoutX="279.0" layoutY="46.0" prefHeight="499.0" prefWidth="369.0" stylesheets="@styles.css" />
       <Pane layoutX="-6.0" layoutY="-9.0" prefHeight="55.0" prefWidth="1024.0" styleClass="navigator" stylesheets="@styles.css">
          <children>
-            <Button layoutX="970.0" layoutY="8.0" mnemonicParsing="false" onAction="#exit" prefHeight="47.0" prefWidth="54.0" styleClass="exitButton" stylesheets="@styles.css" text="X">
+            <Button layoutX="953.0" layoutY="8.0" mnemonicParsing="false" onAction="#exit" prefHeight="47.0" prefWidth="54.0" styleClass="exitButton" stylesheets="@styles.css" text="X">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
