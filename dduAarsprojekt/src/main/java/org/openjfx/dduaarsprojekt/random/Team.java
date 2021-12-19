@@ -17,7 +17,7 @@ public class Team {
     private int team_ID;
     private int teacher_ID;
     private String teamName;
-    private ArrayList<TaskSet> taskSet;
+    private ArrayList<TaskSet> taskSet = new ArrayList<>();
     private ArrayList<Student> students;
 
     
