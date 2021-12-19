@@ -540,18 +540,81 @@ public class TestDatabaseMethods {
 
         Statement stat = conn.createStatement();
         ResultSet rs;
+        String sql = "";
+
+        //delete taks there is no longer there
+        ArrayList<Integer> newtask_IDs = new ArrayList<>();
+        ArrayList<Integer> oldtask_IDs = new ArrayList<>();
+
+        for (int i = 0; i < _taskSet.getTasks().size(); i++) {
+            newtask_IDs.add(_taskSet.getTasks().get(i).getTask_ID());
+        }
+
+        rs = stat.executeQuery("SELECT task_ID FROM Tasks WHERE taskSet_ID = ('" + _taskSet.getTaskSet_ID() + "')");
+        
+        while(rs.next()) {
+            oldtask_IDs.add(rs.getInt("taskSet_ID"));
+        }
+        
+        oldtask_IDs.removeAll(newtask_IDs);
+
+        for (int i = 0; i < oldtask_IDs.size(); i++) {
+            try {
+                rs = stat.executeQuery("SELECT question_ID, questionType FROM tasks WHERE task_ID = ('" + oldtask_IDs.get(i) + "')");
+            } catch (SQLException e) {
+                System.out.println("\n Database error (edit task set (get questien info for delete)" + e.getMessage());
+            }
+
+            if (rs.getString("questionType").equals(QuestionsType.multipelChoiseQuestion.toString())) {
+
+                sql = "DELETE FROM multipelChoicesAnswers WHERE multipelChoiceQuestien_ID = "
+                        + "('" + rs.getInt("question_ID") + "')";
+                try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                    pstmt.executeUpdate();
+                } catch (SQLException e) {
+                    System.out.println("\n Database error (edit task set (delete multipel choices answers)" + e.getMessage());
+                }
+
+                sql = "DELETE FROM multipelChoiceQuestiens WHERE multipelChoiceQuestien_ID = ('" + rs.getInt("question_ID") + "')";
+
+                try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                    pstmt.executeUpdate();
+                } catch (SQLException e) {
+                    System.out.println("\n Database error (edit task set (delete multipel choice questiens)" + e.getMessage());
+                }
+
+            } else if (rs.getString("questionType").equals(QuestionsType.correctAnswerBasedQuestion.toString())) {
+
+                sql = "DELETE FROM correctAnswerBasedQuestions WHERE correctAnswerBasedQuestion_ID = "
+                        + "('" + rs.getInt("question_ID") + "')";
+                try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                    pstmt.executeUpdate();
+                } catch (SQLException e) {
+                    System.out.println("\n Database error (edit task set (delete correct answer based question)" + e.getMessage());
+                }
+            }
+
+            sql = "DELETE FROM tasks WHERE task_ID = ('" + oldtask_IDs.get(i) + "')";
+
+            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println("\n Database error (edit task set (delete task set)" + e.getMessage());
+            }
+
+        }
 
         //update taskset info
-        String sql = "UPDATE TaskSets SET taskSetName = '" + _taskSet.getName() + "', description = '" + _taskSet.getDescription() + "' "
+        sql = "UPDATE TaskSets SET taskSetName = '" + _taskSet.getName() + "', description = '" + _taskSet.getDescription() + "' "
                 + "WHERE taskSet_ID = ('" + _taskSet.getTaskSet_ID() + "')";
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("\n Database error (insert task set (insert task set)" + e.getMessage());
+            System.out.println("\n Database error (edit task set (insert task set)" + e.getMessage());
         }
 
-        //update task and questions - working
+        //update task and questions
         for (int i = 0; i < _taskSet.getTasks().size(); i++) {
             Task taskToUpdate = _taskSet.getTasks().get(i);
 
@@ -564,7 +627,7 @@ public class TestDatabaseMethods {
                 try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
                     pstmt.executeUpdate();
                 } catch (SQLException e) {
-                    System.out.println("\n Database error (insert task set (insert task)" + e.getMessage());
+                    System.out.println("\n Database error (edit task set (insert task)" + e.getMessage());
                 }
 
                 // update coresponding questien
@@ -583,7 +646,7 @@ public class TestDatabaseMethods {
                             }
 
                         } catch (SQLException e) {
-                            System.out.println("\n Database error (insert task set (multipel choice question (get existing answers)" + e.getMessage());
+                            System.out.println("\n Database error (edit task set (multipel choice question (get existing answers)" + e.getMessage());
                         }
 
                         for (int u = 0; u < mcq.getAnswerOptions().size(); u++) {
@@ -596,7 +659,7 @@ public class TestDatabaseMethods {
                                 try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
                                     pstmt.executeUpdate();
                                 } catch (SQLException e) {
-                                    System.out.println("\n Database error (insert task set (multipel choice question (update answer)" + e.getMessage());
+                                    System.out.println("\n Database error (edit task set (multipel choice question (update answer)" + e.getMessage());
                                 }
 
                             } else {
@@ -608,7 +671,7 @@ public class TestDatabaseMethods {
                                 try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
                                     pstmt.executeUpdate();
                                 } catch (SQLException e) {
-                                    System.out.println("\n Database error (insert task set (multipel choice question "
+                                    System.out.println("\n Database error (edit task set (multipel choice question "
                                             + "(create new answer)" + e.getMessage());
                                 }
                             }
@@ -624,7 +687,7 @@ public class TestDatabaseMethods {
                         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
                             pstmt.executeUpdate();
                         } catch (SQLException e) {
-                            System.out.println("\n Database error (insert task set (correct answer based question "
+                            System.out.println("\n Database error (edit task set (correct answer based question "
                                     + "(update correct answer)" + e.getMessage());
                         }
                         break;
@@ -707,15 +770,72 @@ public class TestDatabaseMethods {
             conn = DriverManager.getConnection(connectionString);
         } catch (SQLException e) {
             //Skrive fejlhåndtering her
-            System.out.println("\n Database error (get students teams (connection): " + e.getMessage() + "\n");
+            System.out.println("\n Database error (delete task set (connection): " + e.getMessage() + "\n");
+        }
+        ResultSet rs;
+        Statement stat = conn.createStatement();
+        String sql = "";
+        
+        ArrayList<Integer> task_IDs = new ArrayList<>();
+        
+        rs = stat.executeQuery("SELECT task_ID FROM Tasks WHERE taskSet_ID = ('" + _taskSet_ID + "')");
+        
+        while(rs.next()) {
+            task_IDs.add(rs.getInt("taskSet_ID"));
         }
 
-        String sql = "DELETE FROM TaskSets WHERE taskSet_ID = ('" + _taskSet_ID + "')";
+        for (int i = 0; i < task_IDs.size(); i++) {
+            try {
+                rs = stat.executeQuery("SELECT question_ID, questionType FROM tasks WHERE task_ID = ('" + task_IDs.get(i) + "')");
+            } catch (SQLException e) {
+                System.out.println("\n Database error (delete task set (get questien info for delete)" + e.getMessage());
+            }
+
+            if (rs.getString("questionType").equals(QuestionsType.multipelChoiseQuestion.toString())) {
+
+                sql = "DELETE FROM multipelChoicesAnswers WHERE multipelChoiceQuestien_ID = "
+                        + "('" + rs.getInt("question_ID") + "')";
+                try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                    pstmt.executeUpdate();
+                } catch (SQLException e) {
+                    System.out.println("\n Database error (delete task set (delete multipel choices answers)" + e.getMessage());
+                }
+
+                sql = "DELETE FROM multipelChoiceQuestiens WHERE multipelChoiceQuestien_ID = ('" + rs.getInt("question_ID") + "')";
+
+                try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                    pstmt.executeUpdate();
+                } catch (SQLException e) {
+                    System.out.println("\n Database error (delete task set (delete multipel choice questiens)" + e.getMessage());
+                }
+
+            } else if (rs.getString("questionType").equals(QuestionsType.correctAnswerBasedQuestion.toString())) {
+
+                sql = "DELETE FROM correctAnswerBasedQuestions WHERE correctAnswerBasedQuestion_ID = "
+                        + "('" + rs.getInt("question_ID") + "')";
+                try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                    pstmt.executeUpdate();
+                } catch (SQLException e) {
+                    System.out.println("\n Database error (delete task set (delete correct answer based question)" + e.getMessage());
+                }
+            }
+
+            sql = "DELETE FROM tasks WHERE task_ID = ('" + task_IDs.get(i) + "')";
+
+            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println("\n Database error (delete task set (delete task set)" + e.getMessage());
+            }
+
+        }
+
+        sql = "DELETE FROM TaskSets WHERE taskSet_ID = ('" + _taskSet_ID + "')";
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("\n Database error (assign taskSet to team (insert assign)" + e.getMessage() + "\n");
+            System.out.println("\n Database error (delete task set (delete task set)" + e.getMessage() + "\n");
         }
 
         conn.close();
