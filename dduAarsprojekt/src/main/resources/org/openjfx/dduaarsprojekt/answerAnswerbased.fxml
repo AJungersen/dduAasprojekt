@@ -48,7 +48,7 @@
             </Text>
             <Text fx:id="Describtion" fill="#6f6f6f" layoutX="24.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( forklaring )" />
             <Line endX="210.0000457763672" endY="-340.0" layoutX="-210.0" layoutY="385.0" startX="313.50006103515625" startY="-340.0" stroke="#aaaaaa" />
-            <Text fill="RED" layoutX="27.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( lærens svar )" />
+            <Text fill="RED" layoutX="27.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( Elev skærm )" />
          </children>
       </Pane>
    </children>

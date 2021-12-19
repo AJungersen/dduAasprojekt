@@ -19,6 +19,7 @@ import org.openjfx.dduaarsprojekt.TestClasses.MultipelChoiseQuestion;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import org.openjfx.dduaarsprojekt.TestClasses.Task;
 
 
 /**
@@ -54,7 +55,7 @@ public class CreateMultController implements Initializable {
         answers.add(MultipelChoiseAnswer(Answer3.getText(),correct3.pressedProperty()));
         answers.add(MultipelChoiseAnswer(Answer4.getText(),correct4.pressedProperty()));
         
-        TestMakerController.tasks.add(new MultipelChoiseQuestion(answers,question.getText()));
+        TestMakerController.tasks.add(new Task(new MultipelChoiseQuestion(answers, question.getText()), null, null));
         App.setRoot("testMaker");
     }
 
