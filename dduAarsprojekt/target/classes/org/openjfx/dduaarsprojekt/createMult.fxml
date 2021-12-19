@@ -45,7 +45,7 @@
                   </DropShadow>
                </effect>
             </Button>
-            <TextField fx:id="Answer1" layoutX="93.0" layoutY="110.0" prefHeight="30.0" prefWidth="254.0" promptText="Svarmulighed" styleClass="createQuestionBox" stylesheets="@styles.css">
+            <TextField fx:id="AnswerQ" layoutX="93.0" layoutY="110.0" prefHeight="30.0" prefWidth="254.0" promptText="Svarmulighed" styleClass="createQuestionBox" stylesheets="@styles.css">
                <font>
                   <Font size="13.0" />
                </font>
@@ -53,7 +53,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <CheckBox layoutX="22.0" layoutY="117.0" mnemonicParsing="false" text="Rigtig?">
+            <CheckBox fx:id="AnswerR" layoutX="22.0" layoutY="117.0" mnemonicParsing="false" text="Rigtig?">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
