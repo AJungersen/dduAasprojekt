@@ -51,4 +51,8 @@ public class Question {
     public MultipelChoiseQuestion asMultipelChoiseQuestion() {
         return (MultipelChoiseQuestion) this;
     }
+    
+    public CorrectCorrectQuestion asCorrectCorrectQuestion() {
+        return  (CorrectCorrectQuestion) this;
+    }
 }

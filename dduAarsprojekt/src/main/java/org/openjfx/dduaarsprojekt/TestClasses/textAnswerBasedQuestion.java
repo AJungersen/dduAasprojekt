@@ -16,7 +16,7 @@ public class textAnswerBasedQuestion extends Question{
         setType(QuestionsType.textAnswerBasedQuestion);
     }
     
-    public textAnswerBasedQuestion(String question) {
+    public textAnswerBasedQuestion(String answer, String question) {
         super(question);
         setType(QuestionsType.textAnswerBasedQuestion);
     }
