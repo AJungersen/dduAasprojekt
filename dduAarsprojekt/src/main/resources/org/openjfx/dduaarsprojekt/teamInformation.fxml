@@ -135,12 +135,6 @@
          </font>
       </Text>
       <ListView fx:id="allStudents" layoutX="533.0" layoutY="150.0" prefHeight="393.0" prefWidth="127.0" styleClass="text-area" stylesheets="@styles.css" />
-      <TableView fx:id="teamsStudents" layoutX="787.0" layoutY="154.0" prefHeight="393.0" prefWidth="201.0">
-         <columns>
-            <TableColumn fx:id="studentName" prefWidth="102.0" text="Elev efternavn" />
-            <TableColumn prefWidth="98.0" text="Elev fornavn" />
-         </columns>
-      </TableView>
       <Text fill="#4b4b4b" layoutX="533.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alle elever:">
          <font>
             <Font name="System Bold" size="17.0" />
@@ -152,5 +146,6 @@
          </font>
       </Text>
       <Text layoutX="668.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vælg den elev du vil tilføje/fjerne fra holdet" textAlignment="CENTER" wrappingWidth="115.8753662109375" />
+      <ListView fx:id="teamsStudents" layoutX="783.0" layoutY="142.0" prefHeight="403.0" prefWidth="187.0" styleClass="text-area" stylesheets="@styles.css" />
    </children>
 </AnchorPane>

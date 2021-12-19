@@ -26,6 +26,8 @@ import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
 import org.openjfx.dduaarsprojekt.databaseRepository.TestDatabaseMethods;
 import org.openjfx.dduaarsprojekt.random.Student;
 import org.openjfx.dduaarsprojekt.random.Team;
+import org.openjfx.dduaarsprojekt.random.User;
+import org.openjfx.dduaarsprojekt.random.*;
 
 /**
  * FXML Controller class
@@ -134,11 +136,11 @@ public class TeamStaffController implements Initializable {
     }
     @FXML
     private void CellValues(){
-        teamName.setCellValueFactory(new PropertyValueFactory<AssistantMyTeamsForTeamStaffController, String>("teamName"));
-        tests.setCellValueFactory(new PropertyValueFactory<AssistantMyTeamsForTeamStaffController, Integer>("tests"));
-        numberOfStudents.setCellValueFactory(new PropertyValueFactory<AssistantMyTeamsForTeamStaffController, Integer>("numberOfStudents"));
-        studentID.setCellValueFactory(new PropertyValueFactory<Student, Integer>("user_ID"));
-        studentFirstName.setCellValueFactory(new PropertyValueFactory<Student, String>("username"));
+        teamName.setCellValueFactory(new PropertyValueFactory<>("teamName"));
+        tests.setCellValueFactory(new PropertyValueFactory<>("tests"));
+        numberOfStudents.setCellValueFactory(new PropertyValueFactory<>("numberOfStudents"));
+        studentID.setCellValueFactory(new PropertyValueFactory<>("user_ID"));
+        studentFirstName.setCellValueFactory(new PropertyValueFactory<>("username"));
     }
     
     private ArrayList<AssistantMyTeamsForTeamStaffController> getAssistantMyTeamsForTeamStaffControllerArray(ArrayList<Team> teachersTeams){

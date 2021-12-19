@@ -15,7 +15,7 @@ import org.openjfx.dduaarsprojekt.databaseRepository.TestDatabaseMethods;
  */
 public class Student extends User{
     private String schoolClass;
-    private String name;
+    public String name;
 
     public Student(String schoolClass, String name, int user_ID, int userType_ID, String username, String password) {
         super(user_ID, userType_ID, username, password);

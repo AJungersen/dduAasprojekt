@@ -13,8 +13,11 @@ package org.openjfx.dduaarsprojekt;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import org.openjfx.dduaarsprojekt.databaseRepository.TestDatabaseMethods;
 
 /**
  * FXML Controller class
@@ -28,7 +31,14 @@ public class MainController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        TestDatabaseMethods tdb = new TestDatabaseMethods();
+        System.out.println("HELLOWORLD");
+        try {
+            System.out.print(tdb.getSchoolsStudents(1).get(4).getUser_ID());
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("DONE");
     }    
     
     @FXML
