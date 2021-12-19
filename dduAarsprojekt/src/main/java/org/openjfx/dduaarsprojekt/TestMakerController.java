@@ -50,10 +50,10 @@ public class TestMakerController implements Initializable {
         create.getChildren().removeAll();
         show.getChildren().removeAll();
         
-        ArrayList<Question>taskList = new ArrayList<Question>(tasks);
+        /*ArrayList<Question>taskList = new ArrayList<Question>(tasks);
          for(int i = 0; i < tasks.size(); i++){
              questions.getItems().add(tasks.get(i).getQuestion());
-         }
+         }*/
          
     }
 

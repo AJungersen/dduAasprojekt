@@ -19,8 +19,8 @@ import javafx.scene.text.Text;
  */
 public class AnswerMult implements Initializable {
     @FXML private Text questionNumber;
-    @FXML Label Question;
-    @FXML TextField Answer;
+    @FXML Text Question;
+    @FXML Text Answer;
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {

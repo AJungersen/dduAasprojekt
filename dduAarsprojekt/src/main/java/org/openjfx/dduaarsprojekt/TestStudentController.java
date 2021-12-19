@@ -34,12 +34,10 @@ public class TestStudentController implements Initializable {
     
     TestDatabaseMethods tdb = new TestDatabaseMethods();
     
-    @FXML
-    TableView<TaskSet> done = new TableView();
-    @FXML
-    ListView<String> teamsList = new ListView();
-    @FXML
-    ArrayList<TaskSet> selectedTeamTaskSets = new ArrayList();
+    @FXML TableView<TaskSet> done = new TableView();
+    @FXML ListView<String> myTeams = new ListView();
+    @FXML ListView<String> teamsList = new ListView();
+    @FXML ArrayList<TaskSet> selectedTeamTaskSets = new ArrayList();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
