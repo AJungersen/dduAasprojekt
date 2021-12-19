@@ -111,9 +111,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TableView fx:id="done" layoutX="292.0" layoutY="409.0" prefHeight="175.0" prefWidth="302.0">
+      <TableView fx:id="myTest" layoutX="292.0" layoutY="409.0" prefHeight="175.0" prefWidth="302.0">
          <columns>
-            <TableColumn prefWidth="153.0" text="Prøve navn" />
+            <TableColumn fx:id="teamName" prefWidth="153.0" text="Prøve navn" />
             <TableColumn prefWidth="148.0" text="Rigtighedsprocent" />
          </columns>
       </TableView>
