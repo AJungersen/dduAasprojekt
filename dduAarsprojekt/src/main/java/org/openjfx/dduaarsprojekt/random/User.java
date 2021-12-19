@@ -11,9 +11,9 @@ package org.openjfx.dduaarsprojekt.random;
  */
 public class User {
 
-    private int user_ID;
+    public int user_ID;
     private int userType_ID;
-    private String username;
+    public String username;
     private String password;
     private String type = "";
 

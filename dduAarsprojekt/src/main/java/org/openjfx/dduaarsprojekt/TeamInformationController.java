@@ -27,7 +27,7 @@ import org.openjfx.dduaarsprojekt.random.Student;
  * @author clara
  */
 public class TeamInformationController implements Initializable {
-    public static int currentTeam = 0;
+    public static int currentTeamID = 0;
     @FXML
     ListView<String> yourTasks;
     @FXML
@@ -39,9 +39,7 @@ public class TeamInformationController implements Initializable {
     @FXML
     ListView<String> allStudents;
     @FXML
-    TableView<Student> teamsStudents;
-    @FXML
-    TableColumn<Student, String> studentName;
+    ListView<String> teamsStudents;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -51,12 +49,17 @@ public class TeamInformationController implements Initializable {
         }
         cellFactory();
         try {
-            teamsTasks.getItems().addAll(getAssistantTeamInformationControllerArray(tdb.getAllTeachersTaskSets(App.getLoggedInUser().getUser_ID())));
+            teamsTasks.getItems().addAll(getAssistantTeamInformationControllerArray(tdb.getTeamsAssignedTaskSets(currentTeamID ,App.getLoggedInUser().getUser_ID())));
         } catch (Exception ex) {
             Logger.getLogger(TeamInformationController.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             allStudents.getItems().addAll(getNames(tdb.getSchoolsStudents(1)));
+        } catch (Exception ex) {
+            Logger.getLogger(TeamInformationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            teamsStudents.getItems().addAll(getNames(tdb.getTeamsAssignedStudents(currentTeamID)));
         } catch (Exception ex) {
             Logger.getLogger(TeamInformationController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -93,7 +96,6 @@ public class TeamInformationController implements Initializable {
     private void cellFactory(){
         testName.setCellValueFactory(new PropertyValueFactory<AssistantTeamInformationController, String>("testName"));
         participation.setCellValueFactory(new PropertyValueFactory<AssistantTeamInformationController, Integer>("participation"));
-        studentName.setCellValueFactory(new PropertyValueFactory<Student, String>("name"));
     }
 
     private ArrayList<AssistantTeamInformationController> getAssistantTeamInformationControllerArray(ArrayList<TaskSet> allTeachersTaskSets) throws Exception {

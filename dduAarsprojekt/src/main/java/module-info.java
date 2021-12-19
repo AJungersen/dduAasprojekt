@@ -5,5 +5,6 @@ module org.openjfx.dduaarsprojekt {
     requires java.sql;
 
     opens org.openjfx.dduaarsprojekt to javafx.fxml;
+    opens org.openjfx.dduaarsprojekt.random to javafx.base;
     exports org.openjfx.dduaarsprojekt;
 }
