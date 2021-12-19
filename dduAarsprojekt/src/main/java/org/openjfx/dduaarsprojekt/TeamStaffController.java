@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -122,21 +123,23 @@ public class TeamStaffController implements Initializable {
             //addStudents.getItems().addAll(tdb.getSchoolsStudents(1).removeAll(studentsOnCurrentTeam));
             //Midlertidig
             addStudents.getItems().addAll(tdb.getSchoolsStudents(1));
-            currentStudents.setItems((ObservableList) studentsOnCurrentTeam);
+            ObservableList<String> obsList = FXCollections.observableArrayList(getNames(studentsOnCurrentTeam));
+            currentStudents.setItems(obsList);
     }
     @FXML
     private void removeStudent() throws Exception{
         TestDatabaseMethods tdb = new TestDatabaseMethods();
-        studentsOnCurrentTeam.remove(currentStudents.getSelectionModel().getSelectedItem());
+        studentsOnCurrentTeam.remove(currentStudents.getSelectionModel().getSelectedIndex());
         //ERROR HER
             //addStudents.getItems().addAll(tdb.getSchoolsStudents(1).removeAll(studentsOnCurrentTeam));
             //Midlertidig
             addStudents.getItems().addAll(tdb.getSchoolsStudents(1));
-            currentStudents.setItems((ObservableList) studentsOnCurrentTeam);
+            ObservableList<String> obsList = FXCollections.observableArrayList(getNames(studentsOnCurrentTeam));
+            currentStudents.setItems(obsList);
     }
     @FXML
     private void CellValues(){
-        teamName.setCellValueFactory(new PropertyValueFactory<>("teamName"));
+        teamName.setCellValueFactory(new PropertyValueFactory<AssistantMyTeamsForTeamStaffController, String>("teamName"));
         tests.setCellValueFactory(new PropertyValueFactory<>("tests"));
         numberOfStudents.setCellValueFactory(new PropertyValueFactory<>("numberOfStudents"));
         studentID.setCellValueFactory(new PropertyValueFactory<>("user_ID"));
@@ -169,5 +172,13 @@ public class TeamStaffController implements Initializable {
         teams.getItems().addAll(getAssistantMyTeamsForTeamStaffControllerArray(teachersTeams));
         
         
+    }
+    @FXML
+    private ArrayList<String> getNames(ArrayList<Student> studentsOnCurrentTeam1){
+        ArrayList<String> names = new ArrayList();
+        for(int i = 0; i < studentsOnCurrentTeam1.size(); i++){
+            names.add(studentsOnCurrentTeam1.get(i).getName());
+        }
+        return names;
     }
 }

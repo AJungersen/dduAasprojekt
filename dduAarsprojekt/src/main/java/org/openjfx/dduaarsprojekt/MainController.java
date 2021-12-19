@@ -31,14 +31,7 @@ public class MainController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        TestDatabaseMethods tdb = new TestDatabaseMethods();
-        System.out.println("HELLOWORLD");
-        try {
-            System.out.print(tdb.getSchoolsStudents(1).get(4).getUser_ID());
-        } catch (Exception ex) {
-            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        System.out.println("DONE");
+        
     }    
     
     @FXML

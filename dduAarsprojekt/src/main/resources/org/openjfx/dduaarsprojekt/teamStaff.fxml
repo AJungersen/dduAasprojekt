@@ -100,7 +100,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="700.0" layoutY="356.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="105.0" styleClass="loginButton" stylesheets="@styles.css" text="Fjern elev">
+      <Button layoutX="700.0" layoutY="356.0" mnemonicParsing="false" onAction="#removeStudent" prefHeight="27.0" prefWidth="105.0" styleClass="loginButton" stylesheets="@styles.css" text="Fjern elev">
          <effect>
             <DropShadow height="10.0" radius="4.5" width="10.0">
                <color>
