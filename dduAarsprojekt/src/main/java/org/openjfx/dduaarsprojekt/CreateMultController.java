@@ -17,6 +17,7 @@ import javafx.scene.control.ToggleButton;
 import org.openjfx.dduaarsprojekt.TestClasses.MultipelChoiseAnswer;
 import org.openjfx.dduaarsprojekt.TestClasses.MultipelChoiseQuestion;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 
@@ -26,8 +27,8 @@ import javafx.scene.text.Text;
  * @author danie
  */
 public class CreateMultController implements Initializable {
-    @FXML TextArea question;
-    @FXML TextArea Answer1;
+    @FXML TextField question;
+    @FXML TextField Answer1;
     TextArea Answer2;
     TextArea Answer3;
     TextArea Answer4;
