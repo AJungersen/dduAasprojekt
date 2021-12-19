@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.scene.paint.Color;
 import java.io.IOException;
+import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
 
 /**
  * Branch test
@@ -16,6 +17,7 @@ import java.io.IOException;
 public class App extends Application {
     private static User loggedInUser = new User();
     private static Scene scene;
+    private static TaskSet currentTaskSetWorkingOn = new TaskSet();
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -48,4 +50,11 @@ public class App extends Application {
         return loggedInUser;
     }
 
+    public static void setCurrentTaskSetWorkingOn(TaskSet currentTaskSetWorkingOn) {
+        currentTaskSetWorkingOn = currentTaskSetWorkingOn;
+    }
+
+    public static TaskSet getCurrentTaskSetWorkingOn() {
+        return currentTaskSetWorkingOn;
+    }
 }
