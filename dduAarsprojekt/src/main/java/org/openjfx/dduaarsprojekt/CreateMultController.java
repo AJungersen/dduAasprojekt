@@ -17,6 +17,7 @@ import javafx.scene.control.ToggleButton;
 import org.openjfx.dduaarsprojekt.TestClasses.MultipelChoiseAnswer;
 import org.openjfx.dduaarsprojekt.TestClasses.MultipelChoiseQuestion;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import org.openjfx.dduaarsprojekt.TestClasses.Task;
@@ -29,31 +30,86 @@ import org.openjfx.dduaarsprojekt.TestClasses.Task;
  */
 public class CreateMultController implements Initializable {
     @FXML TextField question;
-    @FXML TextField Answer1;
-    TextArea Answer2;
-    TextArea Answer3;
-    TextArea Answer4;
-    ToggleButton correct1;
-    ToggleButton correct2;
-    ToggleButton correct3;
-    ToggleButton correct4;
-    Button saveQuestion;
-    @FXML private Text questionNumber;
-     
+    @FXML Button saveQuestion;
+    @FXML  Text questionNumber;  
+    @FXML  TextField AnswerQ;
+    @FXML  TextField AnswerR;
+    @FXML  TextField firstQ;
+    @FXML  TextField secondQ;
+    @FXML  TextField thridQ;
+    @FXML  TextField fourthQ;
+    @FXML  TextField fifthQ;
+    @FXML  TextField sixthQ;
+    @FXML  CheckBox firstR;
+    @FXML  CheckBox secondR;
+    @FXML  CheckBox thridR;
+    @FXML  CheckBox fourthR;
+    @FXML  CheckBox fifthR;
+    @FXML  CheckBox sixthR;
+    public int choiceCounter;
+       
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        choiceCounter = 0;
     }    
+    @FXML
+      private void addAnswer () {
+          System.out.println("tilføj svarmulighed");
+          choiceCounter++;
+          
+        switch(choiceCounter){
+          case 1:
+              firstR.setVisible(true);  
+              firstQ.setVisible(true);
+              break;
+          case 2:
+              secondR.setVisible(true);
+              secondQ.setVisible(true);
+              break;
+          case 3:
+              thridR.setVisible(true);
+              thridQ.setVisible(true);
+              break;
+          case 4:
+              fourthR.setVisible(true);
+              fourthQ.setVisible(true);
+              break;
+          case 5:
+              fifthR.setVisible(true);
+              fifthQ.setVisible(true);
+              break;
+          case 6:
+              sixthR.setVisible(true);
+              sixthQ.setVisible(true);
+              break;
+          default:
+              firstR.setVisible(false);  
+              firstQ.setVisible(false);
+              secondR.setVisible(false);
+              secondQ.setVisible(false);
+              thridR.setVisible(false);
+              thridQ.setVisible(false);
+              fourthR.setVisible(false);
+              fourthQ.setVisible(false);
+              fifthR.setVisible(false);
+              fifthQ.setVisible(false);
+              sixthR.setVisible(false);
+              sixthQ.setVisible(false);              
+          }
+      }    
+    
     @FXML
     public void save() throws IOException{
         ArrayList<MultipelChoiseAnswer> answers = new ArrayList<>();
-        answers.add(MultipelChoiseAnswer(Answer1.getText(),correct1.pressedProperty()));
-        answers.add(MultipelChoiseAnswer(Answer2.getText(),correct2.pressedProperty()));
-        answers.add(MultipelChoiseAnswer(Answer3.getText(),correct3.pressedProperty()));
-        answers.add(MultipelChoiseAnswer(Answer4.getText(),correct4.pressedProperty()));
+        answers.add(MultipelChoiseAnswer(firstQ.getText(),firstR.pressedProperty()));
+        answers.add(MultipelChoiseAnswer(secondQ.getText(),secondR.pressedProperty()));
+        answers.add(MultipelChoiseAnswer(thridQ.getText(),thridR.pressedProperty()));
+        answers.add(MultipelChoiseAnswer(fourthQ.getText(),fourthR.pressedProperty()));
+        answers.add(MultipelChoiseAnswer(fifthQ.getText(),fifthR.pressedProperty()));
+        answers.add(MultipelChoiseAnswer(sixthQ.getText(),sixthR.pressedProperty()));
         
         TestMakerController.tasks.add(new Task(new MultipelChoiseQuestion(answers, question.getText()), null, null));
         App.setRoot("testMaker");
@@ -62,10 +118,5 @@ public class CreateMultController implements Initializable {
     private MultipelChoiseAnswer MultipelChoiseAnswer(String text, ReadOnlyBooleanProperty pressedProperty) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    @FXML
-      private void addAnswer () {
-          System.out.println("tilføj svarmulighed");
-          
-      }
     
 }
