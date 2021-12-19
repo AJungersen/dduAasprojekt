@@ -7,11 +7,22 @@ package org.openjfx.dduaarsprojekt;
  */
 
 
+import AssistantClasses.AssistantMyTeamsForTeamStaffController;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import org.openjfx.dduaarsprojekt.databaseRepository.TestDatabaseMethods;
+import org.openjfx.dduaarsprojekt.random.Team;
 
 /**
  * FXML Controller class
@@ -20,12 +31,43 @@ import javafx.fxml.Initializable;
  */
 public class TeamStaffController implements Initializable {
    
+    @FXML
+    TableView<AssistantMyTeamsForTeamStaffController> teams;
+    @FXML
+    TableColumn<AssistantMyTeamsForTeamStaffController, String> teamName;
+    @FXML
+    TableColumn<AssistantMyTeamsForTeamStaffController, Integer> tests;
+    @FXML
+    TableColumn<AssistantMyTeamsForTeamStaffController, Integer> numberOfStudents;
+    @FXML
+    TableView addStudents;
+    @FXML
+    TableColumn studentID;
+    @FXML
+    TableColumn studentFirstName;
+    @FXML
+    TableColumn studentLastName;
+    @FXML
+    TextField newTeamName;
+    @FXML
+    ListView currentStudents;
+    
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        TestDatabaseMethods tdb = new TestDatabaseMethods();
+        ArrayList<Team> teachersTeams = new ArrayList();
+        try {
+            teachersTeams = tdb.getTeachersTeams(App.getLoggedInUser().getUser_ID());
+        } catch (Exception ex) {
+            Logger.getLogger(TeamStaffController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        addToMyTeams();
+        //teams.getColumns().addAll(teamName, tests, numberOfStudents);
+        teams.getItems().addAll(getAssistantMyTeamsForTeamStaffControllerArray(teachersTeams));
     }    
    
    @FXML
@@ -54,5 +96,24 @@ public class TeamStaffController implements Initializable {
     @FXML
     private void info () throws IOException{
         App.setRoot("teamInformation");
+    }
+    @FXML
+    private void addStudent(){
+        
+    }
+    @FXML
+    private void addToMyTeams(){
+        teamName.setCellValueFactory(new PropertyValueFactory<AssistantMyTeamsForTeamStaffController, String>("teamName"));
+        tests.setCellValueFactory(new PropertyValueFactory<AssistantMyTeamsForTeamStaffController, Integer>("tests"));
+        numberOfStudents.setCellValueFactory(new PropertyValueFactory<AssistantMyTeamsForTeamStaffController, Integer>("numberOfStudents"));
+       
+    }
+    
+    private ArrayList<AssistantMyTeamsForTeamStaffController> getAssistantMyTeamsForTeamStaffControllerArray(ArrayList<Team> teachersTeams){
+        ArrayList<AssistantMyTeamsForTeamStaffController> myList = new ArrayList();
+        for(int i = 0; i < teachersTeams.size(); i++){
+            myList.add(new AssistantMyTeamsForTeamStaffController(teachersTeams.get(i).getTeamName(),teachersTeams.get(i).getTaskSet().size(),teachersTeams.get(i).getStudents().size()));
+        }
+        return myList;
     }
 }

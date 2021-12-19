@@ -16,6 +16,7 @@ math\Crypt.class
 org\openjfx\dduaarsprojekt\CreateUserController.class
 org\openjfx\dduaarsprojekt\TeamStaffController.class
 org\openjfx\dduaarsprojekt\random\SecurityMethods.class
+AssistantClasses\AssistantMyTeamsForTeamStaffController.class
 org\openjfx\dduaarsprojekt\TestClasses\textAnswerBasedQuestion.class
 org\openjfx\dduaarsprojekt\TestFeedbackStaffController.class
 org\openjfx\dduaarsprojekt\App.class
