@@ -790,7 +790,7 @@ public class TestDatabaseMethods {
             int user_ID = rs.getInt("user_ID");
 
             //hent result set of teams
-            rs = stat.executeQuery("SELECT * FROM Teams WHERE teacher_ID = ('" + _teacherID + "'))");
+            rs = stat.executeQuery("SELECT * FROM Teams WHERE teacher_ID = ('" + _teacherID + "')");
 
             teachersTeams = loadTeams(conn, rs, user_ID);
 
