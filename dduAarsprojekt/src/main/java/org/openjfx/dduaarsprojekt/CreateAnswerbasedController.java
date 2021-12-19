@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import org.openjfx.dduaarsprojekt.TestClasses.CorrectAnswerBasedQuestion; 
+import org.openjfx.dduaarsprojekt.TestClasses.Task;
 import org.openjfx.dduaarsprojekt.TestClasses.textAnswerBasedQuestion;
 
 /**
@@ -38,6 +39,6 @@ public class CreateAnswerbasedController implements Initializable {
     public void save(){
         String q = question.getText();
         String c = correct.getText();
-        TestMakerController.tasks.add(new textAnswerBasedQuestion(c,q));
+        TestMakerController.tasks.add(new Task(new CorrectAnswerBasedQuestion(c,q),null,null));
     }
 }

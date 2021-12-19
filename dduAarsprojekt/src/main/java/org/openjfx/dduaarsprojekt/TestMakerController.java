@@ -22,6 +22,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import org.openjfx.dduaarsprojekt.TestClasses.Question;
+import org.openjfx.dduaarsprojekt.TestClasses.Task;
 import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
 
 /**
@@ -31,7 +32,7 @@ import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
  */
 public class TestMakerController implements Initializable {
     public static TaskSet current;
-    public static ArrayList<Question> tasks;
+    public static ArrayList<Task> tasks;
     
     @FXML
     ListView questionList;

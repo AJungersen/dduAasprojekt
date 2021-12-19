@@ -16,6 +16,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -46,10 +47,17 @@ public class TeamInformationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         TestDatabaseMethods tdb = new TestDatabaseMethods();
-        ArrayList<TaskSet> myTasks = tdb.getAllTeachersTaskSets(App.getLoggedInUser().getUser_ID());
-        for(int i = 0; i < tdb.getAllTeachersTaskSets(App.getLoggedInUser().getUser_ID()).size(); i++){
-            yourTasks.getItems().add(myTasks.get(i).getName());
+        ArrayList<TaskSet> myTasks = new ArrayList<>();
+        try {
+            myTasks = tdb.getUsersIndividualAssignedTasksSets(App.getLoggedInUser().getUser_ID());
+        } catch (Exception ex) {
+            Logger.getLogger(TeamInformationController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        ArrayList<String> myTaskNames = new ArrayList<>();
+        for(int i = 0; i < myTasks.size(); i++){
+            myTaskNames.add(myTasks.get(i).getName());
+        }
+        yourTasks.getItems().addAll(myTaskNames);
         cellFactory();
         try {
             teamsTasks.setItems(getAssistantTeamInformationControllerArray(tdb.getTeamsAssignedTaskSets(currentTeamID ,App.getLoggedInUser().getUser_ID())));
@@ -125,5 +133,11 @@ public class TeamInformationController implements Initializable {
         }
         return myNames;
     }
-    
+    @FXML
+    private void addTaskSet() throws Exception{
+        TestDatabaseMethods tdb = new TestDatabaseMethods();
+        TaskSet myTaskSet = new TaskSet();
+        myTaskSet = tdb.getUsersIndividualAssignedTasksSets(App.getLoggedInUser().getUser_ID()).get(yourTasks.getSelectionModel().getSelectedIndex());
+        tdb.assignTaskSetToTeam(currentTeamID, myTaskSet);
+    }
 }
