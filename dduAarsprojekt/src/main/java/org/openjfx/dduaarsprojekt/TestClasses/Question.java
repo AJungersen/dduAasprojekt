@@ -52,7 +52,7 @@ public class Question {
         return (MultipelChoiseQuestion) this;
     }
     
-    public CorrectCorrectQuestion asCorrectCorrectQuestion() {
-        return  (CorrectCorrectQuestion) this;
+    public CorrectAnswerBasedQuestion asCorrectCorrectQuestion() {
+        return  (CorrectAnswerBasedQuestion) this;
     }
 }
