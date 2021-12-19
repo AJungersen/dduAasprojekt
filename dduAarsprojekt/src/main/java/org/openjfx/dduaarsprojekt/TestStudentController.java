@@ -127,6 +127,7 @@ public class TestStudentController implements Initializable {
 
     @FXML
     private void answer() throws IOException {
+        AnswerOpenController.setTestName(onGoingTest.getSelectionModel().getSelectedItem());
         App.setRoot("answerTest");
     }
 

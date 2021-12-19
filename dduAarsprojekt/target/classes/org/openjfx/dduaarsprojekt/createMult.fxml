@@ -45,7 +45,7 @@
                   </DropShadow>
                </effect>
             </Button>
-            <TextField fx:id="Answer1" layoutX="93.0" layoutY="110.0" prefHeight="30.0" prefWidth="254.0" promptText="Svarmulighed" styleClass="createQuestionBox" stylesheets="@styles.css">
+            <TextField fx:id="AnswerQ" layoutX="93.0" layoutY="110.0" prefHeight="30.0" prefWidth="254.0" promptText="Svarmulighed" styleClass="createQuestionBox" stylesheets="@styles.css">
                <font>
                   <Font size="13.0" />
                </font>
@@ -53,7 +53,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <CheckBox layoutX="22.0" layoutY="117.0" mnemonicParsing="false" text="Rigtig?">
+            <CheckBox fx:id="AnswerR" layoutX="22.0" layoutY="117.0" mnemonicParsing="false" text="Rigtig?">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -70,6 +70,85 @@
                   </DropShadow>
                </effect>
             </Button>
+            <TextField fx:id="firstQ" layoutX="93.0" layoutY="152.0" prefHeight="30.0" prefWidth="254.0" promptText="Svarmulighed" styleClass="createQuestionBox" stylesheets="@../../../../../../../../layout-DDU/layout-test/src/main/resources/com/mycompany/layout/test/styles.css" visible="false">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <CheckBox fx:id="firstR" layoutX="22.0" layoutY="159.0" mnemonicParsing="false" text="Rigtig?" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </CheckBox>
+            <TextField fx:id="secondQ" layoutX="93.0" layoutY="197.0" prefHeight="30.0" prefWidth="254.0" promptText="Svarmulighed" styleClass="createQuestionBox" stylesheets="@../../../../../../../../layout-DDU/layout-test/src/main/resources/com/mycompany/layout/test/styles.css" visible="false">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <CheckBox fx:id="secondR" layoutX="22.0" layoutY="204.0" mnemonicParsing="false" text="Rigtig?" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </CheckBox>
+            <TextField fx:id="thridQ" layoutX="93.0" layoutY="240.0" prefHeight="30.0" prefWidth="254.0" promptText="Svarmulighed" styleClass="createQuestionBox" stylesheets="@../../../../../../../../layout-DDU/layout-test/src/main/resources/com/mycompany/layout/test/styles.css" visible="false">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <CheckBox fx:id="thridR" layoutX="22.0" layoutY="247.0" mnemonicParsing="false" text="Rigtig?" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </CheckBox>
+            <TextField fx:id="fourthQ" layoutX="94.0" layoutY="284.0" prefHeight="30.0" prefWidth="254.0" promptText="Svarmulighed" styleClass="createQuestionBox" stylesheets="@../../../../../../../../layout-DDU/layout-test/src/main/resources/com/mycompany/layout/test/styles.css" visible="false">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <CheckBox fx:id="fourthR" layoutX="23.0" layoutY="291.0" mnemonicParsing="false" text="Rigtig?" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </CheckBox>
+            <TextField fx:id="fifthQ" layoutX="93.0" layoutY="326.0" prefHeight="30.0" prefWidth="254.0" promptText="Svarmulighed" styleClass="createQuestionBox" stylesheets="@../../../../../../../../layout-DDU/layout-test/src/main/resources/com/mycompany/layout/test/styles.css" visible="false">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <CheckBox fx:id="fifthR" layoutX="22.0" layoutY="333.0" mnemonicParsing="false" text="Rigtig?" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </CheckBox>
+            <TextField fx:id="sixthQ" layoutX="93.0" layoutY="369.0" prefHeight="30.0" prefWidth="254.0" promptText="Svarmulighed" styleClass="createQuestionBox" stylesheets="@../../../../../../../../layout-DDU/layout-test/src/main/resources/com/mycompany/layout/test/styles.css" visible="false">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <CheckBox fx:id="sixthR" layoutX="22.0" layoutY="376.0" mnemonicParsing="false" text="Rigtig?" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </CheckBox>
+            <Text layoutX="96.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max. 7 forskellige svarmuligheder" />
          </children>
       </Pane>
    </children>

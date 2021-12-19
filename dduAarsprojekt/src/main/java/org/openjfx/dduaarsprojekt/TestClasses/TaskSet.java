@@ -6,6 +6,7 @@
 package org.openjfx.dduaarsprojekt.TestClasses;
 
 import java.util.ArrayList;
+import org.openjfx.dduaarsprojekt.TestClasses.Task;
 
 /**
  *
@@ -41,7 +42,18 @@ public class TaskSet {
         this.task = taks;
     }
 
+    public TaskSet(int user_ID, String name, String description, String nameOfTheFiller, ArrayList<Task> task) {
+        this.user_ID = user_ID;
+        this.name = name;
+        this.description = description;
+        this.nameOfTheFiller = nameOfTheFiller;
+        this.task = task;
+    }
+    
+    
+
     public TaskSet() {
+
     }
     
     public int getTaskSet_ID() {

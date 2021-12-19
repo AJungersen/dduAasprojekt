@@ -37,7 +37,7 @@
                   </DropShadow>
                </effect>
             </Button>
-            <CheckBox layoutX="22.0" layoutY="117.0" mnemonicParsing="false" text="Rigtig?">
+            <CheckBox layoutX="23.0" layoutY="117.0" mnemonicParsing="false" text="Rigtig?">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></CheckBox>
@@ -47,12 +47,72 @@
                   <Font name="System Bold" size="23.0" />
                </font>
             </Text>
-            <Text fx:id="Answer" fill="#6f6f6f" layoutX="95.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( svarmulighed )">
+            <Text fx:id="Answer" fill="#6f6f6f" layoutX="96.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( svarmulighed )">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
             <Text fill="RED" layoutX="27.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( lærens svar )" />
+            <CheckBox layoutX="23.0" layoutY="148.0" mnemonicParsing="false" text="Rigtig?" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </CheckBox>
+            <Text fx:id="Answer1" fill="#6f6f6f" layoutX="96.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( svarmulighed )" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <CheckBox layoutX="23.0" layoutY="181.0" mnemonicParsing="false" text="Rigtig?" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </CheckBox>
+            <Text fx:id="Answer2" fill="#6f6f6f" layoutX="96.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( svarmulighed )" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <CheckBox layoutX="23.0" layoutY="211.0" mnemonicParsing="false" text="Rigtig?" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </CheckBox>
+            <Text fx:id="Answer3" fill="#6f6f6f" layoutX="96.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( svarmulighed )" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <CheckBox layoutX="23.0" layoutY="242.0" mnemonicParsing="false" text="Rigtig?" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </CheckBox>
+            <Text fx:id="Answer4" fill="#6f6f6f" layoutX="96.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( svarmulighed )" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <CheckBox layoutX="23.0" layoutY="275.0" mnemonicParsing="false" text="Rigtig?" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </CheckBox>
+            <Text fx:id="Answer5" fill="#6f6f6f" layoutX="96.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( svarmulighed )" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <CheckBox layoutX="23.0" layoutY="309.0" mnemonicParsing="false" text="Rigtig?" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </CheckBox>
+            <Text fx:id="Answer6" fill="#6f6f6f" layoutX="96.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( svarmulighed )" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
    </children>

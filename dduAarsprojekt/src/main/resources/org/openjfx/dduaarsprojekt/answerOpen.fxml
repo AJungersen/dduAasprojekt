@@ -2,6 +2,7 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -14,11 +15,6 @@
    <children>
       <Pane prefHeight="501.0" prefWidth="369.0" styleClass="createQuestionBackground" stylesheets="@styles.css">
          <children>
-            <Text fill="#4b4b4b" layoutX="16.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( prøvens navn )">
-               <font>
-                  <Font name="System Bold" size="23.0" />
-               </font>
-            </Text>
             <Text fill="#6f6f6f" layoutX="19.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( prøvens modtagere )" />
             <Line endX="210.0000457763672" endY="-340.0" layoutX="-210.0" layoutY="434.0" startX="420.50006103515625" startY="-340.0" stroke="#aaaaaa" />
             <Text fill="#6f6f6f" layoutX="19.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( prøvens afsender )" />
@@ -35,6 +31,11 @@
                   </DropShadow>
                </effect>
             </Button>
+            <Label fx:id="testName" layoutX="18.0" layoutY="52.0" prefHeight="31.0" prefWidth="175.0" text="Prøvenavn" textAlignment="CENTER">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

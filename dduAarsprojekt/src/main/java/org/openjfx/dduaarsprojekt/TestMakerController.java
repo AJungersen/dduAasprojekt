@@ -22,7 +22,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import org.openjfx.dduaarsprojekt.TestClasses.Question;
+import org.openjfx.dduaarsprojekt.TestClasses.Task;
 import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
+import org.openjfx.dduaarsprojekt.databaseRepository.TestDatabaseMethods;
 
 /**
  * FXML Controller class
@@ -30,13 +32,11 @@ import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
  * @author Clara Maj
  */
 public class TestMakerController implements Initializable {
-    public static TaskSet current;
-    public static ArrayList<Question> tasks;
+    public static TaskSet current = new TaskSet(App.getLoggedInUser().getUser_ID(),null,null,null, new ArrayList<>());
+    public static ArrayList<Task> tasks = new ArrayList<>();
     
     @FXML
     ListView questionList;
-    TextArea description;
-    TextField testName;
     ComboBox options;
     ListView questions;
     
@@ -114,8 +114,11 @@ public class TestMakerController implements Initializable {
     }
     
     @FXML
-    public void savetaskSet(){
-        //når funktionen er klar refereres til database og taskset uploades
+    public void savetaskSet() throws Exception, Exception{
+        TestDatabaseMethods tdb = new TestDatabaseMethods();
+        current.setTasks(tasks);
+        
+        tdb.createTaskSet(current, App.getLoggedInUser().getUser_ID());
     }
     @FXML
     private void exit() {

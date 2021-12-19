@@ -38,7 +38,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextArea>
-            <Button layoutX="128.0" layoutY="430.0" mnemonicParsing="false" styleClass="loginButton" stylesheets="@styles.css" text="Gem spørgsmål">
+            <Button layoutX="128.0" layoutY="430.0" mnemonicParsing="false" onAction="#save" styleClass="loginButton" stylesheets="@styles.css" text="Gem spørgsmål">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

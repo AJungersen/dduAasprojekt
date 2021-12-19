@@ -6,7 +6,10 @@
 package org.openjfx.dduaarsprojekt;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import org.openjfx.dduaarsprojekt.TestClasses.CorrectAnswerBasedQuestion;
+import org.openjfx.dduaarsprojekt.TestClasses.Task;
 
 /**
  *
@@ -14,4 +17,15 @@ import javafx.scene.text.Text;
  */
 public class CreateaCorrectController {
     @FXML private Text questionNumber;
+    @FXML TextField question;
+    @FXML TextField answer;
+
+
+@FXML
+public void save() {
+    String q = question.getText();
+    String c = answer.getText();
+    TestMakerController.tasks.add(new Task (new CorrectAnswerBasedQuestion(c,q), null, null));
+    }
+
 }

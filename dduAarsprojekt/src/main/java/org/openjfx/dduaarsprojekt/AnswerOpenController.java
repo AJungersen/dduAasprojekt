@@ -5,10 +5,21 @@
  */
 package org.openjfx.dduaarsprojekt;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.text.Text;
+
 /**
  *
  * @author clara
  */
 public class AnswerOpenController {
+    @FXML
+    public static Label testName;
+
+    public static void setTestName(String testName) {
+        AnswerOpenController.testName.setAccessibleHelp(testName);
+    }
+    
     
 }

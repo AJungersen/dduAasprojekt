@@ -1163,7 +1163,7 @@ public class TestDatabaseMethods {
         try {
             Statement stat = conn.createStatement();
             ResultSet rs = stat.executeQuery("SELECT * FROM taskSets WHERE assignment_ID IN "
-                    + "(SELECT assignment_ID FROM teamsAndAssignment WHERE team_ID = ('" + _team_ID + "')");
+                    + "(SELECT assignment_ID FROM teamsAndAssignments WHERE team_ID = ('" + _team_ID + "'))");
 
             teamsAssignedTaskSets = loadTaskSets(conn, rs);
 
@@ -1245,4 +1245,8 @@ public class TestDatabaseMethods {
         // lav rigtig funktion senere
         return alltasksets;
     }*/
+
+    public ArrayList<Student> getTeamsUnassignedStudents(int currentTeamID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
