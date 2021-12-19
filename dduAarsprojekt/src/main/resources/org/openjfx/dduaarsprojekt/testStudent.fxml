@@ -129,7 +129,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField editable="false" layoutX="670.0" layoutY="184.0" prefHeight="31.0" prefWidth="249.0" style="-fx-background-color: transparent; -fx-text-fill: #4b4b4b; -fx-border-color: transparent;" text="Vælg den prøve du vil se feedback for">
+      <TextField editable="false" layoutX="670.0" layoutY="184.0" prefHeight="31.0" prefWidth="258.0" style="-fx-background-color: transparent; -fx-text-fill: #4b4b4b; -fx-border-color: transparent;" text="Vælg den prøve du vil se feedback for">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

@@ -10,16 +10,38 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import org.openjfx.dduaarsprojekt.databaseRepository.TestDatabaseMethods;
 
 /**
  *
  * @author clara
  */
 public class TeamInformationController implements Initializable {
+    public static int currentTeam = 0;
+    @FXML
+    ListView<String> yourTasks;
+    @FXML
+    TableView teamsTasks;
+    @FXML
+    TableColumn testName;
+    @FXML
+    TableColumn participation;
+    @FXML
+    ListView allStudents;
+    @FXML
+    TableView teamsStudents;
+    @FXML
+    TableColumn studentName;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        TestDatabaseMethods tdb = new TestDatabaseMethods();
+        for(int i = 0; i < tdb.getAllTeachersTaskSets(App.getLoggedInUser().getUser_ID()).size(); i++){
+            yourTasks.getItems().add(tdb.getAllTeachersTaskSets(App.getLoggedInUser().getUser_ID()).get(i).getName());
+        }
     }    
       @FXML
     private void back() throws IOException{

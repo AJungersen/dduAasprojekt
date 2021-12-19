@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -40,7 +42,11 @@ public class TeamStudentController implements Initializable {
         TestDatabaseMethods tdb = new TestDatabaseMethods();
         teamName.setCellValueFactory(new PropertyValueFactory<AssistantMyTeamsForTeamStudentController, String>("teamName"));
         taskSetName.setCellValueFactory(new PropertyValueFactory<AssistantMyTeamsForTeamStudentController, String>("taskSetName"));
-        myTeams.getItems().addAll(getAssistantMyTeamsForTeamStudentControllerArray(tdb.getStudentsTeams(App.getLoggedInUser().getUser_ID())));
+        try {
+            myTeams.getItems().addAll(getAssistantMyTeamsForTeamStudentControllerArray(tdb.getStudentsTeams(App.getLoggedInUser().getUser_ID())));
+        } catch (Exception ex) {
+            Logger.getLogger(TeamStudentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
     @FXML
     private void back() throws IOException{
@@ -63,11 +69,17 @@ public class TeamStudentController implements Initializable {
         App.setRoot("teamStudent");
     }
 
-    private AssistantMyTeamsForTeamStudentController[] getAssistantMyTeamsForTeamStudentControllerArray(ArrayList<Team> studentsTeams) {
+    private ArrayList<AssistantMyTeamsForTeamStudentController> getAssistantMyTeamsForTeamStudentControllerArray(ArrayList<Team> studentsTeams) {
         TestDatabaseMethods tdb = new TestDatabaseMethods();
         ArrayList<AssistantMyTeamsForTeamStudentController> myTeams = new ArrayList();
         for(int i = 0; i < studentsTeams.size(); i++){
+            for(int m = 0; m < studentsTeams.get(i).getTaskSet().size(); m++){
+                if(studentsTeams.get(i).getTaskSet().get(m).getHandedIn()==false){
+                    myTeams.add(new AssistantMyTeamsForTeamStudentController(studentsTeams.get(i).getTeamName(),studentsTeams.get(i).getTaskSet().get(m).getName()));
+                }
+            }
             
         }
+        return myTeams;
     }
 }

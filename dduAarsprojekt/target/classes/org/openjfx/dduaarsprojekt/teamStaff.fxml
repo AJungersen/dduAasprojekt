@@ -65,7 +65,7 @@
       <TableView fx:id="teams" layoutX="41.0" layoutY="150.0" prefHeight="390.0" prefWidth="361.0">
          <columns>
             <TableColumn fx:id="teamName" prefWidth="88.5" text="Holdets navn" />
-            <TableColumn fx:id="tests" prefWidth="164.5" text="Antal i gang være prøver:" />
+            <TableColumn fx:id="tests" prefWidth="164.5" text="Antal givne prøver" />
             <TableColumn fx:id="numberOfStudents" prefWidth="106.0" text="Antal af elever:" />
          </columns>
       </TableView>

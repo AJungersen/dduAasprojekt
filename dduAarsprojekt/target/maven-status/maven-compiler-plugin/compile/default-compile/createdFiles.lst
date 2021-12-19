@@ -20,6 +20,7 @@ AssistantClasses\AssistantMyTeamsForTeamStaffController.class
 org\openjfx\dduaarsprojekt\TestClasses\textAnswerBasedQuestion.class
 org\openjfx\dduaarsprojekt\TestFeedbackStaffController.class
 org\openjfx\dduaarsprojekt\App.class
+AssistantClasses\AssistantMyTeamsForTeamStudentController.class
 org\openjfx\dduaarsprojekt\TestStudentController.class
 math\MathStats.class
 org\openjfx\dduaarsprojekt\databaseRepository\UserDatabasemethods.class

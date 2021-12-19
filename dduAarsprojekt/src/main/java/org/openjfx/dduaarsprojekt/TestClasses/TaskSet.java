@@ -19,7 +19,7 @@ public class TaskSet {
     private String description;
     private String nameOfTheFiller;
     private boolean handedIn = false;
-    ArrayList<Task> taks;
+    ArrayList<Task> task;
 
     public TaskSet(int taskSet_ID, int assignment_ID, int user_ID, String name, String description, String nameOfTheFiller, boolean handedIn, ArrayList<Task> taks) {
         this.taskSet_ID = taskSet_ID;
@@ -29,7 +29,7 @@ public class TaskSet {
         this.description = description;
         this.nameOfTheFiller = nameOfTheFiller;
         this.handedIn = handedIn;
-        this.taks = taks;
+        this.task = taks;
     }
     
     public TaskSet(int assignment_ID, int user_ID, String name, String description, String nameOfTheFiller, ArrayList<Task> taks) {
@@ -38,7 +38,7 @@ public class TaskSet {
         this.name = name;
         this.description = description;
         this.nameOfTheFiller = nameOfTheFiller;
-        this.taks = taks;
+        this.task = taks;
     }
     
     public int getTaskSet_ID() {
@@ -94,10 +94,10 @@ public class TaskSet {
     }
     
     public ArrayList<Task> getTasks() {
-        return taks;
+        return task;
     }
 
     public void setTasks(ArrayList<Task> taks) {
-        this.taks = taks;
+        this.task = taks;
     }
 }

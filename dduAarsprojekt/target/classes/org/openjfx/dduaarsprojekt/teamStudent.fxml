@@ -72,10 +72,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TableView layoutX="43.0" layoutY="155.0" prefHeight="405.0" prefWidth="532.0">
+      <TableView fx:id="myTeams" layoutX="43.0" layoutY="155.0" prefHeight="405.0" prefWidth="532.0">
          <columns>
-            <TableColumn prefWidth="116.0" text="Holdets navn" />
-            <TableColumn prefWidth="273.0" text="Prøve" />
+            <TableColumn fx:id="teamName" prefWidth="116.0" text="Holdets navn" />
+            <TableColumn fx:id="taskSetName" prefWidth="273.0" text="Prøve" />
             <TableColumn prefWidth="142.0" text="Antal af elever" />
          </columns>
       </TableView>

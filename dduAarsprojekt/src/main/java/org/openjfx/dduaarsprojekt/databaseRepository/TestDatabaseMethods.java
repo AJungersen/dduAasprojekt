@@ -1119,7 +1119,7 @@ public class TestDatabaseMethods {
         return teamsAssignedStudents;
     }
 
-    public static ArrayList<TaskSet> getAllTaskSets() {
+    public ArrayList<TaskSet> getAllTeachersTaskSets(int teacherID) {
         ArrayList alltasksets = new ArrayList();
         //placeholder
         // lav rigtig funktion senere

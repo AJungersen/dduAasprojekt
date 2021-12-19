@@ -75,10 +75,10 @@
          </cursor>
       </Button>
       <ListView layoutX="14.0" layoutY="150.0" prefHeight="393.0" prefWidth="127.0" styleClass="text-area" stylesheets="@styles.css" />
-      <TableView fx:id="doneTest" layoutX="305.0" layoutY="150.0" prefHeight="393.0" prefWidth="201.0">
+      <TableView layoutX="305.0" layoutY="150.0" prefHeight="393.0" prefWidth="201.0">
          <columns>
-            <TableColumn fx:id="doneName" prefWidth="81.5" text="Prøve navn" />
-            <TableColumn fx:id="doneParticipation" prefWidth="118.0" text="Deltagelsesprocent" />
+            <TableColumn prefWidth="81.5" text="Prøve navn" />
+            <TableColumn prefWidth="118.0" text="Deltagelsesprocent" />
          </columns>
       </TableView>
       <Button layoutX="159.0" layoutY="254.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="133.0" styleClass="loginButton" stylesheets="@styles.css" text="Tilføj prøve til holdet">
