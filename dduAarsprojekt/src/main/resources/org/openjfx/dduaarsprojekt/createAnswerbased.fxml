@@ -2,7 +2,6 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.Pane?>
@@ -33,11 +32,6 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <TextArea fx:id="correct" layoutX="24.0" layoutY="176.0" prefHeight="107.0" prefWidth="322.0" promptText="Rigtige svar" style="-fx-background-color: transparent;" styleClass="text-area" stylesheets="@styles.css">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-            </TextArea>
             <Button layoutX="128.0" layoutY="430.0" mnemonicParsing="false" onAction="#save" styleClass="loginButton" stylesheets="@styles.css" text="Gem spørgsmål">
                <cursor>
                   <Cursor fx:constant="HAND" />

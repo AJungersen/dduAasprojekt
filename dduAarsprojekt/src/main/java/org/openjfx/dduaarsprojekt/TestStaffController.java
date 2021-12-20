@@ -5,6 +5,7 @@
  */
 package org.openjfx.dduaarsprojekt;
 
+import AssistantClasses.AssistantPendingTests;
 import org.openjfx.dduaarsprojekt.databaseRepository.*;
 import java.io.IOException;
 import java.net.URL;
@@ -19,6 +20,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import org.openjfx.dduaarsprojekt.App;
 import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
@@ -32,21 +34,21 @@ import org.openjfx.dduaarsprojekt.random.*;
 public class TestStaffController implements Initializable {
 
     @FXML
-    TableView doneTest;
+    TableView<AssistantPendingTests> doneTest;
     @FXML
-    TableView pendingTests;
+    TableView<AssistantPendingTests> pendingTests;
     @FXML
-    TableColumn doneName;
+    TableColumn<AssistantPendingTests, String> doneName;
     @FXML
-    TableColumn doneCorrect;
+    TableColumn<AssistantPendingTests, Float> doneCorrect;
     @FXML
-    TableColumn doneParticipation;
+    TableColumn<AssistantPendingTests, Float> doneParticipation;
     @FXML
-    TableColumn pendingName;
+    TableColumn<AssistantPendingTests, String> pendingName;
     @FXML
-    TableColumn pendingCorrect;
+    TableColumn<AssistantPendingTests, Float> pendingCorrect;
     @FXML
-    TableColumn pendingParticipation;
+    TableColumn<AssistantPendingTests, Float> pendingParticipation;
     @FXML
     TextArea description;
     @FXML
@@ -58,11 +60,11 @@ public class TestStaffController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        TestDatabaseMethods tdb = new TestDatabaseMethods();
+        Cells();
         try {
-            TestDatabaseMethods tdm = new TestDatabaseMethods();
-
             //get teams
-            ArrayList<Team> teams = tdm.getTeachersTeams(App.getLoggedInUser().getUserType_ID());
+            ArrayList<Team> teams = tdb.getTeachersTeams(App.getLoggedInUser().getUserType_ID());
 
             teamsView.getItems().clear();
 
@@ -74,7 +76,7 @@ public class TestStaffController implements Initializable {
             }
 
             //get all task set for teacher
-            ArrayList<TaskSet> teachersTaskSets = tdm.getUsersIndividualAssignedTasksSets(App.getLoggedInUser().getUser_ID());
+            ArrayList<TaskSet> teachersTaskSets = tdb.getUsersIndividualAssignedTasksSets(App.getLoggedInUser().getUser_ID());
             
             
             try {
@@ -140,5 +142,12 @@ public class TestStaffController implements Initializable {
     @FXML
     private void feedback() throws IOException {
         App.setRoot("testFeedbackStaff");
+    }
+
+    private void Cells() {
+        doneName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        doneCorrect.setCellValueFactory(new PropertyValueFactory<>("correct"));
+        doneParticipation.setCellValueFactory(new PropertyValueFactory<>("participation"));
+        pendingName.setCellValueFactory(new PropertyValueFactory<>("name"));
     }
 }

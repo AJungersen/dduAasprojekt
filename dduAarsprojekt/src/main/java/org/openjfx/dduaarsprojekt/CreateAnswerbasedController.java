@@ -36,7 +36,6 @@ public class CreateAnswerbasedController implements Initializable {
     @FXML
     public void save(){
         String q = question.getText();
-        String c = correct.getText();
-        TestMakerController.tasks.add(new Task(new CorrectAnswerBasedQuestion(c,q),null,null));
+        TestMakerController.tasks.add(new Task(new textAnswerBasedQuestion(q),null,null));
     }
 }
