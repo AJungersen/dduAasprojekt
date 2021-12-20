@@ -33,7 +33,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <Button layoutX="220.0" layoutY="441.0" mnemonicParsing="false" onAction="#save" prefHeight="27.0" prefWidth="118.0" styleClass="loginButton" stylesheets="@styles.css" text="Gem spørgsmål">
+            <Button disable="true" layoutX="220.0" layoutY="441.0" mnemonicParsing="false" onAction="#save" prefHeight="27.0" prefWidth="118.0" styleClass="loginButton" stylesheets="@styles.css" text="Gem spørgsmål">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -53,12 +53,12 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <CheckBox fx:id="AnswerR" layoutX="22.0" layoutY="117.0" mnemonicParsing="false" text="Rigtig?">
+            <CheckBox fx:id="AnswerR" disable="true" layoutX="22.0" layoutY="117.0" mnemonicParsing="false" text="Rigtig?">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </CheckBox>
-            <Button layoutX="34.0" layoutY="441.0" mnemonicParsing="false" onAction="#addAnswer" styleClass="loginButton" stylesheets="@styles.css" text="Tilføj svarmulighed">
+            <Button disable="true" layoutX="34.0" layoutY="441.0" mnemonicParsing="false" onAction="#addAnswer" styleClass="loginButton" stylesheets="@styles.css" text="Tilføj svarmulighed">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -149,6 +149,15 @@
                </cursor>
             </CheckBox>
             <Text layoutX="96.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max. 7 forskellige svarmuligheder" />
+            <Pane layoutX="35.0" layoutY="178.0" opacity="0.64" prefHeight="185.0" prefWidth="301.0" styleClass="loginButton" stylesheets="@styles.css">
+               <children>
+                  <Text layoutX="25.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coming in an update near you" textAlignment="CENTER" wrappingWidth="251.94580078125">
+                     <font>
+                        <Font name="System Bold" size="27.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>
