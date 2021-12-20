@@ -65,7 +65,7 @@ public class TeamInformationController implements Initializable {
             Logger.getLogger(TeamInformationController.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            allStudents.getItems().addAll(getNames(tdb.getTeamsUnassignedStudents(currentTeamID)));
+            allStudents.getItems().addAll(getNames(tdb.getTeamsUnassignedStudents(currentTeamID,App.getLoggedInUser().getUser_ID())));
         } catch (Exception ex) {
             Logger.getLogger(TeamInformationController.class.getName()).log(Level.SEVERE, null, ex);
         }
