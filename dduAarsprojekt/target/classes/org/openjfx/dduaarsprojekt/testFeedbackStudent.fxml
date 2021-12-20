@@ -54,5 +54,14 @@
       </Pane>
       <ListView layoutX="25.0" layoutY="123.0" prefHeight="372.0" prefWidth="216.0" styleClass="seperator" stylesheets="@styles.css" />
       <VBox fx:id="feedback" layoutX="648.0" layoutY="46.0" prefHeight="499.0" prefWidth="369.0" stylesheets="@styles.css" />
+      <Pane layoutX="430.0" layoutY="206.0" opacity="0.75" prefHeight="200.0" prefWidth="445.0" styleClass="loginButton" stylesheets="@styles.css">
+         <children>
+            <Text layoutX="17.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coming to an update near you" textAlignment="CENTER" wrappingWidth="407.59326171875">
+               <font>
+                  <Font name="System Bold" size="41.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
