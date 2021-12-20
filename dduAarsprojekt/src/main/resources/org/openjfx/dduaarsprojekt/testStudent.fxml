@@ -55,7 +55,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <MenuButton layoutX="859.0" layoutY="56.0" mnemonicParsing="false" stylesheets="@styles.css" text="MenuButton">
+      <MenuButton layoutX="859.0" layoutY="56.0" mnemonicParsing="false" stylesheets="@styles.css" text="Menu">
          <items>
             <MenuItem mnemonicParsing="false" onAction="#back" text="Forside" />
             <MenuItem mnemonicParsing="false" onAction="#teams" text="Mine hold" />
@@ -94,7 +94,7 @@
             <Image url="@Images/iconsedit.png" />
          </image>
       </ImageView>
-      <Text fx:id="name" fill="#4b4b4b" layoutX="401.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" (..insert..)">
+      <Text fx:id="name" fill="#4b4b4b" layoutX="443.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" (..insert..)">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>

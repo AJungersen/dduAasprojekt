@@ -28,7 +28,7 @@
             </Button>
          </children>
       </Pane>
-      <MenuButton layoutX="859.0" layoutY="56.0" mnemonicParsing="false" stylesheets="@styles.css" text="MenuButton">
+      <MenuButton layoutX="859.0" layoutY="56.0" mnemonicParsing="false" stylesheets="@styles.css" text="Menu">
          <items>
             <MenuItem mnemonicParsing="false" onAction="#forside" text="Forside" />
             <MenuItem mnemonicParsing="false" onAction="#mineHold" text="Mine hold" />

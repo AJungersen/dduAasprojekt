@@ -126,8 +126,11 @@ public class TestStudentController implements Initializable {
     }
 
     @FXML
-    private void answer() throws IOException {
+    private void answer() throws IOException, Exception {
+        TestDatabaseMethods tdb = new TestDatabaseMethods();
         AnswerOpenController.setTestName(onGoingTest.getSelectionModel().getSelectedItem());
+        AnswerTestController.ts = tdb.getUsersIndividualAssignedTasksSets(App.getLoggedInUser().getUser_ID()).get(onGoingTest.getSelectionModel().getSelectedIndex());
+        
         App.setRoot("answerTest");
     }
 

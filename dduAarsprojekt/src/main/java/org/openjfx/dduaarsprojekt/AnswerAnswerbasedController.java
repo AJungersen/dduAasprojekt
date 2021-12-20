@@ -5,6 +5,7 @@
  */
 package org.openjfx.dduaarsprojekt;
 
+import java.net.IDN;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -15,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import org.openjfx.dduaarsprojekt.TestClasses.Question;
 import org.openjfx.dduaarsprojekt.TestClasses.QuestionsType;
+import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
 
 /**
  *
@@ -25,12 +27,13 @@ public class AnswerAnswerbasedController implements Initializable {
     @FXML Text Question;
     @FXML TextArea Answer;
     @FXML Text Describtion;
+    int ID;
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        //Question.setText("string fra database");
+                        
         for(int i = 0; i < TestMakerController.tasks.size(); i++){
-            if(TestMakerController.tasks.get(i).getQuestion().getType().equals(QuestionsType.textAnswerBasedQuestion)){
+            if(AnswerTestController.ts.getTasks().get(i).getQuestion().getType().equals(QuestionsType.textAnswerBasedQuestion)){
                 Question.setText(TestMakerController.tasks.get(i).getQuestion().getQuestion());
             }
         }
@@ -39,6 +42,8 @@ public class AnswerAnswerbasedController implements Initializable {
     
     @FXML
     public void saveAnswer(){
-        Answer.getText();
+        String a = Answer.getText();
+        AnswerTestController.ts.getTasks().get(AnswerTestController.nrQuest).setAnswer(a);
+        AnswerTestController.nrQuest++;
     }
 }
