@@ -11,6 +11,12 @@ package AssistantClasses;
  */
 public class AssistantPendingTests {
     String name;
-    float correct;
     float participation;
+
+    public AssistantPendingTests(String name, float participation) {
+        this.name = name;
+        this.participation = participation;
+    }
+    
+    
 }

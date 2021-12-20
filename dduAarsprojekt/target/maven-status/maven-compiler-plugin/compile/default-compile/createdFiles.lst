@@ -3,10 +3,10 @@ org\openjfx\dduaarsprojekt\Feedback.class
 org\openjfx\dduaarsprojekt\random\Team.class
 org\openjfx\dduaarsprojekt\CreateAnswerbasedController.class
 org\openjfx\dduaarsprojekt\TeamStudentController.class
-org\openjfx\dduaarsprojekt\random\Teams.class
 org\openjfx\dduaarsprojekt\AnswerOpenController.class
 org\openjfx\dduaarsprojekt\TestFeedbackStudent.class
 org\openjfx\dduaarsprojekt\TestClasses\TaskSet.class
+AssistantClasses\AssistantPendingTests.class
 org\openjfx\dduaarsprojekt\CreateMultController.class
 org\openjfx\dduaarsprojekt\TestClasses\Question.class
 org\openjfx\dduaarsprojekt\CreateaCorrectController.class

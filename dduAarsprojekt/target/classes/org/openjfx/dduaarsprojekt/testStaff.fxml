@@ -22,7 +22,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.dduaarsprojekt.TestStaffController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.dduaarsprojekt.TestStaffController">
    <children>
       <Pane layoutX="-22.0" layoutY="-9.0" prefHeight="55.0" prefWidth="1024.0" styleClass="navigator" stylesheets="@styles.css">
          <children>
@@ -131,18 +131,16 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <TableView fx:id="doneTest" layoutX="288.0" layoutY="114.0" prefHeight="192.0" prefWidth="302.0">
+      <TableView fx:id="pendingTests" layoutX="289.0" layoutY="105.0" prefHeight="192.0" prefWidth="302.0">
          <columns>
-            <TableColumn fx:id="doneName" prefWidth="75.0" text="Prøve navn" />
-            <TableColumn fx:id="doneCorrect" prefWidth="109.5999755859375" text="Rigtighedsprocent" />
-            <TableColumn fx:id="doneParticipation" prefWidth="116.80002441406248" text="Deltagelsesprocent" />
+            <TableColumn fx:id="pendingName" prefWidth="152.0" text="Prøve navn" />
+            <TableColumn fx:id="pendingParticipation" prefWidth="149.0" text="Deltagelsesprocent" />
          </columns>
       </TableView>
-      <TableView fx:id="pendingTests" layoutX="284.0" layoutY="389.0" prefHeight="162.0" prefWidth="302.0">
+      <TableView fx:id="doneTest" layoutX="284.0" layoutY="389.0" prefHeight="162.0" prefWidth="302.0">
          <columns>
-            <TableColumn fx:id="pendingName" prefWidth="75.0" text="Prøve navn" />
-            <TableColumn fx:id="pendingCorrect" prefWidth="109.5999755859375" text="Rigtighedsprocent" />
-            <TableColumn fx:id="pendingParticipation" prefWidth="116.80002441406248" text="Deltagelsesprocent" />
+            <TableColumn fx:id="doneName" prefWidth="152.0" text="Prøve navn" />
+            <TableColumn fx:id="doneParticipation" prefWidth="149.0" text="Deltagelsesprocent" />
          </columns>
       </TableView>
       <CheckBox layoutX="727.0" layoutY="438.0" mnemonicParsing="false" text="Enkel elev?" />

@@ -25,7 +25,7 @@
                   <Font name="System Bold" size="23.0" />
                </font>
             </Text>
-            <Button layoutX="135.0" layoutY="343.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="118.0" styleClass="loginButton" stylesheets="@styles.css" text="Gem svar">
+            <Button disable="true" layoutX="135.0" layoutY="343.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="118.0" styleClass="loginButton" stylesheets="@styles.css" text="Gem svar">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -37,7 +37,7 @@
                   </DropShadow>
                </effect>
             </Button>
-            <CheckBox layoutX="23.0" layoutY="117.0" mnemonicParsing="false" text="Rigtig?">
+            <CheckBox disable="true" layoutX="23.0" layoutY="117.0" mnemonicParsing="false" text="Rigtig?">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></CheckBox>
@@ -52,7 +52,6 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fill="RED" layoutX="27.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( lærens svar )" />
             <CheckBox layoutX="23.0" layoutY="148.0" mnemonicParsing="false" text="Rigtig?" visible="false">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -113,6 +112,15 @@
                   <Font size="14.0" />
                </font>
             </Text>
+            <Pane layoutX="45.0" layoutY="150.0" opacity="0.64" prefHeight="185.0" prefWidth="301.0" styleClass="loginButton" stylesheets="@styles.css">
+               <children>
+                  <Text layoutX="25.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coming in an update near you" textAlignment="CENTER" wrappingWidth="251.94580078125">
+                     <font>
+                        <Font name="System Bold" size="27.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>

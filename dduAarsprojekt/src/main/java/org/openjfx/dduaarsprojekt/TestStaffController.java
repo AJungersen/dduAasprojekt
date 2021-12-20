@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
@@ -62,8 +63,8 @@ public class TestStaffController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         TestDatabaseMethods tdb = new TestDatabaseMethods();
         Cells();
-        doneTest.addAll(getAllTasks());
-        pendingTests.addAll(getPendingTasks());
+        //doneTest = FXCollections.observableArrayList(getAllTasks());
+        //pendingTests.addAll(getPendingTasks());
         try {
             //get teams
             ArrayList<Team> teams = tdb.getTeachersTeams(App.getLoggedInUser().getUserType_ID());
@@ -156,13 +157,50 @@ public class TestStaffController implements Initializable {
     }
     private ArrayList<AssistantPendingTests> getAllTasks() throws Exception{
         TestDatabaseMethods tdb = new TestDatabaseMethods();
+        ArrayList<AssistantPendingTests> returner = new ArrayList<>();
         ArrayList<Team> teams = tdb.getTeachersTeams(App.getLoggedInUser().getUser_ID());
-        ArrayList<TaskSet> tasks = new ArrayList<>();
         for(int i = 0; i < teams.size();i++){
-            
-        }
+            ArrayList<TaskSet> tasks = new ArrayList<>();
+            tasks.addAll(tdb.getTeamsAssignedTaskSets(teams.get(i).getTeam_ID(), App.getLoggedInUser().getUser_ID()));
+            tasks.addAll(tdb.getTeamsUnassignedTaskSets(teams.get(i).getTeam_ID(), App.getLoggedInUser().getUser_ID()));
+            ArrayList<TaskSet> Tasks = teams.get(i).getTaskSet();
+            for(int m = 0; m < Tasks.size(); m++){
+                TaskSet uniqueTask = Tasks.get(m);
+                returner.add(new AssistantPendingTests(tasks.get(m).getName(), participation(uniqueTask.getAssignment_ID(),tasks)));
+            }
+        }return returner;
     }
-    private ArrayList<AssistantPendingTests> getPendingTasks(){
-        
+    private ArrayList<AssistantPendingTests> getPendingTasks() throws Exception{
+        TestDatabaseMethods tdb = new TestDatabaseMethods();
+        ArrayList<AssistantPendingTests> returner = new ArrayList<>();
+        ArrayList<Team> teams = tdb.getTeachersTeams(App.getLoggedInUser().getUser_ID());
+        for(int i = 0; i < teams.size();i++){
+            ArrayList<TaskSet> tasks = new ArrayList<>();
+            tasks.addAll(tdb.getTeamsAssignedTaskSets(teams.get(i).getTeam_ID(), App.getLoggedInUser().getUser_ID()));
+            ArrayList<TaskSet> Tasks = teams.get(i).getTaskSet();
+            for(int m = 0; m < Tasks.size(); m++){
+                TaskSet uniqueTask = Tasks.get(m);
+                returner.add(new AssistantPendingTests(tasks.get(m).getName(), participation(uniqueTask.getAssignment_ID(),tasks)));
+            }
+        }return returner;
+    }
+    private Float participation(int assign_ID,ArrayList<TaskSet> tasks){
+        ArrayList<Float> participationPerc = new ArrayList<>();
+        float n = 0;
+        float m = 0;
+        for(int i = 0; i < tasks.size();i++){
+            if(assign_ID == tasks.get(i).getAssignment_ID()){
+                n++;
+                if(tasks.get(i).getHandedIn() == true){
+                    m++;
+                }
+            }
+            participationPerc.add(m/n);
+        }
+        float sum = 0;
+        for(int i = 0; i < participationPerc.size();i++){
+            sum += participationPerc.get(i);
+        }
+        return sum/participationPerc.size();
     }
 }
