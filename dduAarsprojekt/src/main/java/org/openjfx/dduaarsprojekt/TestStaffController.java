@@ -62,6 +62,7 @@ public class TestStaffController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         TestDatabaseMethods tdb = new TestDatabaseMethods();
         Cells();
+        
         try {
             //get teams
             ArrayList<Team> teams = tdb.getTeachersTeams(App.getLoggedInUser().getUserType_ID());
@@ -149,5 +150,7 @@ public class TestStaffController implements Initializable {
         doneCorrect.setCellValueFactory(new PropertyValueFactory<>("correct"));
         doneParticipation.setCellValueFactory(new PropertyValueFactory<>("participation"));
         pendingName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        pendingCorrect.setCellValueFactory(new PropertyValueFactory<>("correct"));
+        pendingCorrect.setCellValueFactory(new PropertyValueFactory<>("participation"));
     }
 }
