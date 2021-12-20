@@ -94,11 +94,11 @@
             </Button>
          </children>
       </HBox>
-      <MenuButton layoutX="861.0" layoutY="59.0" mnemonicParsing="false" stylesheets="@styles.css" text="MenuButton">
+      <MenuButton layoutX="861.0" layoutY="59.0" mnemonicParsing="false" stylesheets="@styles.css" text="Menu">
          <items>
             <MenuItem mnemonicParsing="false" onAction="#back" text="Forside" />
-            <MenuItem mnemonicParsing="false" onAction="#teams" text="Hold" />
-            <MenuItem mnemonicParsing="false" onAction="#tests" text="Prøver" />
+            <MenuItem mnemonicParsing="false" onAction="#teams" text="Mine Hold" />
+            <MenuItem mnemonicParsing="false" onAction="#tests" text="Mine Prøver" />
             <MenuItem mnemonicParsing="false" onAction="#logout" text="Log ud" />
          </items>
          <styleClass>
