@@ -33,7 +33,7 @@ public class CreateMultController implements Initializable {
     @FXML Button saveQuestion;
     @FXML  Text questionNumber;  
     @FXML  TextField AnswerQ;
-    @FXML  TextField AnswerR;
+    @FXML  CheckBox AnswerR;
     @FXML  TextField firstQ;
     @FXML  TextField secondQ;
     @FXML  TextField thridQ;

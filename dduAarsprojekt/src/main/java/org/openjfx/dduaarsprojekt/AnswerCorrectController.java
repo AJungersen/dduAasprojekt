@@ -24,7 +24,7 @@ public class AnswerCorrectController implements Initializable {
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-                        
+                         
         for(int i = 0; i < TestMakerController.tasks.size(); i++){
             if(AnswerTestController.ts.getTasks().get(i).getQuestion().getType().equals(QuestionsType.correctAnswerBasedQuestion)){
                 Question.setText(TestMakerController.tasks.get(i).getQuestion().getQuestion());
