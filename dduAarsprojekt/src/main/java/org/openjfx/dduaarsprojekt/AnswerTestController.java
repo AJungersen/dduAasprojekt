@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
+import org.openjfx.dduaarsprojekt.TestClasses.TaskSet;
 
 /**
  * FXML Controller class
@@ -28,6 +29,8 @@ public class AnswerTestController implements Initializable {
      */
     @FXML private VBox question;
     private Parent fxml;
+    static public TaskSet ts = new TaskSet();
+    static  public int nrQuest = 0;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

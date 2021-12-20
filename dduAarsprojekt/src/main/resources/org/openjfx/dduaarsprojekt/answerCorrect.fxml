@@ -20,7 +20,7 @@
                   <Font name="System Bold" size="23.0" />
                </font>
             </Text>
-            <TextField layoutX="24.0" layoutY="201.0" prefHeight="30.0" prefWidth="322.0" promptText="Dit svar" styleClass="createQuestionBox" stylesheets="@styles.css">
+            <TextField fx:id="Answer" layoutX="24.0" layoutY="201.0" prefHeight="30.0" prefWidth="322.0" promptText="Dit svar" styleClass="createQuestionBox" stylesheets="@styles.css">
                <font>
                   <Font size="13.0" />
                </font>
@@ -34,7 +34,7 @@
                </font>
             </Text>
             <Line endX="210.0000457763672" endY="-340.0" layoutX="-210.0" layoutY="385.0" startX="313.50006103515625" startY="-340.0" stroke="#aaaaaa" />
-            <Button layoutX="151.0" layoutY="250.0" mnemonicParsing="false" styleClass="loginButton" stylesheets="@styles.css" text="Gem svar">
+            <Button layoutX="151.0" layoutY="250.0" mnemonicParsing="false" onAction="#saveAnswer" styleClass="loginButton" stylesheets="@styles.css" text="Gem svar">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -46,13 +46,11 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Text fill="#4b4b4b" layoutX="24.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( spørgsmål )">
+            <Text fx:id="Question" fill="#4b4b4b" layoutX="24.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( spørgsmål )">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
             </Text>
-            <Text fill="#6f6f6f" layoutX="24.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( yderligere information )" />
-            <Text fill="RED" layoutX="27.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( lærens svar )" />
          </children>
       </Pane>
    </children>

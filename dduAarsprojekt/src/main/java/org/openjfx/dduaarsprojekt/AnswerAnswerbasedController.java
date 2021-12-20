@@ -33,7 +33,7 @@ public class AnswerAnswerbasedController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
                         
         for(int i = 0; i < TestMakerController.tasks.size(); i++){
-            if(TestMakerController.tasks.get(i).getQuestion().getType().equals(QuestionsType.textAnswerBasedQuestion)){
+            if(AnswerTestController.ts.getTasks().get(i).getQuestion().getType().equals(QuestionsType.textAnswerBasedQuestion)){
                 Question.setText(TestMakerController.tasks.get(i).getQuestion().getQuestion());
             }
         }
@@ -43,6 +43,7 @@ public class AnswerAnswerbasedController implements Initializable {
     @FXML
     public void saveAnswer(){
         String a = Answer.getText();
-        
+        AnswerTestController.ts.getTasks().get(AnswerTestController.nrQuest).setAnswer(a);
+        AnswerTestController.nrQuest++;
     }
 }

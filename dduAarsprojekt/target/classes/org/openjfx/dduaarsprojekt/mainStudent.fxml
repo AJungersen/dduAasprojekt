@@ -102,7 +102,7 @@
             </Button>
          </children>
       </HBox>
-      <MenuButton layoutX="861.0" layoutY="59.0" mnemonicParsing="false" stylesheets="@styles.css" text="MenuButton">
+      <MenuButton layoutX="861.0" layoutY="59.0" mnemonicParsing="false" stylesheets="@styles.css" text="Menu">
          <items>
             <MenuItem mnemonicParsing="false" onAction="#back" text="Forside" />
             <MenuItem mnemonicParsing="false" onAction="#teams" text="Mine hold" />
