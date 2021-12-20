@@ -33,7 +33,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </TextField>
-      <MenuButton layoutX="859.0" layoutY="56.0" mnemonicParsing="false" stylesheets="@styles.css" text="MenuButton">
+      <MenuButton layoutX="859.0" layoutY="56.0" mnemonicParsing="false" stylesheets="@styles.css" text="Menu">
          <items>
             <MenuItem mnemonicParsing="false" onAction="#back" text="Forside" />
             <MenuItem mnemonicParsing="false" onAction="#teams" text="Mine hold" />
