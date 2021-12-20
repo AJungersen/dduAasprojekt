@@ -62,7 +62,8 @@ public class TestStaffController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         TestDatabaseMethods tdb = new TestDatabaseMethods();
         Cells();
-        
+        doneTest.addAll(getAllTasks());
+        pendingTests.addAll(getPendingTasks());
         try {
             //get teams
             ArrayList<Team> teams = tdb.getTeachersTeams(App.getLoggedInUser().getUserType_ID());
@@ -152,5 +153,16 @@ public class TestStaffController implements Initializable {
         pendingName.setCellValueFactory(new PropertyValueFactory<>("name"));
         pendingCorrect.setCellValueFactory(new PropertyValueFactory<>("correct"));
         pendingCorrect.setCellValueFactory(new PropertyValueFactory<>("participation"));
+    }
+    private ArrayList<AssistantPendingTests> getAllTasks() throws Exception{
+        TestDatabaseMethods tdb = new TestDatabaseMethods();
+        ArrayList<Team> teams = tdb.getTeachersTeams(App.getLoggedInUser().getUser_ID());
+        ArrayList<TaskSet> tasks = new ArrayList<>();
+        for(int i = 0; i < teams.size();i++){
+            
+        }
+    }
+    private ArrayList<AssistantPendingTests> getPendingTasks(){
+        
     }
 }
