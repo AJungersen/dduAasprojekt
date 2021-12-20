@@ -14,6 +14,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import org.openjfx.dduaarsprojekt.TestClasses.Question;
+import org.openjfx.dduaarsprojekt.TestClasses.QuestionsType;
 
 /**
  *
@@ -27,7 +28,13 @@ public class AnswerAnswerbasedController implements Initializable {
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        Question.setText("string fra database");
+        //Question.setText("string fra database");
+        for(int i = 0; i < TestMakerController.tasks.size(); i++){
+            if(TestMakerController.tasks.get(i).getQuestion().getType().equals(QuestionsType.textAnswerBasedQuestion)){
+                Question.setText(TestMakerController.tasks.get(i).getQuestion().getQuestion());
+            }
+        }
+        
     }
     
     @FXML
